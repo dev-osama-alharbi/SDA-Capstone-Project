@@ -20,13 +20,13 @@ public class ActionsBot {
         this.logger = logger;
     }
 
-    @Step
+    @Step("Navigate to URL {0}")
     public void navigate(String url){
         logger.info("Navigating to: "+url);
         driver.get(url);
     }
 
-    @Step
+    @Step("Type '{1}' into element located by {0}")
     public void type(By locator, CharSequence text){
         logger.info("Typing: "+text+", into: "+locator);
         wait.until(f -> {
@@ -36,7 +36,7 @@ public class ActionsBot {
         });
     }
 
-    @Step
+    @Step("Click on element located by {0}")
     public void click(By locator){
         logger.info("Clicking: "+locator);
         wait.until(f -> {
@@ -51,18 +51,18 @@ public class ActionsBot {
         });
     }
 
-    @Step
+    @Step("Drag element located by {0} and drop it onto element located by {1}")
     public void dragAndDrop(By fBy, By sBy) {
-        logger.info("dragAndDrop: "+fBy+" to "+sBy);
+        logger.info("Drag and drop: " + fBy + " to " + sBy);
         new Actions(driver)
                 .dragAndDrop(driver.findElement(fBy),driver.findElement(sBy))
                 .build()
                 .perform();
     }
 
-    @Step
+    @Step("Get text from element located by {0}")
     public String getText(By by) {
-        logger.info("getText: "+by);
+        logger.info("Getting text from: " + by);
         return driver.findElement(by).getText();
     }
 }
