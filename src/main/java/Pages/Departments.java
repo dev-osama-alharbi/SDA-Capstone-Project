@@ -111,7 +111,7 @@ public class Departments  extends Pages {
         return bot.getText(FailureMessage);
     }
 
-    @Step("Getting the failure message")
+    @Step("Deleting the department")
     public String DeleteTheDepartment() {
         WaitFor(DeleteTheDepartmentButton);
         bot.click(DeleteTheDepartmentButton);

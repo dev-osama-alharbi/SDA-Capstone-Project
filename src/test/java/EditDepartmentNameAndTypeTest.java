@@ -11,7 +11,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
     private final By pass = By.id("password");
     private final By sign = By.xpath("//button[@type='submit']");
 
-    @Step("random test")
+    @Step("Testing the functionality of editing Department name and type")
     @Test
     public void editDepartmentNameAndTypeTest() {
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
@@ -27,7 +27,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
         Assert.assertEquals(text,"Changes successfully saved");
     }
 
-    @Step("random test")
+    @Step("Testing the functionality of leaving Department name empty")
     @Test
     public void editWithEmptyDepartmentNameTest() {
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
@@ -44,9 +44,9 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
         Assert.assertEquals(text,"Please enter a name for department");
     }
 
-    @Step("random test")
+    @Step("Testing the functionality of leaving Department type empty")
     @Test
-    public void editDepartmentTypeWithEmptyTest() {
+    public void editWithEmptyDepartmentTypeTest() {
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
         //bot.click(login);
 
@@ -61,7 +61,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
         Assert.assertEquals(text,"Please select a type for department");
     }
 
-    @Step("random test")
+    @Step("Testing the functionality of deleting the department")
     @Test
     public void deleteTheDepartmentTest() {
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
