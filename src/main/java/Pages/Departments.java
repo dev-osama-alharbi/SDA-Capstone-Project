@@ -1,24 +1,25 @@
 package Pages;
 
-
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import sda.capstone.ActionsBot;
 import sda.capstone.Pages;
 
 public class Departments  extends Pages {
 
-    private final By DepartmentName = By.xpath("//b[text()='room1']");
-    private final By DepartmentName1 = By.xpath("//b[text()='NameForTesting']");
+    protected Wait<WebDriver> wait;
+    //private final By DepartmentName = By.xpath("//b[text()='room1']");
+    private final By DepartmentName = By.xpath("//b[text()='NameForTesting']");
     private final By EditDepartmentButton = By.xpath("//button[contains(text(),'Edit')]");
     private final By DepartmentNameField = By.id("name");
-    //private final By DepartmentTypeSelect = By.xpath("(//div[@class=' css-19bb58m'])[1]");
-    private final By selector = By.id("react-select-3-input");
+    private final By DepartmentNameFieldSelector = By.id("react-select-3-input");
     private final By SaveButton = By.xpath("//button[text()='Save']");
-    private final By Message = By.xpath("//div[@class='toast-body']");
+    private final By Message = By.xpath("//p[text()='Changes successfully saved']");
+
+    private final By RedMessage = By.xpath("//span[@class='text-danger']");
 
 
     public Departments(WebDriver driver, ActionsBot bot) {
@@ -27,7 +28,7 @@ public class Departments  extends Pages {
 
     @Step("Clicking on Department name to navigate to edit department page")
     public Departments ClickOnDepartmentName(){
-        bot.click(DepartmentName1);
+        bot.click(DepartmentName);
         return this;
     }
 
@@ -44,11 +45,19 @@ public class Departments  extends Pages {
         return this;
     }
 
+    @Step("Editing the Department name")
+    public Departments LeaveTheDepartmentNameEmpty(){
+        bot.click(DepartmentNameField);
+        bot.type(DepartmentNameField,  Keys.CONTROL + "a");
+        bot.type(DepartmentNameField,  Keys.DELETE);
+        //bot.type(DepartmentNameField,  Keys.ENTER);
+        return this;
+    }
+
     @Step("Editing the Department type")
     public Departments EditTheDepartmentType(){
-
         //bot.click(DepartmentTypeSelect);
-        bot.type(selector,"Team"+Keys.ENTER);
+        bot.type(DepartmentNameFieldSelector,"Team"+Keys.ENTER);
         return this;
     }
 
@@ -59,8 +68,16 @@ public class Departments  extends Pages {
     }
 
     @Step("Getting the message")
-    public Departments GetTheMessage(){
+    public Departments GetTheMessage() {
         bot.getText(Message);
+        return this;
+    }
+
+
+
+    @Step("Getting the message")
+    public Departments GetTheRedMessage() {
+        bot.getText(RedMessage);
         return this;
     }
 }

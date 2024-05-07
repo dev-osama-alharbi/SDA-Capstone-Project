@@ -21,6 +21,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
 
         Departments departments = new Departments(driver,bot);
-        departments.ClickOnDepartmentName().ClickOnEdit().EditTheDepartmentName().EditTheDepartmentType().ClickingOnSaveButton().GetTheMessage();
+        //departments.ClickOnDepartmentName().ClickOnEdit().EditTheDepartmentName().EditTheDepartmentType().ClickingOnSaveButton().GetTheMessage();
+        departments.ClickOnDepartmentName().ClickOnEdit().LeaveTheDepartmentNameEmpty().ClickingOnSaveButton().GetTheRedMessage();
     }
 }
