@@ -29,7 +29,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
 
     @Step("random test")
     @Test
-    public void editDepartmentNameWithEmptyTest() {
+    public void editWithEmptyDepartmentNameTest() {
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
         //bot.click(login);
 
@@ -40,7 +40,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
 
         Departments departments = new Departments(driver,bot);
 
-        String text = departments.ClickOnDepartmentName().ClickOnEdit().LeaveTheDepartmentNameEmpty().ClickingOnSaveButton().GetTheRedMessage();
+        String text = departments.ClickOnDepartmentName().ClickOnEdit().LeaveTheDepartmentNameEmpty().ClickingOnSaveButton().GetTheFailureMessage();
         Assert.assertEquals(text,"Please enter a name for department");
     }
 
@@ -57,8 +57,25 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
 
         Departments departments = new Departments(driver,bot);
 
-        String text = departments.ClickOnDepartmentName().ClickOnEdit().LeaveTheDepartmentTypeEmpty().ClickingOnSaveButton().GetTheRedMessage();
+        String text = departments.ClickOnDepartmentName().ClickOnEdit().LeaveTheDepartmentTypeEmpty().ClickingOnSaveButton().GetTheFailureMessage();
         Assert.assertEquals(text,"Please select a type for department");
+    }
+
+    @Step("random test")
+    @Test
+    public void deleteTheDepartmentTest() {
+        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
+        //bot.click(login);
+
+        bot.type(name,"testevolve12@testevolve.com");
+        bot.type(pass,"DJK7wyf8_ZpG464");
+        bot.click(sign);
+        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
+
+        Departments departments = new Departments(driver,bot);
+
+        String text = departments.ClickOnDepartmentName().ClickOnEdit().DeleteTheDepartment();
+        Assert.assertEquals(text,"Departments");
     }
 
 }
