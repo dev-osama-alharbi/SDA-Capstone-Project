@@ -30,7 +30,7 @@ public class US_0011 extends TestBase {
         remoteUnitPage = new RemoteUnits(driver,bot);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnit(driver,bot);
-        newRemoteUnitPage.addRemoteName("Team4").addRemoteType("Remote Unit").ClickingOnSaveButton();
+        newRemoteUnitPage.addRemoteName("Team4Test").addRemoteType("Remote Unit").ClickingOnSaveButton();
         String actualText = newRemoteUnitPage.successfullyMSG();
         Assert.assertEquals(actualText, "New department successfully created");
 
