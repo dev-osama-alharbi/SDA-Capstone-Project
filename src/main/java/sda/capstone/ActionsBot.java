@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class ActionsBot {
     private final WebDriver driver;
     private final Wait<WebDriver> wait;
@@ -20,13 +22,13 @@ public class ActionsBot {
         this.logger = logger;
     }
 
-    @Step("Navigate to URL {0}")
+    @Step("Navigate to URL")
     public void navigate(String url){
         logger.info("Navigating to: "+url);
         driver.get(url);
     }
 
-    @Step("Type '{1}' into element located by {0}")
+    @Step("Type into element")
     public void type(By locator, CharSequence text){
         logger.info("Typing: "+text+", into: "+locator);
         wait.until(f -> {
@@ -36,7 +38,7 @@ public class ActionsBot {
         });
     }
 
-    @Step("Click on element located by {0}")
+    @Step("Click on element")
     public void click(By locator){
         logger.info("Clicking: "+locator);
         wait.until(f -> {
@@ -51,18 +53,14 @@ public class ActionsBot {
         });
     }
 
-    @Step("Drag element located by {0} and drop it onto element located by {1}")
-    public void dragAndDrop(By fBy, By sBy) {
-        logger.info("Drag and drop: " + fBy + " to " + sBy);
-        new Actions(driver)
-                .dragAndDrop(driver.findElement(fBy),driver.findElement(sBy))
-                .build()
-                .perform();
-    }
-
-    @Step("Get text from element located by {0}")
+    @Step("Get text from element")
     public String getText(By by) {
         logger.info("Getting text from: " + by);
-        return driver.findElement(by).getText();
+        AtomicReference<String> actualText = new AtomicReference<>("");
+        wait.until(f -> {
+            actualText.set(driver.findElement(by).getText());
+            return true;
+        });
+        return actualText.get();
     }
 }
