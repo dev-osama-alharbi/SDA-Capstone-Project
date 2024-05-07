@@ -5,21 +5,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import sda.capstone.ActionsBot;
 import sda.capstone.Pages;
 
+import java.time.Duration;
+
 public class Departments  extends Pages {
 
-    protected Wait<WebDriver> wait;
-    //private final By DepartmentName = By.xpath("//b[text()='room1']");
     private final By DepartmentName = By.xpath("//b[text()='NameForTesting']");
     private final By EditDepartmentButton = By.xpath("//button[contains(text(),'Edit')]");
     private final By DepartmentNameField = By.id("name");
-    private final By DepartmentNameFieldSelector = By.id("react-select-3-input");
+    private final By DepartmentTypeDropDown = By.xpath("(//input[@role='combobox'])[1]");
     private final By SaveButton = By.xpath("//button[text()='Save']");
-    private final By Message = By.xpath("//p[text()='Changes successfully saved']");
-
-    private final By RedMessage = By.xpath("//span[@class='text-danger']");
+    private final By SuccessMessage = By.cssSelector(".toaster > div > div > p");
+    private final By xMark = By.xpath("(//div[@class=' css-1xc3v61-indicatorContainer'])[1]");
+    private final By FailureMessage = By.xpath("//span[@class='text-danger']");
 
 
     public Departments(WebDriver driver, ActionsBot bot) {
@@ -47,17 +48,21 @@ public class Departments  extends Pages {
 
     @Step("Editing the Department name")
     public Departments LeaveTheDepartmentNameEmpty(){
-        bot.click(DepartmentNameField);
-        bot.type(DepartmentNameField,  Keys.CONTROL + "a");
-        bot.type(DepartmentNameField,  Keys.DELETE);
-        //bot.type(DepartmentNameField,  Keys.ENTER);
+        bot.type(DepartmentNameField,Keys.CONTROL+"a"+Keys.DELETE);
         return this;
     }
 
     @Step("Editing the Department type")
     public Departments EditTheDepartmentType(){
-        //bot.click(DepartmentTypeSelect);
-        bot.type(DepartmentNameFieldSelector,"Team"+Keys.ENTER);
+        bot.type(DepartmentTypeDropDown , "Team"+Keys.ENTER);
+        return this;
+    }
+
+    @Step("Editing the Department type")
+    public Departments LeaveTheDepartmentTypeEmpty(){
+        bot.click(DepartmentTypeDropDown);
+        bot.type(DepartmentTypeDropDown , Keys.DELETE);
+        //bot.click(xMark);
         return this;
     }
 
@@ -68,16 +73,18 @@ public class Departments  extends Pages {
     }
 
     @Step("Getting the message")
-    public Departments GetTheMessage() {
-        bot.getText(Message);
-        return this;
+    public String GetTheSuccessMessage() {
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(d -> driver.findElement(SuccessMessage).isDisplayed());
+        return bot.getText(SuccessMessage);
     }
 
 
 
     @Step("Getting the message")
-    public Departments GetTheRedMessage() {
-        bot.getText(RedMessage);
-        return this;
+    public String GetTheRedMessage() {
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(d -> driver.findElement(FailureMessage).isDisplayed());
+        return bot.getText(FailureMessage);
     }
 }
