@@ -1,7 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
-!**/src/test/**/target/
+!**/src/EditDepartmentNameAndTypeTest/**/target/
 
 ### IntelliJ IDEA ###
 .idea/
@@ -30,7 +30,7 @@ target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
-!**/src/test/**/build/
+!**/src/EditDepartmentNameAndTypeTest/**/build/
 
 ### VS Code ###
 .vscode/
