@@ -15,7 +15,7 @@ public class NewRemoteUnit extends Pages {
     private final By dropdown  = By.xpath("//input[@role='combobox']");
     private final By RemoteUnitType  = By.xpath("//div[contains(text(), 'Remote Unit')]");
     private final By SaveButton  = By.xpath("//button[contains(text(), 'Save')]");
-    final By ErrorMSGName  = By.xpath("//span[contains(text(), 'Please enter a name for department')]");
+    private final By ErrorMSGName  = By.xpath("//span[contains(text(), 'Please enter a name for department')]");
     private final By ErrorMSGType = By.xpath("//span[contains(text(), 'Please select a type for department')]");
 
     private final By successfullyMSG  =  By.cssSelector(".toaster > div > div > p");
@@ -46,20 +46,15 @@ public class NewRemoteUnit extends Pages {
     }
 
     @Step("Getting the successfully message when new remote unit adding ")
-    public String successfullyMSG(){
-        return bot.getText(successfullyMSG);
-    }
+    public String successfullyMSG(){ return bot.getText(successfullyMSG); }
 
     @Step("Getting the error message when name is empty")
-    public String ErrorMSGName(){
-        return  bot.getText(ErrorMSGName);
-
-    }
+    public String ErrorMSGName(){return  bot.getText(ErrorMSGName);}
 
     @Step("Getting the error message when type is empty")
-    public String ErrorMSGType(){
-        return  bot.getText(ErrorMSGType);
-    }
+    public String ErrorMSGType(){  return  bot.getText(ErrorMSGType);  }
+
+
 
 
 

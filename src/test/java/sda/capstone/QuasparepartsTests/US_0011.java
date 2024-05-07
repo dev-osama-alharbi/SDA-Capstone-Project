@@ -29,10 +29,8 @@ public class US_0011 extends TestBase {
         //-------------------------------------------------------
         remoteUnitPage = new RemoteUnits(driver,bot);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-
         newRemoteUnitPage = new NewRemoteUnit(driver,bot);
-        newRemoteUnitPage.addRemoteName("new").addRemoteType("Remote Unit").ClickingOnSaveButton();
-
+        newRemoteUnitPage.addRemoteName("Team4").addRemoteType("Remote Unit").ClickingOnSaveButton();
         String actualText = newRemoteUnitPage.successfullyMSG();
         Assert.assertEquals(actualText, "New department successfully created");
 
@@ -53,10 +51,8 @@ public class US_0011 extends TestBase {
         //-------------------------------------------------------
         remoteUnitPage = new RemoteUnits(driver,bot);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-
         newRemoteUnitPage = new NewRemoteUnit(driver,bot);
         newRemoteUnitPage.addRemoteName(null).addRemoteType("remote").ClickingOnSaveButton();
-
         String actualText = newRemoteUnitPage.ErrorMSGName();
         Assert.assertEquals(actualText, "Please enter a name for department");
     }
@@ -75,15 +71,9 @@ public class US_0011 extends TestBase {
         //-------------------------------------------------------
         remoteUnitPage = new RemoteUnits(driver,bot);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-
         newRemoteUnitPage = new NewRemoteUnit(driver,bot);
-
-
-        newRemoteUnitPage.addRemoteName("test").addRemoteType(null).ClickingOnSaveButton();
-
+        newRemoteUnitPage.addRemoteName("Team4").addRemoteType(null).ClickingOnSaveButton();
         String actualText = newRemoteUnitPage.ErrorMSGType();
         Assert.assertEquals(actualText, "Please select a type for department");
-
-
     }
 }
