@@ -69,9 +69,10 @@ public class Departments  extends Pages {
     @Step("Leaving the Department name empty")
     public Departments LeaveTheDepartmentNameEmpty(){
         WaitFor(DepartmentNameField);
-        bot.type(DepartmentNameField,Keys.CONTROL + "a");
-        bot.type(DepartmentNameField,Keys.DELETE);
-        //driver.findElement(DepartmentNameField).clear();
+        //bot.type(DepartmentNameField,Keys.CONTROL + "a");
+        //bot.type(DepartmentNameField,Keys.DELETE);
+        driver.findElement(DepartmentNameField).sendKeys(Keys.CONTROL + "a");
+        driver.findElement(DepartmentNameField).sendKeys(Keys.DELETE);
         return this;
     }
 
