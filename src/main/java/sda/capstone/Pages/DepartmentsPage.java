@@ -6,15 +6,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
 
-import java.time.Duration;
+public class DepartmentsPage extends PageBase {
 
-public class Departments  extends PageBase {
-
-    private final By DepartmentName = By.xpath("//b[text()='snr']");
+    private final By DepartmentLink = By.xpath("//a[@href='#/departments/department']");
+    private final By DepartmentName = By.cssSelector(".card-text > div > div > a > b");
     private final By EditDepartmentButton = By.xpath("//button[contains(text(),'Edit')]");
     private final By DepartmentNameField = By.id("name");
     private final By DepartmentTypeDropDown = By.xpath("(//input[@role='combobox'])[1]");
@@ -24,10 +22,9 @@ public class Departments  extends PageBase {
     private final By DeleteTheDepartmentButton = By.xpath("//button[contains(text(),'Delete')]");
     private final By ConfirmTheDeletion = By.xpath("//button[contains(text(),'Confirm')]");
     private final By DepartmentProof = By.xpath("//div[@class='col' and h3='Departments']");
-//    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 
-    public Departments(WebDriver driver, ActionsBot bot,Wait<WebDriver> wait) {
+    public DepartmentsPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
         super(driver, bot,wait);
     }
 
@@ -45,21 +42,28 @@ public class Departments  extends PageBase {
         } while(!displayed);
     }
 
+    @Step("Clicking on Department Link to navigate to Department Page")
+    public DepartmentsPage goTo(){
+        WaitFor(DepartmentLink);
+        bot.click(DepartmentLink);
+        return this;
+    }
+
     @Step("Clicking on Department name to navigate to edit department page")
-    public Departments ClickOnDepartmentName(){
+    public DepartmentsPage ClickOnDepartmentName(){
         bot.click(DepartmentName);
         return this;
     }
 
     @Step("Clicking on 'Edit Department' Button")
-    public Departments ClickOnEdit(){
+    public DepartmentsPage ClickOnEdit(){
         WaitFor(EditDepartmentButton);
         bot.click(EditDepartmentButton);
         return this;
     }
 
     @Step("Editing the Department name to 'NameForTesting' ")
-    public Departments EditTheDepartmentName(){
+    public DepartmentsPage EditTheDepartmentName(){
         WaitFor(DepartmentNameField);
         bot.click(DepartmentNameField);
         bot.type(DepartmentNameField,  Keys.DELETE+"NameForTesting");
@@ -67,24 +71,22 @@ public class Departments  extends PageBase {
     }
 
     @Step("Leaving the Department name empty")
-    public Departments LeaveTheDepartmentNameEmpty(){
+    public DepartmentsPage LeaveTheDepartmentNameEmpty(){
         WaitFor(DepartmentNameField);
-        //bot.type(DepartmentNameField,Keys.CONTROL + "a");
-        //bot.type(DepartmentNameField,Keys.DELETE);
         driver.findElement(DepartmentNameField).sendKeys(Keys.CONTROL + "a");
         driver.findElement(DepartmentNameField).sendKeys(Keys.DELETE);
         return this;
     }
 
     @Step("Editing the Department type to 'Team' ")
-    public Departments EditTheDepartmentType(){
+    public DepartmentsPage EditTheDepartmentType(){
         WaitFor(DepartmentTypeDropDown);
         bot.type(DepartmentTypeDropDown , "Team"+Keys.ENTER);
         return this;
     }
 
     @Step("Leaving the Department type empty")
-    public Departments LeaveTheDepartmentTypeEmpty(){
+    public DepartmentsPage LeaveTheDepartmentTypeEmpty(){
         WaitFor(DepartmentTypeDropDown);
         bot.click(DepartmentTypeDropDown);
         bot.type(DepartmentTypeDropDown , Keys.DELETE);
@@ -92,7 +94,7 @@ public class Departments  extends PageBase {
     }
 
     @Step("Clicking On Save Button")
-    public Departments ClickingOnSaveButton(){
+    public DepartmentsPage ClickingOnSaveButton(){
         bot.click(SaveButton);
         return this;
     }
