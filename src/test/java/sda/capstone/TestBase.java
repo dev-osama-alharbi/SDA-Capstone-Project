@@ -30,6 +30,8 @@ public abstract class TestBase {
     public static void beforeClass() {
         Configurator.initialize(null, "src/main/resources/properties/log4j2.properties");
         logger = LogManager.getLogger(TestBase.class.getName());
+
+        PropertiesReader.readPropertyFile("src/main/resources/properties/configuration.properties");
     }
 
     @Step("Initializing target browser")
@@ -46,6 +48,7 @@ public abstract class TestBase {
             case "firefox" -> driver = new FirefoxDriver();
             case "edge" -> driver = new EdgeDriver();
         }
+        driver = new EventFiringDecorator(new CustomListener()).decorate(driver);
 
         driver = new EventFiringDecorator(new CustomListener()).decorate(driver);
 
