@@ -53,6 +53,15 @@ public class ActionsBot {
         });
     }
 
+    @Step
+    public void dragAndDrop(By fBy, By sBy) {
+        logger.info("dragAndDrop: "+fBy+" to "+sBy);
+        new Actions(driver)
+                .dragAndDrop(driver.findElement(fBy),driver.findElement(sBy))
+                .build()
+                .perform();
+    }
+
     @Step("Get text from element")
     public String getText(By by) {
         logger.info("Getting text from: " + by);

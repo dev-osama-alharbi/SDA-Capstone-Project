@@ -1,17 +1,17 @@
-package sda.capstone;
+package sda.capstone.us0001;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import pages.LoginPage;
-import pages.StartPage;
+import sda.capstone.Pages.*;
+import sda.capstone.TestBase;
+import sda.capstone.listener.CustomListener;
 
 
 @Listeners(CustomListener.class)
-public class loginTest extends TestBase {
+public class LoginTest extends TestBase {
 
     public String username = "testevolve12@testevolve.com";
     public String password = "DJK7wyf8_ZpG464";
