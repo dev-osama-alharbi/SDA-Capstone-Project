@@ -1,5 +1,6 @@
 package QuasparepartsTests;
 
+import Pages.UserPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -33,10 +34,12 @@ public class TestUserModule extends TestBase {
 
     @Step("Validate users list is displayed")
     public void validateUsersDisplayed() {
-        List<WebElement> users;
-        users = bot.findElements(By.xpath("//tbody[@class='tableRows']//tr//td[2]//a"));
+//        List<WebElement> users;
+//        users = bot.findElements(By.xpath("//tbody[@class='tableRows']//tr//td[2]//a"));
+        UserPage userPage = new UserPage(driver,bot,wait);
+        List<String> users = userPage.getUsers();
         Assert.assertTrue(users.size() > 0, "No users are displayed.");
-        users.forEach(user -> System.out.println(user.getText()));
+        users.forEach(System.out::println);
     }
 
 

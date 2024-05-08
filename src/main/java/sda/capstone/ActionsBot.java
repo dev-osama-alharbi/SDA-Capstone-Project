@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ActionsBot {
     private final WebDriver driver;
@@ -63,6 +64,15 @@ public class ActionsBot {
     public String getText(By by) {
         logger.info("getText: "+by);
         return driver.findElement(by).getText();
+    }
+
+    @Step
+    public List<String> getTextList(By by) {
+        logger.info("getText: "+by);
+        return driver.findElements(by).stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+//        return driver.findElement(by).getText();
     }
 
 }
