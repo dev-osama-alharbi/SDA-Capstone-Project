@@ -1,8 +1,10 @@
-import Pages.Departments;
+package sda.capstone.us0009;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.Pages.Departments;
 import sda.capstone.TestBase;
 
 public class EditDepartmentNameAndTypeTest extends TestBase {
@@ -22,7 +24,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
         bot.click(sign);
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
 
-        Departments departments = new Departments(driver,bot);
+        Departments departments = new Departments(driver,bot,wait);
         String text = departments.ClickOnDepartmentName().ClickOnEdit().EditTheDepartmentName().EditTheDepartmentType().ClickingOnSaveButton().GetTheSuccessMessage();
         Assert.assertEquals(text,"Changes successfully saved");
     }
@@ -38,7 +40,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
         bot.click(sign);
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
 
-        Departments departments = new Departments(driver,bot);
+        Departments departments = new Departments(driver,bot,wait);
 
         String text = departments.ClickOnDepartmentName().ClickOnEdit().LeaveTheDepartmentNameEmpty().ClickingOnSaveButton().GetTheFailureMessage();
         Assert.assertEquals(text,"Please enter a name for department");
@@ -55,7 +57,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
         bot.click(sign);
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
 
-        Departments departments = new Departments(driver,bot);
+        Departments departments = new Departments(driver,bot,wait);
 
         String text = departments.ClickOnDepartmentName().ClickOnEdit().LeaveTheDepartmentTypeEmpty().ClickingOnSaveButton().GetTheFailureMessage();
         Assert.assertEquals(text,"Please select a type for department");
@@ -72,7 +74,7 @@ public class EditDepartmentNameAndTypeTest extends TestBase {
         bot.click(sign);
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/departments/department");
 
-        Departments departments = new Departments(driver,bot);
+        Departments departments = new Departments(driver,bot,wait);
 
         String text = departments.ClickOnDepartmentName().ClickOnEdit().DeleteTheDepartment();
         Assert.assertEquals(text,"Departments");

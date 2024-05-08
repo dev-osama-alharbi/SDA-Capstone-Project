@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SDA suite" thread-count="1" parallel="classes" verbose="1">
+    <test name="SDA test">
+        <classes>
+            <class name="sda.capstone.us0001.LoginTest"/>
+            <class name="sda.capstone.us0009.EditDepartmentNameAndTypeTest"/>
+        </classes>
+    </test>
+</suite>

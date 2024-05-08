@@ -1,4 +1,4 @@
-package Pages;
+package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -8,11 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import sda.capstone.ActionsBot;
-import sda.capstone.Pages;
+import sda.capstone.PageBase;
 
 import java.time.Duration;
 
-public class Departments  extends Pages {
+public class Departments  extends PageBase {
 
     private final By DepartmentName = By.xpath("//b[text()='snr']");
     private final By EditDepartmentButton = By.xpath("//button[contains(text(),'Edit')]");
@@ -24,11 +24,11 @@ public class Departments  extends Pages {
     private final By DeleteTheDepartmentButton = By.xpath("//button[contains(text(),'Delete')]");
     private final By ConfirmTheDeletion = By.xpath("//button[contains(text(),'Confirm')]");
     private final By DepartmentProof = By.xpath("//div[@class='col' and h3='Departments']");
-    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 
-    public Departments(WebDriver driver, ActionsBot bot) {
-        super(driver, bot);
+    public Departments(WebDriver driver, ActionsBot bot,Wait<WebDriver> wait) {
+        super(driver, bot,wait);
     }
 
     private void WaitFor(By by){

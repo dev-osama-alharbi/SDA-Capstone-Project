@@ -1,16 +1,13 @@
-package pages;
+package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
-import org.testng.Assert;
 import sda.capstone.ActionsBot;
+import sda.capstone.PageBase;
 
-public class LoginPage {
-    private final WebDriver driver;
-    private final ActionsBot bot;
-    private final Wait<WebDriver> wait;
+public class LoginPage extends PageBase {
     public By usernameInput = By.id("username");
     public By passwordInput = By.id("password");
     public By submitButton = By.xpath("//button[@type='submit']");
@@ -20,9 +17,7 @@ public class LoginPage {
 
 
     public LoginPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait){
-        this.driver = driver;
-        this.bot = bot;
-        this.wait = wait;
+        super(driver,bot,wait);
     }
 //    public Login(WebDriver driver, ActionsBot bot) {
 //        super(driver, bot);
