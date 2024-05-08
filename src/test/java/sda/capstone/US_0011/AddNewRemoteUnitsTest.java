@@ -1,23 +1,21 @@
-package sda.capstone.QuasparepartsTests;
+package sda.capstone.US_0011;
 
-import Pages.NewRemoteUnit;
-import Pages.RemoteUnits;
+import Pages.NewRemoteUnitPage;
+import Pages.RemoteUnitsPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.TestBase;
 
-public class US_0011 extends TestBase {
-    private  RemoteUnits  remoteUnitPage;
-    private NewRemoteUnit newRemoteUnitPage;
+public class AddNewRemoteUnitsTest extends TestBase {
+    private RemoteUnitsPage remoteUnitPage;
+    private NewRemoteUnitPage newRemoteUnitPage;
 
 
-
-
-    @Step("TC_0018 Positive Scenario when typing Name and Remote type ")
-    @Test
-    public void TC_0018 () {
+    @Step("When adding a new remote unit by typing the name and type, it is added successful")
+    @Test(testName = "Successful add new remote unit test")
+    public void addNewRemoteUnitByTypingTheNameAndTypeTest() {
         //https://qa-gm3.quaspareparts.com/
         bot.navigate("https://qa-gm3.quaspareparts.com");
         bot.click(By.className("login-button"));
@@ -27,19 +25,19 @@ public class US_0011 extends TestBase {
         bot.click(By.cssSelector("button[type='submit']"));
 
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnits(driver,bot);
+        remoteUnitPage = new RemoteUnitsPage(driver,bot);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-        newRemoteUnitPage = new NewRemoteUnit(driver,bot);
-        newRemoteUnitPage.addRemoteName("Team4Test").addRemoteType("Remote Unit").ClickingOnSaveButton();
+        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot);
+        newRemoteUnitPage.addRemoteName("Team4Test").addRemoteType("Remote Unit").clickingOnSaveButton();
         String actualText = newRemoteUnitPage.successfullyMSG();
         Assert.assertEquals(actualText, "New department successfully created");
 
     }
 
 
-    @Step("TC_0019 Negative Scenario when Name empty")
-    @Test
-    public void TC_0019_NameEmpty () {
+    @Step("When adding a new remote unit by typing the type and without name , I will see an error message")
+    @Test(testName = "Unsuccessful add new remote unit test - Empty name ")
+    public void addNewRemoteUnitWithoutAddNameTest() {
         //https://qa-gm3.quaspareparts.com/
         bot.navigate("https://qa-gm3.quaspareparts.com");
         bot.click(By.className("login-button"));
@@ -49,17 +47,17 @@ public class US_0011 extends TestBase {
         bot.click(By.cssSelector("button[type='submit']"));
 
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnits(driver,bot);
+        remoteUnitPage = new RemoteUnitsPage(driver,bot);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-        newRemoteUnitPage = new NewRemoteUnit(driver,bot);
-        newRemoteUnitPage.addRemoteName(null).addRemoteType("remote").ClickingOnSaveButton();
-        String actualText = newRemoteUnitPage.ErrorMSGName();
+        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot);
+        newRemoteUnitPage.addRemoteName(null).addRemoteType("remote").clickingOnSaveButton();
+        String actualText = newRemoteUnitPage.errorMSG();
         Assert.assertEquals(actualText, "Please enter a name for department");
     }
 
-    @Step("TC_0019 Negative Scenario when Type empty ")
-    @Test
-    public void TC_0019_TypeEmpty () {
+    @Step("When adding a new remote unit by typing the name and without type , I will see an error message")
+    @Test(testName = "Unsuccessful add new remote unit test - Empty type ")
+    public void addNewRemoteUnitWithoutAddTypeTest() {
         //https://qa-gm3.quaspareparts.com/
         bot.navigate("https://qa-gm3.quaspareparts.com");
         bot.click(By.className("login-button"));
@@ -69,11 +67,11 @@ public class US_0011 extends TestBase {
         bot.click(By.cssSelector("button[type='submit']"));
 
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnits(driver,bot);
+        remoteUnitPage = new RemoteUnitsPage(driver,bot);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-        newRemoteUnitPage = new NewRemoteUnit(driver,bot);
-        newRemoteUnitPage.addRemoteName("Team4").addRemoteType(null).ClickingOnSaveButton();
-        String actualText = newRemoteUnitPage.ErrorMSGType();
+        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot);
+        newRemoteUnitPage.addRemoteName("Team4").addRemoteType(null).clickingOnSaveButton();
+        String actualText = newRemoteUnitPage.errorMSG();
         Assert.assertEquals(actualText, "Please select a type for department");
     }
 }
