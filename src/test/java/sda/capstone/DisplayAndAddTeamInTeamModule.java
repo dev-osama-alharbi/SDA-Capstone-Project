@@ -1,13 +1,11 @@
 package sda.capstone;
 
-import sda.capstone.Pages.AddTeamPage;
-import sda.capstone.Pages.TeamsPage;
-import sda.capstone.TestBase;
-import sda.capstone.Pages.*;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.Pages.AddTeamPage;
+import sda.capstone.Pages.TeamsPage;
 
 
 public class DisplayAndAddTeamInTeamModule extends TestBase {

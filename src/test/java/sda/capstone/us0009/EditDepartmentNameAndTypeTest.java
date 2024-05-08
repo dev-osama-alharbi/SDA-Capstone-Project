@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.Pages.Departments;
+import sda.capstone.Pages.*;
 import sda.capstone.TestBase;
 
 public class EditDepartmentNameAndTypeTest extends TestBase {
