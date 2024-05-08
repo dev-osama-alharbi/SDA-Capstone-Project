@@ -22,13 +22,13 @@ public class ActionsBot {
         this.logger = logger;
     }
 
-    @Step
+    @Step("Navigate to URL")
     public void navigate(String url){
         logger.info("Navigating to: "+url);
         driver.get(url);
     }
 
-    @Step
+    @Step("Type into element")
     public void type(By locator, CharSequence text){
         logger.info("Typing: "+text+", into: "+locator);
         wait.until(f -> {
@@ -38,7 +38,7 @@ public class ActionsBot {
         });
     }
 
-    @Step
+    @Step("Click on element")
     public void click(By locator){
         logger.info("Clicking: "+locator);
         wait.until(f -> {
@@ -62,12 +62,12 @@ public class ActionsBot {
                 .perform();
     }
 
-    @Step
-    public String getText(By locator) {
-        logger.info("Reading text from: " + locator);
+    @Step("Get text from element")
+    public String getText(By by) {
+        logger.info("Getting text from: " + by);
         AtomicReference<String> actualText = new AtomicReference<>("");
         wait.until(f -> {
-            actualText.set(driver.findElement(locator).getText());
+            actualText.set(driver.findElement(by).getText());
             return true;
         });
         return actualText.get();
