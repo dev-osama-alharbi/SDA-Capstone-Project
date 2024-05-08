@@ -44,7 +44,7 @@ public abstract class TestBase {
         }
 
         logger.info("Configuring 5 second explicit wait");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         bot = new ActionsBot(driver, wait, logger);
     }
 

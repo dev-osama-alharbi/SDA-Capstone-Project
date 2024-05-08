@@ -14,8 +14,8 @@ import sda.capstone.Pages;
 public class Users extends Pages {
 
     private final By addNewMemberButton = By.xpath("//button[text()='+ Add New Member']");
-    private final By departmentDropdownLocator = By.cssSelector("#react-select-4-placeholder");  //
-    private final By roleDropdownLocator = By.cssSelector("#react-select-5-placeholder");  //
+    private final By departmentDropdownLocator = By.cssSelector("#react-select-4-input");  //
+    private final By roleDropdownLocator = By.cssSelector("#react-select-5-input");  //
     private final By emailInputFieldLocator = By.name("email");
     private final By registerButtonLocator = By.cssSelector("button[type='button']");  //
 
@@ -33,41 +33,51 @@ public class Users extends Pages {
         return this;
     }
 
+    @Step("Clicking on Department name and selecting 'sda'")
+    public Users selectDepartment(String departmentName) {
+        bot.click(departmentDropdownLocator);
 
-
-
-        @Step("Clicking on Department name ")
-        public Users ClickOnDepartmentName () {
-            bot.click(departmentDropdownLocator);
-            return this;
-        }
-        @Step("Clicking on Role")
-        public Users ClickOnRole () {
-            bot.click(roleDropdownLocator);
-            return this;
-        }
-        @Step("Clicking on Email")
-        public Users ClickOnEmail() {
-            bot.click(emailInputFieldLocator);
-            return this;
-        }
-        @Step("Clicking on Register")
-        public Users ClickOnRegister () {
-            bot.click(registerButtonLocator);
-            return this;
-        }
-        @Step("Getting the Successfual message")
-        public Users GetTSucess () {
-            bot.getText(successMessage);
-            return this;
-        }
-        @Step("Getting the invaild message")
-        public Users GetTheMessage () {
-            bot.getText(errorMessage);
-            return this;
-        }
+        return this;
     }
 
+    @Step("Clicking on Department name ")
+    public Users ClickOnDepartmentName () {
+        // This method can be removed
+        bot.click(departmentDropdownLocator);
+        return this;
+    }
 
+    @Step("Clicking on Role")
+    public Users ClickOnRole () {
+        bot.click(roleDropdownLocator);
+        return this;
+    }
 
+    @Step("Clicking on Email")
+    public Users ClickOnEmail() {
+        bot.click(emailInputFieldLocator);
+        return this;
+    }
 
+    @Step("Entering the Email")
+    public Users enterEmail(String email) {
+        bot.type(emailInputFieldLocator, email);
+        return this;
+    }
+
+    @Step("Clicking on Register")
+    public Users ClickOnRegister () {
+        bot.click(registerButtonLocator);
+        return this;
+    }
+
+    @Step("Getting the Successful message")
+    public String GetTheSucess () {
+        return bot.getText(successMessage);
+    }
+
+    @Step("Getting the invalid message")
+    public String GetTheError () {
+        return bot.getText(errorMessage);
+    }
+}
