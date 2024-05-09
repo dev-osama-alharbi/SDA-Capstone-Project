@@ -26,7 +26,7 @@ public class AddNewMember extends TestBase {
         String text = users.ClickOnAddNewMember()
                 .selectDepartment("sda") // Assuming department selection method exists in Users class
                 .enterEmail("testevolve@testevolve.com")
-                .ClickOnRole() // Click role selection if applicable
+                .ClickOnRole()
                 .ClickOnRegister()
                 .GetTheSucess();
         Assert.assertEquals(text, "New user registration successful");

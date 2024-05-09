@@ -14,12 +14,12 @@ import sda.capstone.Pages;
 public class Users extends Pages {
 
     private final By addNewMemberButton = By.xpath("//button[text()='+ Add New Member']");
-    private final By departmentDropdownLocator = By.cssSelector("#react-select-4-input");  //
-    private final By roleDropdownLocator = By.cssSelector("#react-select-5-input");  //
+    private final By departmentDropdownLocator = By.cssSelector("#react-select-2-input");  //
+    private final By roleDropdownLocator = By.cssSelector("#react-select-3-input");  //
     private final By emailInputFieldLocator = By.name("email");
     private final By registerButtonLocator = By.cssSelector("button[type='button']");  //
 
-    private final By successMessage = By.cssSelector("strong.me-auto");
+    private final By successMessage = By.cssSelector("div.toast-body");
     private final By errorMessage = By.xpath("//span[text()='Please enter a valid email' and @class='text-danger']");
     protected Wait<WebDriver> wait;
 
