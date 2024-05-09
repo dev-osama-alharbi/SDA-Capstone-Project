@@ -1,14 +1,17 @@
-package Pages;
+package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Wait;
 import sda.capstone.ActionsBot;
-import sda.capstone.Pages;
+import sda.capstone.PageBase;
 
-public class NewRemoteUnitPage extends Pages {
+public class NewRemoteUnitPage extends PageBase {
 
-    public NewRemoteUnitPage(WebDriver driver, ActionsBot bot) {super(driver, bot);}
+    public NewRemoteUnitPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
+        super(driver, bot,wait);
+    }
 
     private final By remoteUnitNameInput = By.xpath("//input[@id='name']");
     private final By dropdown  = By.xpath("//input[@role='combobox']");
