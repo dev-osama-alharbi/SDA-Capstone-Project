@@ -2,14 +2,16 @@ package sda.capstone;
 
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 
-import java.util.concurrent.atomic.AtomicReference;
+
+import java.util.List;
+import java.util.stream.Collectors;
+//TODO check this import
+//import java.util.concurrent.atomic.AtomicReference;
+
 
 public class ActionsBot {
     private final WebDriver driver;
@@ -72,4 +74,21 @@ public class ActionsBot {
         });
         return actualText.get();
     }
+
+    @Step
+    public List<String> getTextList(By by) {
+        logger.info("getText: "+by);
+        return driver.findElements(by).stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+    }
+
+    @Step
+    public List<String> getverifiedusers(By by) {
+        logger.info("getText: "+by);
+        return driver.findElements(by).stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+    }
+
 }

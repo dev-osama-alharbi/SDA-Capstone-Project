@@ -13,4 +13,5 @@ public class PageBase {
         this.bot=bot;
         this.wait=wait;
     }
+
 }
