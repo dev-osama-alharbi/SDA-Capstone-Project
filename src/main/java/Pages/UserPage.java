@@ -8,20 +8,29 @@ import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class UserPage extends PageBase {
+
+    public String username = "testevolve12@testevolve.com";
+    public String password = "DJK7wyf8_ZpG464";
     private By usersListLocator = By.xpath("//tbody[@class='tableRows']//tr//td[2]//a");
+    private By usersverified = By.cssSelector("td.cell svg path[fill='#08875D']");
+
+
 
     public UserPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
         super(driver, bot, wait);
     }
 
     public List<String> getUsers() {
+        wait.until(webDriver -> !webDriver.findElements(usersListLocator).isEmpty());
         return bot.getTextList(usersListLocator);
-//        return driver.findElements(usersListLocator).stream()
-//                .map(WebElement::getText)
-//                .collect(Collectors.toList());
+    }
+
+    public List<String> getverifiedusers() {
+        // Assuming users are listed in a table and each row has a 'confirmed email' icon if the email is confirmed
+        wait.until(webDriver -> !webDriver.findElements(usersverified).isEmpty());
+        return bot.getTextList(usersverified);
     }
 
 }

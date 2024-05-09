@@ -72,7 +72,14 @@ public class ActionsBot {
         return driver.findElements(by).stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
-//        return driver.findElement(by).getText();
+    }
+
+    @Step
+    public List<String> getverifiedusers(By by) {
+        logger.info("getText: "+by);
+        return driver.findElements(by).stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 
 }

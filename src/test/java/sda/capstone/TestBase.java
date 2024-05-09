@@ -12,9 +12,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 
 public abstract class TestBase {
@@ -44,7 +41,7 @@ public abstract class TestBase {
         }
 
         logger.info("Configuring 5 second explicit wait");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         bot = new ActionsBot(driver, wait, logger);
     }
 
