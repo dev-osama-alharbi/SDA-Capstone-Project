@@ -1,5 +1,7 @@
 package sda.capstone.US_0011;
 
+import sda.capstone.Pages.NewRemoteUnitPage;
+import sda.capstone.Pages.RemoteUnitsPage;
 
 import io.qameta.allure.Step;
 import org.testng.Assert;
@@ -25,6 +27,8 @@ public class AddNewRemoteUnitsTest extends TestBase {
 
 
         remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+        //-------------------------------------------------------
+        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
         newRemoteUnitPage.addRemoteName("Team4Test").addRemoteType("Remote Unit").clickingOnSaveButton();
@@ -42,6 +46,8 @@ public class AddNewRemoteUnitsTest extends TestBase {
         loginPage = startPage.goTo().clickLoginButton().login(username,password);
 
         remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+        //-------------------------------------------------------
+        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
         newRemoteUnitPage.addRemoteName(null).addRemoteType("remote").clickingOnSaveButton();
@@ -56,6 +62,8 @@ public class AddNewRemoteUnitsTest extends TestBase {
         startPage = new StartPage(driver,bot,wait);
         loginPage = startPage.goTo().clickLoginButton().login(username,password);
 
+        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+        //-------------------------------------------------------
         remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
