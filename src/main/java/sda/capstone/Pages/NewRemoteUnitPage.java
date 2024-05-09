@@ -12,12 +12,6 @@ public class NewRemoteUnitPage extends PageBase {
     public NewRemoteUnitPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
         super(driver, bot, wait);
     }
-    public NewRemoteUnitPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
-        super(driver, bot,wait);
-    }
-    public NewRemoteUnitPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
-        super(driver, bot, wait);
-    }
 
     private final By remoteUnitNameInput = By.xpath("//input[@id='name']");
     private final By dropdown  = By.xpath("//input[@role='combobox']");

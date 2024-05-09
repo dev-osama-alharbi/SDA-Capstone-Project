@@ -1,8 +1,10 @@
-import Pages.Users;
+package sda.capstone.us0017;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.Pages.*;
 import sda.capstone.TestBase;
 
 public class AddNewMember extends TestBase {
@@ -22,7 +24,7 @@ public class AddNewMember extends TestBase {
         bot.click(sign);
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
 
-        Users users = new Users(driver, bot);
+        Users users = new Users(driver, bot,wait);
         String text = users.ClickOnAddNewMember()
                 .selectDepartment("sda") // Assuming department selection method exists in Users class
                 .enterEmail("testevolve@testevolve.com")
@@ -41,7 +43,7 @@ public class AddNewMember extends TestBase {
         bot.click(sign);
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
 
-        Users users = new Users(driver, bot);
+        Users users = new Users(driver, bot,wait);
 
         String text = users.ClickOnAddNewMember()
                 .selectDepartment("sda") // Assuming department selection method exists in Users class

@@ -1,4 +1,4 @@
-package QuasparepartsTests;
+package sda.capstone.us0015;
 
 import Pages.UserPage;
 import io.qameta.allure.Step;

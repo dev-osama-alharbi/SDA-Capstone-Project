@@ -1,17 +1,13 @@
-package Pages;
+package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import sda.capstone.ActionsBot;
-import sda.capstone.Pages;
+import sda.capstone.PageBase;
 
-public class Users extends Pages {
+public class Users extends PageBase {
 
     private final By addNewMemberButton = By.xpath("//button[text()='+ Add New Member']");
     private final By departmentDropdownLocator = By.cssSelector("#react-select-2-input");  //
@@ -23,8 +19,8 @@ public class Users extends Pages {
     private final By errorMessage = By.xpath("//span[text()='Please enter a valid email' and @class='text-danger']");
     protected Wait<WebDriver> wait;
 
-    public Users(WebDriver driver, ActionsBot bot) {
-        super(driver, bot);
+    public Users(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
+        super(driver, bot, wait);
     }
 
     @Step("When I navigate to the Users module and attempt to add a new user with a valid email")

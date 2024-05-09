@@ -5,8 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import sda.capstone.Pages.LoginPage;
-import sda.capstone.Pages.StartPage;
+import sda.capstone.Pages.*;
 import sda.capstone.TestBase;
 import sda.capstone.listener.CustomListener;
 
