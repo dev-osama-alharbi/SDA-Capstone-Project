@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "allure-commandline": "^2.29.0"
+  }
+}
