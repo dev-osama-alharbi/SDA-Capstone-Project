@@ -22,14 +22,14 @@ public class AddNewMember extends TestBase {
         bot.click(sign);
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
 
-        Users users = new Users(driver, bot);
+        Users users = new Users(driver, bot,wait);
         String text = users.ClickOnAddNewMember()
-                .selectDepartment("sda") // Assuming department selection method exists in Users class
-                .enterEmail("testevolve@testevolve.com")
+                .selectDepartment("") // Assuming department selection method exists in Users class
+                .enterEmail( "email_"+ System.currentTimeMillis() + "@gmail.com")
                 .ClickOnRole()
                 .ClickOnRegister()
                 .GetTheSucess();
-        Assert.assertEquals(text, "New user registration successful");
+        Assert.assertEquals(text, "Successful");
     }
 
     @Step("Testing the invaild email ")
@@ -41,15 +41,15 @@ public class AddNewMember extends TestBase {
         bot.click(sign);
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
 
-        Users users = new Users(driver, bot);
+        Users users = new Users(driver, bot,wait);
 
         String text = users.ClickOnAddNewMember()
                 .selectDepartment("sda") // Assuming department selection method exists in Users class
-                .enterEmail("invalid_email")
+                .enterEmail("email_"+ System.currentTimeMillis() + "gmail.com")
                 .ClickOnRole() // Click role selection if applicable
                 .ClickOnRegister()
                 .GetTheError();
-        Assert.assertEquals(text, "Please enter a vaild email");
+        Assert.assertEquals(text, "Please enter a valid email");
     }
 
 
