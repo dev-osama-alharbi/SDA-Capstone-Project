@@ -13,15 +13,13 @@ public class LoginPage extends PageBase {
     public By submitButton = By.xpath("//button[@type='submit']");
     public String loginPageUrl = "https://a3m-qa-gm3.quaspareparts.com/login";
     public By invalidCredentialsMessage = By.tagName("h5");
-    public By validLogin = By.xpath("//h4[contains(text(), 'Profile')]");
+    public By loginPageText=By.tagName("h4");
+
 
 
     public LoginPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait){
         super(driver,bot,wait);
     }
-//    public Login(WebDriver driver, ActionsBot bot) {
-//        super(driver, bot);
-//    }
 
     public LoginPage goTo(){
         bot.navigate(loginPageUrl);
@@ -36,16 +34,15 @@ public class LoginPage extends PageBase {
         return this;
     }
 
-    @Step ("Then I will Login successfully")
-    public String validLogin() {
-        wait.until(f -> {
-            driver.findElement(validLogin).isDisplayed();
-            return true;
-        });
-        return bot.getText(validLogin);
-    }
     @Step ("Then I will see an error message")
     public String getInvalidCredentialsMessage() {
         return bot.getText(invalidCredentialsMessage);
+    }
+
+    @Step ("I will be directed to the Login page")
+    public LoginPage checkThedirectionToTheLoginPage(){
+        assert (driver.getCurrentUrl().equals(loginPageUrl));
+        bot.getText(loginPageText);
+        return this;
     }
 }

@@ -11,8 +11,6 @@ public class StartPage extends PageBase {
     public String StartPageUrl = "https://qa-gm3.quaspareparts.com/";
     public By loginButton = By.className("login-button");
 
-    public By loginPageUrl=By.tagName("h4");
-
     public StartPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait){
         super(driver,bot,wait);
     }
@@ -23,10 +21,10 @@ public class StartPage extends PageBase {
         return this;
     }
 
-    @Step ("When I click the login button, I will be directed to the Login page")
+    @Step ("When I click the login button")
     public LoginPage clickLoginButton(){
         bot.click(loginButton);
-        bot.getText(loginPageUrl);
         return new LoginPage(driver,bot,wait);
     }
+
 }

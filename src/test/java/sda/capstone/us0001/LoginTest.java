@@ -18,33 +18,32 @@ public class LoginTest extends TestBase {
     public String accountManagementPageUrl = "https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20";
     public String invalidCredentialsMessageText = "Invalid Credentials";
     public String profileTxt = "My Profile";
-
     public String invalidPassword = "WrongPassword";
 
 
-    @Step("When I Login with the right Credentials, then I will login successfully")
+    @Step("Login with the right Credentials")
     @Test(testName = "Successful LogIn Test")
     public void successfulLoginTest() {
         StartPage startPage = new StartPage(driver,bot,wait);
-        LoginPage loginPage = startPage.goTo().clickLoginButton().login(username,password);
-        Assert.assertEquals(loginPage.validLogin(),profileTxt);
+        startPage.goTo().clickLoginButton().checkThedirectionToTheLoginPage().checkThedirectionToTheLoginPage().login(username,password);
+        HomePage homePage = new HomePage(driver,bot,wait);
+        Assert.assertEquals(homePage.checkSuccessfulLogin(),profileTxt);
     }
 
-
-    @Step("When I Login with wrong password, I will see an error message")
+    @Step("Login with wrong password")
     @Test(testName = "Unsuccessful LogIn Test - Invalid password")
     public void unsuccessfulLoginTest_InvalidCredentialWithoutDot() {
         StartPage startPage = new StartPage(driver,bot,wait);
-        LoginPage loginPage = startPage.goTo().clickLoginButton().login(username, invalidPassword);
+        LoginPage loginPage = startPage.goTo().clickLoginButton().checkThedirectionToTheLoginPage().login(username,invalidPassword);
         Assert.assertNotEquals(driver.getCurrentUrl(), accountManagementPageUrl);
         Assert.assertEquals(loginPage.getInvalidCredentialsMessage(), invalidCredentialsMessageText);
     }
 
-    @Step("When I Login with the wrong username, I will see an error message")
+    @Step("Login with the wrong username")
     @Test(dataProvider = "invalidUsernames", testName = "Unsuccessful LogIn Test - Invalid usernames ")
     public void unsuccessfulLoginTest_InvalidCredentialWithoutAt(String username) {
         StartPage startPage = new StartPage(driver,bot,wait);
-        LoginPage loginPage = startPage.goTo().clickLoginButton().login(username, password);
+        LoginPage loginPage = startPage.goTo().clickLoginButton().checkThedirectionToTheLoginPage().login(username,password);
         Assert.assertNotEquals(driver.getCurrentUrl(), accountManagementPageUrl);
         Assert.assertEquals(loginPage.getInvalidCredentialsMessage(), invalidCredentialsMessageText);
     }
