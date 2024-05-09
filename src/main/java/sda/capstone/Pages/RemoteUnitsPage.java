@@ -1,4 +1,4 @@
-package Pages;
+package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -11,7 +11,9 @@ import sda.capstone.PropertiesReader;
 
 public class RemoteUnitsPage extends PageBase {
 
-    public RemoteUnitsPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {super(driver, bot,wait); }
+    public RemoteUnitsPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
+        super(driver, bot,wait);
+    }
     private final String url = PropertiesReader.props.getProperty("baseUrlAfterLogin") + "departments/remote";
     private final By addNewRemoteUnitButton = By.xpath("//button[contains(., 'Add New Remote Unit')]");
 

@@ -1,7 +1,7 @@
 package sda.capstone.US_0011;
 
-import Pages.NewRemoteUnitPage;
-import Pages.RemoteUnitsPage;
+import sda.capstone.Pages.NewRemoteUnitPage;
+import sda.capstone.Pages.RemoteUnitsPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
