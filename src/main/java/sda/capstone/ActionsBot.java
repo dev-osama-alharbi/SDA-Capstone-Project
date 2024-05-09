@@ -6,8 +6,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 
+
 import java.util.List;
 import java.util.stream.Collectors;
+//TODO check this import
+//import java.util.concurrent.atomic.AtomicReference;
+
 
 public class ActionsBot {
     private final WebDriver driver;
@@ -20,13 +24,13 @@ public class ActionsBot {
         this.logger = logger;
     }
 
-    @Step
+    @Step("Navigate to URL")
     public void navigate(String url){
         logger.info("Navigating to: "+url);
         driver.get(url);
     }
 
-    @Step
+    @Step("Type into element")
     public void type(By locator, CharSequence text){
         logger.info("Typing: "+text+", into: "+locator);
         wait.until(f -> {
@@ -36,7 +40,7 @@ public class ActionsBot {
         });
     }
 
-    @Step
+    @Step("Click on element")
     public void click(By locator){
         logger.info("Clicking: "+locator);
         wait.until(f -> {
@@ -60,10 +64,15 @@ public class ActionsBot {
                 .perform();
     }
 
-    @Step
+    @Step("Get text from element")
     public String getText(By by) {
-        logger.info("getText: "+by);
-        return driver.findElement(by).getText();
+        logger.info("Getting text from: " + by);
+        AtomicReference<String> actualText = new AtomicReference<>("");
+        wait.until(f -> {
+            actualText.set(driver.findElement(by).getText());
+            return true;
+        });
+        return actualText.get();
     }
 
     @Step
