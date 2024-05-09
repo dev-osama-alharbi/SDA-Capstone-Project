@@ -5,6 +5,7 @@ import sda.capstone.Pages.RemoteUnitsPage;
 
 import io.qameta.allure.Step;
 import org.testng.Assert;
+import sda.capstone.Pages.*;
 import org.testng.annotations.Test;
 import sda.capstone.TestBase;
 import sda.capstone.Pages.*;

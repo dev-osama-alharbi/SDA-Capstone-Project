@@ -10,6 +10,9 @@ import sda.capstone.PageBase;
 public class NewRemoteUnitPage extends PageBase {
 
     public NewRemoteUnitPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
+        super(driver, bot, wait);
+    }
+    public NewRemoteUnitPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
         super(driver, bot,wait);
     }
     public NewRemoteUnitPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {

@@ -8,12 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import sda.capstone.ActionsBot;
-import sda.capstone.Pages;
+import sda.capstone.PageBase;
 
 import java.time.Duration;
 
 //Displays the departments registered in the Departments module and lists their authorized roles
-public class AddAndListDepartment extends Pages {
+public class AddAndListDepartment extends PageBase {
 
     //private final By DepartmentName = By.xpath("//b[text()='room1']");
     private final By AddDepartment = By.xpath("//button[@class='btn btn-info float-end text-white']");
@@ -22,14 +22,15 @@ public class AddAndListDepartment extends Pages {
     private final By DepartmentRoleFieldSelector = By.id("react-select-3-input");
     private final By SaveButton = By.xpath("//button[text()='Save']");
     private final By TextError = By.xpath("//span[@class='text-danger']");
-    private final By RegisteredDepartment = By.xpath("//a[@href='#/department/1677064640369316/727']");
+    private final By RegisteredDepartment = By.xpath("//p[@class='card-text']//div//div//a//b[contains(.,'NameForTesting')]");
+
     private final By RegisteredDepartmentName = By.xpath("//span[@class='fw-bold fs-4']");
     private final By RegisteredDepartmentRole = By.xpath("//span[@class='roles-box p-2 me-2']");
 
     Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-    public AddAndListDepartment(WebDriver driver, ActionsBot bot) {
-        super(driver, bot);
+    public AddAndListDepartment(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
+        super(driver, bot, wait);
     }
 
     private void WaitFor(By by) {

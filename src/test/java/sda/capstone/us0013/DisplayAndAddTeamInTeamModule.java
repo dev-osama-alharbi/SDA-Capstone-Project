@@ -1,5 +1,9 @@
 package sda.capstone.us0013;
 
+import sda.capstone.Pages.AddTeamPage;
+import sda.capstone.Pages.TeamsPage;
+import sda.capstone.TestBase;
+import sda.capstone.Pages.*;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,6 +11,8 @@ import sda.capstone.Pages.AddTeamPage;
 import sda.capstone.Pages.StartPage;
 import sda.capstone.Pages.TeamsPage;
 import sda.capstone.TestBase;
+import sda.capstone.Pages.AddTeamPage;
+import sda.capstone.Pages.TeamsPage;
 
 
 public class DisplayAndAddTeamInTeamModule extends TestBase {
@@ -74,6 +80,7 @@ public class DisplayAndAddTeamInTeamModule extends TestBase {
                 .clickSave()
                 .getRequiredFieldMsg();
         Assert.assertEquals(actualRequiredNameErrMsg, "Please enter a name for department");
+
 
         String actualRequiredTypeErrMsg = addTeam
                 .enterDepartmentName()

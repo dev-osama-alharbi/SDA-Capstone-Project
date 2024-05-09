@@ -1,4 +1,4 @@
-package sda.capstone.Pages;
+package Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
