@@ -3,6 +3,8 @@
     <test name="SDA test">
         <classes>
             <class name="sda.capstone.us0001.LoginTest"/>
+            <class name="sda.capstone.us0002.LogoFunctionalityTest"/>
+            <class name="sda.capstone.us0002.SideBarTest"/>
             <class name="sda.capstone.us0009.EditDepartmentNameAndTypeTest"/>
         </classes>
     </test>
