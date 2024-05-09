@@ -13,7 +13,6 @@ import java.util.List;
 
 public class TeamsPage extends PageBase {
 
-
     private final By teamsModuleSidebarLocator = By.xpath("//a[@href='#/departments/team']");
     private final By teamContainerLocator = By.cssSelector("div>div>div>div>div>div>div.row");
     private final By teamElementLocator = By.xpath("//a[contains(@href,'#/department/1')]");
@@ -26,6 +25,7 @@ public class TeamsPage extends PageBase {
     }
 
 
+    @Step("When I navigate to teams from sidebar")
     public TeamsPage navigateToTeamModule() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(teamsModuleSidebarLocator));
         bot.click(teamsModuleSidebarLocator);
@@ -37,8 +37,7 @@ public class TeamsPage extends PageBase {
         wait.until(ExpectedConditions.visibilityOfElementLocated(teamContainerLocator));
         WebElement teamContainer = driver.findElement(teamContainerLocator);
         wait.until(ExpectedConditions.visibilityOfElementLocated(teamElementLocator));
-        List<WebElement> teamElements = teamContainer.findElements(teamElementLocator);
-        return teamElements;
+        return teamContainer.findElements(teamElementLocator);
     }
 
     @Step("Then team is displayed")

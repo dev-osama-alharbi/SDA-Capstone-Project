@@ -25,9 +25,9 @@ public class AddNewRemoteUnitsTest extends TestBase {
         bot.click(By.cssSelector("button[type='submit']"));
 
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnitsPage(driver,bot);
+        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot);
+        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
         newRemoteUnitPage.addRemoteName("Team4Test").addRemoteType("Remote Unit").clickingOnSaveButton();
         String actualText = newRemoteUnitPage.successfullyMSG();
         Assert.assertEquals(actualText, "New department successfully created");
@@ -47,9 +47,9 @@ public class AddNewRemoteUnitsTest extends TestBase {
         bot.click(By.cssSelector("button[type='submit']"));
 
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnitsPage(driver,bot);
+        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot);
+        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
         newRemoteUnitPage.addRemoteName(null).addRemoteType("remote").clickingOnSaveButton();
         String actualText = newRemoteUnitPage.errorMSG();
         Assert.assertEquals(actualText, "Please enter a name for department");
@@ -67,9 +67,9 @@ public class AddNewRemoteUnitsTest extends TestBase {
         bot.click(By.cssSelector("button[type='submit']"));
 
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnitsPage(driver,bot);
+        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
-        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot);
+        newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
         newRemoteUnitPage.addRemoteName("Team4").addRemoteType(null).clickingOnSaveButton();
         String actualText = newRemoteUnitPage.errorMSG();
         Assert.assertEquals(actualText, "Please select a type for department");
