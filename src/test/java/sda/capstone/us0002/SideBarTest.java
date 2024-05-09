@@ -4,10 +4,9 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import sda.capstone.Pages.HomePage;
-import sda.capstone.Pages.StartPage;
 import sda.capstone.TestBase;
 import sda.capstone.listener.CustomListener;
+import sda.capstone.Pages.*;
 
 @Listeners(CustomListener.class)
 public class SideBarTest extends TestBase {

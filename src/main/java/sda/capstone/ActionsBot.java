@@ -9,8 +9,7 @@ import org.openqa.selenium.support.ui.Wait;
 
 import java.util.List;
 import java.util.stream.Collectors;
-//TODO check this import
-//import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class ActionsBot {

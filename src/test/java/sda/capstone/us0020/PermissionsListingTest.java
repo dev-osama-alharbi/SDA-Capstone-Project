@@ -1,14 +1,10 @@
 package sda.capstone.us0020;
 
-import Pages.AddAndListDepartment;
 import Pages.PermissionsListing;
-import Pages.RolesPrivileges;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.Pages.StartPage;
 import sda.capstone.TestBase;
+import sda.capstone.Pages.*;
 
 public class PermissionsListingTest extends TestBase {
     public String username = "testevolve12@testevolve.com";

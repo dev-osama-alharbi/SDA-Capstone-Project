@@ -4,8 +4,6 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import sda.capstone.Pages.DepartmentsPage;
-import sda.capstone.Pages.StartPage;
 import sda.capstone.Pages.*;
 import sda.capstone.TestBase;
 import sda.capstone.listener.CustomListener;

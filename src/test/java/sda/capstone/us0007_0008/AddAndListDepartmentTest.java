@@ -2,15 +2,14 @@ package sda.capstone.us0007_0008;
 
 import Pages.AddAndListDepartment;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.Pages.StartPage;
+import sda.capstone.Pages.*;
 import sda.capstone.TestBase;
 
 public class AddAndListDepartmentTest extends TestBase {
-    public String username = "testevolve12@testevolve.com";
-    public String password = "DJK7wyf8_ZpG464";
+    public String username = "t4@testevolve.com";
+    public String password = "rXqRPwfDxyWRG4R";
     @Step("random test")
     @Test(priority = 1 ,testName = "Adding new department with empty department name")
     public void addNewDepartmentNegativeScenarioForDepartmentNameEmpty() {

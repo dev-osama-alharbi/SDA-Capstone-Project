@@ -1,14 +1,10 @@
 package sda.capstone.US_0011;
 
-import sda.capstone.Pages.NewRemoteUnitPage;
-import sda.capstone.Pages.RemoteUnitsPage;
-
 import io.qameta.allure.Step;
 import org.testng.Assert;
-import sda.capstone.Pages.*;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
 import sda.capstone.Pages.*;
+import sda.capstone.TestBase;
 
 public class AddNewRemoteUnitsTest extends TestBase {
     private RemoteUnitsPage remoteUnitPage;
