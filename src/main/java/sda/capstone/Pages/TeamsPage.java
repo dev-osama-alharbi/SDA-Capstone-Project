@@ -12,12 +12,11 @@ import sda.capstone.PageBase;
 import java.util.List;
 
 public class TeamsPage extends PageBase {
-
     private final By teamsModuleSidebarLocator = By.xpath("//a[@href='#/departments/team']");
     private final By teamContainerLocator = By.cssSelector("div>div>div>div>div>div>div.row");
     private final By teamElementLocator = By.xpath("//a[contains(@href,'#/department/1')]");
     private final String teamName = "SDA-Team4";
-    private final By selectedTeamElement = By.linkText(teamName);
+    private final By selectedTeamElement = By.linkText("SDA-Team4");
 
 
     public TeamsPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) { //⬅️
@@ -27,12 +26,14 @@ public class TeamsPage extends PageBase {
 
     @Step("When I navigate to teams from sidebar")
     public TeamsPage navigateToTeamModule() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(teamsModuleSidebarLocator));
+        wait.until(f -> {
+            driver.findElement(teamsModuleSidebarLocator);
+            return true;
+        });
         bot.click(teamsModuleSidebarLocator);
         return this;
     }
 
-    @Step("When I get team elements as list")
     public List<WebElement> getTeamElements() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(teamContainerLocator));
         WebElement teamContainer = driver.findElement(teamContainerLocator);
@@ -40,15 +41,37 @@ public class TeamsPage extends PageBase {
         return teamContainer.findElements(teamElementLocator);
     }
 
-    @Step("Then team is displayed")
+    @Step("Then teams are displayed")
     public boolean isTeamDisplayed() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(selectedTeamElement));
-        return driver.findElement(selectedTeamElement).isDisplayed();
+        List<WebElement> teamElements = getTeamElements();
+        wait.until(ExpectedConditions.visibilityOfAllElements(teamElements));
+
+        return teamElements.stream().allMatch(WebElement::isDisplayed);
     }
 
-    @Step("Then team is clickable")
+    @Step("Then teams are clickable")
     public boolean isTeamClickable() {
-        return wait.until(ExpectedConditions.elementToBeClickable(selectedTeamElement)) != null;
+        List<WebElement> teamElements = getTeamElements();
+        return teamElements.stream().allMatch(teamElement ->
+                wait.until(ExpectedConditions.elementToBeClickable(teamElement)) != null);
+    }
+
+    public boolean isTeamExist() {
+        return new TeamsPage(driver, bot, wait)
+                .getTeamElements()
+                .stream()
+                .map(WebElement::getText)
+                .toList()
+                .contains(teamName);
+    }
+
+    @Step("When I select a team")
+    public TeamsPage selectTeam() {
+        wait.until(f -> {
+            bot.click(selectedTeamElement);
+            return true;
+        });
+        return this;
     }
 
 }
