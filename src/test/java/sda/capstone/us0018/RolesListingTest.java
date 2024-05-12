@@ -1,4 +1,4 @@
-package us0018;
+package sda.capstone.us0018;
 
 import io.qameta.allure.Step;
 import org.testng.annotations.Test;
