@@ -1,41 +1,55 @@
-package sda.capstone.us0013;
+package sda.capstone.us0013_us0014;
 
-import sda.capstone.Pages.*;
-import sda.capstone.TestBase;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.Pages.AddTeamPage;
+import sda.capstone.Pages.StartPage;
+import sda.capstone.Pages.TeamsPage;
+import sda.capstone.TestBase;
 
 
 public class DisplayAndAddTeamInTeamModule extends TestBase {
     StartPage startPage;
-    public String username = "testevolve12@testevolve.com";
-    public String password = "DJK7wyf8_ZpG464";
+    public String username = "t4@testevolve.com";
+    public String password = "ByDckIStx4Yet14";
     TeamsPage teams;
     AddTeamPage addTeam;
 
 
     @Step("Given I am on the Teams page")
-    @Test(testName = "Verify team is displayed and clickable")
+    @Test(testName = "Verify teams are displayed and clickable")
     public void displayedAndClickableTeamsTest() {
-        startPage = new StartPage(driver,bot,wait);
-        startPage.goTo().clickLoginButton().login(username,password);
+        startPage = new StartPage(driver, bot, wait);
+        startPage.goTo().clickLoginButton().login(username, password);
 
-        teams = new TeamsPage(driver, bot, wait).navigateToTeamModule();
+        teams = new TeamsPage(driver, bot, wait);
+        teams.navigateToTeamModule();
+
+        System.out.println("teamSize = " + teams.getTeamElements().size());
 
         boolean isTeamDisplayed = teams.isTeamDisplayed();
         boolean isClickable = teams.isTeamClickable();
 
-        Assert.assertTrue(isTeamDisplayed, "Team element is not displayed");
-        Assert.assertTrue(isClickable, "Team element is not clickable");
+
+        for (WebElement team : teams.getTeamElements()) {
+            String attributeValue = team.getAttribute("textContent");
+            System.out.println(attributeValue);
+        }
+
+        Assert.assertFalse(teams.getTeamElements().isEmpty());
+        Assert.assertTrue(isTeamDisplayed, "Teams are not displayed");
+        Assert.assertTrue(isClickable, "Teams are not clickable");
+
     }
 
 
     @Step("Given I am on the on the add team page")
     @Test(testName = "Add a new team with filled requirements")
     public void addTeamWithFilledRequirementsTest() {
-        startPage = new StartPage(driver,bot,wait);
-        startPage.goTo().clickLoginButton().login(username,password);
+        startPage = new StartPage(driver, bot, wait);
+        startPage.goTo().clickLoginButton().login(username, password);
 
         new TeamsPage(driver, bot, wait).navigateToTeamModule();
 
@@ -44,6 +58,7 @@ public class DisplayAndAddTeamInTeamModule extends TestBase {
                 .addNewTeam()
                 .enterDepartmentName()
                 .enterShortDepartmentName()
+                .enterDescription()
                 .enterDepartmentType()
                 .enterDescription()
                 .selectRole()
@@ -57,8 +72,8 @@ public class DisplayAndAddTeamInTeamModule extends TestBase {
     @Step("Given I am on the on the add team page")
     @Test(testName = "Add a new team with empty requirements")
     public void addTeamWithEmptyRequirementsTest() {
-        startPage = new StartPage(driver,bot,wait);
-        startPage.goTo().clickLoginButton().login(username,password);
+        startPage = new StartPage(driver, bot, wait);
+        startPage.goTo().clickLoginButton().login(username, password);
 
         new TeamsPage(driver, bot, wait).navigateToTeamModule();
 

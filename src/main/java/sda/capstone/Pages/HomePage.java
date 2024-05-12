@@ -28,6 +28,11 @@ public class HomePage extends PageBase {
     private final By permissionsPageBy = By.cssSelector("#link10 a");
     private final By accessTokensPageBy = By.cssSelector("#link11 a");
 
+    public By dropdownText = By.xpath("//td[contains(@class, 'text-start')]");
+
+    public String username = "t4@testevolve.com";
+
+    public String role ="Business Owner";
     public String homePageUrl = "https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/";
 
 
@@ -149,4 +154,24 @@ public class HomePage extends PageBase {
         bot.click(accessTokensPageBy);
         //TODO return page class
     }
+
+    @Step("And when I click on my photo, I will see the DropDown menu")
+    public void clickOnUserPhoto() {
+        wait.until(f -> {
+            driver.findElement(dropdownText).isDisplayed();
+            return true;
+        });
+        bot.click(dropdownText);
+    }
+
+    @Step("And I will see my username written beside my photo")
+    public boolean getTheUsernameTextFromTheDropdown(){
+        return bot.getText(dropdownText).contains(username);
+    }
+
+    @Step("And I will see my role written beside my username")
+    public boolean getTheRoleTextFromTheDropdown(){
+        return bot.getText(dropdownText).contains(role);
+    }
+
 }

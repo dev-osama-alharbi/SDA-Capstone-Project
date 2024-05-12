@@ -98,14 +98,7 @@ public class ActionsBot {
         return driver.findElements(by).stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
-    }
 
-    @Step
-    public List<String> getverifiedusers(By by) {
-        logger.info("getText: "+by);
-        return driver.findElements(by).stream()
-                .map(WebElement::getText)
-                .collect(Collectors.toList());
     }
 
     @Step("Capturing Screenshot Evidence")

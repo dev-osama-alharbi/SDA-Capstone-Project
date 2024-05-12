@@ -2,6 +2,7 @@ package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import sda.capstone.ActionsBot;
@@ -14,8 +15,7 @@ public class NewRemoteUnitPage extends PageBase {
     }
 
     private final By remoteUnitNameInput = By.xpath("//input[@id='name']");
-    private final By dropdown  = By.xpath("//input[@role='combobox']");
-    private final By remoteUnitTypeDropdown = By.xpath("//div[contains(text(), 'Remote Unit')]");
+    private final By departmentTypeDropDown  = By.xpath("//input[@role='combobox']");
     private final By saveButton = By.xpath("//button[contains(text(), 'Save')]");
     private final By errorMSGLabel = By.xpath("//span[@class='text-danger']");
     private final By successfullyMSGLabel =  By.cssSelector(".toaster > div > div > p");
@@ -29,11 +29,11 @@ public class NewRemoteUnitPage extends PageBase {
         return this;
     }
 
-    @Step("Add a type to the remote unit")
-    public NewRemoteUnitPage addRemoteType(String type){
+    @Step("Select department type as remote unit")
+    public NewRemoteUnitPage selectDepartmentType (String type){
         if (type != null) {
-            bot.click(dropdown);
-            bot.click(remoteUnitTypeDropdown);
+            bot.click(departmentTypeDropDown);
+            bot.type(departmentTypeDropDown,type+Keys.ENTER);
         }
         return this;
     }

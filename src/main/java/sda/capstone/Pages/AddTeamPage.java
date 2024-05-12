@@ -14,11 +14,11 @@ public class AddTeamPage extends PageBase {
     private final By departmentNameField = By.id("name");
     private final By shortDepartmentNameField = By.name("short_name");
     private final By departmentTypeField = By.id("react-select-2-input");
+    private final By departmentDescriptionInput= By.xpath("//input[contains(@placeholder,'Department Description')]");
     private final By rolesInput = By.id("react-select-3-input");
     private final By saveButton = By.xpath("//button[text()='Save']");
     private final By messageElement = By.xpath("//div[@class='toast-body']");
     private final By requiredFieldMsg = By.xpath("//span[@class='text-danger']");
-    private final String teamName = "SDA-Team4";
 
     public AddTeamPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
         super(driver, bot, wait);
@@ -32,14 +32,14 @@ public class AddTeamPage extends PageBase {
 
     @Step("And enter department name")
     public AddTeamPage enterDepartmentName() {
-        bot.type(departmentNameField, teamName);
+        bot.type(departmentNameField, "SDA-Team4");
         return this;
     }
 
     @Step("And enter department short name")
-    public AddTeamPage enterShortDepartmentName(){
+    public AddTeamPage enterShortDepartmentName() {
         bot.click(shortDepartmentNameField);
-        bot.type(shortDepartmentNameField,"SDA-T4");
+        bot.type(shortDepartmentNameField, "SDA-T4");
         return this;
     }
 
@@ -51,22 +51,24 @@ public class AddTeamPage extends PageBase {
     }
 
     @Step("And enter department description")
-    public AddTeamPage enterDescription(){
-        bot.click(shortDepartmentNameField);
-        bot.type(shortDepartmentNameField,"SDA-T4");
+    public AddTeamPage enterDescription() {
+        bot.click(departmentDescriptionInput);
+        bot.type(departmentDescriptionInput, "Team 4 Description");
         return this;
     }
 
     @Step("And select roles")
-    public AddTeamPage selectRole(){
-        bot.type(rolesInput,"Quality Manager"+Keys.ENTER);
+    public AddTeamPage selectRole() {
+        bot.type(rolesInput, "a"+Keys.ENTER);
         return this;
     }
 
     @Step("And leave department name empty")
     public AddTeamPage leaveDepartmentNameEmpty() {
-        driver.findElement(departmentNameField).sendKeys(Keys.CONTROL + "a");
-        driver.findElement(departmentNameField).sendKeys(Keys.DELETE);
+        wait.until(f -> {
+            driver.findElement(departmentNameField).clear();
+            return true;
+        });
         return this;
     }
 
@@ -89,6 +91,10 @@ public class AddTeamPage extends PageBase {
 
     @Step("Then required field message is displayed")
     public String getRequiredFieldMsg() {
+        wait.until(f -> {
+            driver.findElement(requiredFieldMsg).isDisplayed();
+            return true;
+        });
         return bot.getText(requiredFieldMsg);
     }
 }
