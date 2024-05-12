@@ -8,7 +8,8 @@ import org.openqa.selenium.support.ui.Wait;
 import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
 import sda.capstone.PropertiesReader;
-
+import org.openqa.selenium.WebElement;
+import java.util.List;
 
 public class RemoteUnitPage extends PageBase {
 
@@ -19,7 +20,7 @@ public class RemoteUnitPage extends PageBase {
     private final By addNewRemoteUnitButton = By.xpath("//button[contains(., 'Add New Remote Unit')]");
     private final By selectRemoteUnit = By.cssSelector(".card-text > div > div > a > b");
     private final By editRemoteUnitButton = By.xpath("//button[contains(text(),'Edit')]");
-
+    private final By unitsList = By.tagName("b");
 
 
 
@@ -46,7 +47,11 @@ public class RemoteUnitPage extends PageBase {
         return this;
     }
 
-
+    @Step("Then I will get a list of the registered remote units")
+    public List<WebElement> getUnitsList() {
+        wait.until(d -> driver.findElement(unitsList).isDisplayed());
+        return driver.findElements(unitsList);
+    }
 
 
 
