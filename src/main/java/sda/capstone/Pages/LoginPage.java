@@ -27,7 +27,15 @@ public class LoginPage extends PageBase {
     }
 
     @Step ("And perform the login action")
-    public LoginPage login(String usernameValue, String passwordValue) {
+    public HomePage login(String usernameValue, String passwordValue) {
+        bot.type(usernameInput, usernameValue);
+        bot.type(passwordInput, passwordValue);
+        bot.click(submitButton);
+        return new HomePage(driver,bot,wait);
+    }
+
+    @Step ("And perform the login action")
+    public LoginPage tryLogin(String usernameValue, String passwordValue) {
         bot.type(usernameInput, usernameValue);
         bot.type(passwordInput, passwordValue);
         bot.click(submitButton);

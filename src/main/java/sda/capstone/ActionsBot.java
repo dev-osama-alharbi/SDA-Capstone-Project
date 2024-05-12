@@ -1,5 +1,6 @@
 package sda.capstone;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
@@ -7,9 +8,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.concurrent.atomic.AtomicReference;
 
 
 public class ActionsBot {
@@ -66,12 +69,27 @@ public class ActionsBot {
     @Step("Get text from element")
     public String getText(By by) {
         logger.info("Getting text from: " + by);
-        AtomicReference<String> actualText = new AtomicReference<>("");
-        wait.until(f -> {
-            actualText.set(driver.findElement(by).getText());
-            return true;
-        });
-        return actualText.get();
+        wait.until(f -> driver.findElement(by).isDisplayed());
+        return driver.findElement(by).getText();
+    }
+
+    @Step("Check the element is displayed")
+    public boolean isDisplayed(By by) {
+        logger.info("Check the element is displayed from: " + by);
+        wait.until(f -> driver.findElement(by).isDisplayed());
+        return driver.findElement(by).isDisplayed();
+    }
+
+    public void waitUntilIsNotDisplayed(By by) {
+        logger.info("Check and wait the element is not displayed from: " + by);
+        wait.until(f -> driver.findElements(by).isEmpty());
+    }
+
+    @Step("Get tag name from element")
+    public String getTagName(By by) {
+        logger.info("Getting Tag name from: " + by);
+        wait.until(f -> driver.findElement(by).isDisplayed());
+        return driver.findElement(by).getTagName();
     }
 
     @Step
@@ -83,4 +101,20 @@ public class ActionsBot {
 
     }
 
+    @Step("Capturing Screenshot Evidence")
+    public void capturingScreenshotEvidence(By parentBy,By evidenceBy) {
+        wait.until(driver1 -> driver1.findElement(parentBy).isDisplayed() && driver1.findElement(evidenceBy).isDisplayed());
+        WebElement parentElement = driver.findElement(parentBy);
+        WebElement evidenceElement = driver.findElement(evidenceBy);
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border='2px solid red'", evidenceElement);
+
+        try (InputStream is = Files.newInputStream(parentElement.getScreenshotAs(OutputType.FILE).toPath())) {
+            Allure.attachment("image.png", is);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = \"none\";", evidenceElement);
+
+    }
 }
