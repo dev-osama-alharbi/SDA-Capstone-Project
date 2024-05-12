@@ -102,9 +102,9 @@ public class HomePage extends PageBase {
     }
 
     @Step ("go To Company Page")
-    public void goToCompanyPage() {
+    public CompanyPage goToCompanyPage() {
         bot.click(companyPageBy);
-        //TODO return page class
+        return new CompanyPage(driver,bot,wait);
     }
 
     @Step ("go To Departments Page")
