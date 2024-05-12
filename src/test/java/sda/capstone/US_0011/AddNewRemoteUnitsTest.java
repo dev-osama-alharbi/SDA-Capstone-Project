@@ -7,11 +7,11 @@ import sda.capstone.Pages.*;
 import sda.capstone.TestBase;
 
 public class AddNewRemoteUnitsTest extends TestBase {
-    private RemoteUnitsPage remoteUnitPage;
+    private RemoteUnitPage remoteUnitPage;
     private NewRemoteUnitPage newRemoteUnitPage;
-    public String username = "testevolve12@testevolve.com";
-    public String password = "DJK7wyf8_ZpG464";
 
+    public String username = "t4@testevolve.com";
+    public String password = "ByDckIStx4Yet14";
     private StartPage startPage;
     private LoginPage loginPage;
 
@@ -23,12 +23,12 @@ public class AddNewRemoteUnitsTest extends TestBase {
          loginPage = startPage.goTo().clickLoginButton().login(username,password);
 
 
-        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+        remoteUnitPage = new RemoteUnitPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
-        newRemoteUnitPage.addRemoteName("Team4Test").addRemoteType("Remote Unit").clickingOnSaveButton();
+        newRemoteUnitPage.addRemoteName("TeamTest").selectDepartmentType("Remote Unit").clickingOnSaveButton();
         String actualText = newRemoteUnitPage.successfullyMSG();
         Assert.assertEquals(actualText, "New department successfully created");
 
@@ -42,12 +42,12 @@ public class AddNewRemoteUnitsTest extends TestBase {
         startPage = new StartPage(driver,bot,wait);
         loginPage = startPage.goTo().clickLoginButton().login(username,password);
 
-        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+        remoteUnitPage = new RemoteUnitPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
-        newRemoteUnitPage.addRemoteName(null).addRemoteType("remote").clickingOnSaveButton();
+        newRemoteUnitPage.addRemoteName(null).selectDepartmentType("Remote Unit").clickingOnSaveButton();
         String actualText = newRemoteUnitPage.errorMSG();
         Assert.assertEquals(actualText, "Please enter a name for department");
     }
@@ -59,12 +59,12 @@ public class AddNewRemoteUnitsTest extends TestBase {
         startPage = new StartPage(driver,bot,wait);
         loginPage = startPage.goTo().clickLoginButton().login(username,password);
 
-        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+
         //-------------------------------------------------------
-        remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
+        remoteUnitPage = new RemoteUnitPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
-        newRemoteUnitPage.addRemoteName("Team4").addRemoteType(null).clickingOnSaveButton();
+        newRemoteUnitPage.addRemoteName("Team4").selectDepartmentType(null).clickingOnSaveButton();
         String actualText = newRemoteUnitPage.errorMSG();
         Assert.assertEquals(actualText, "Please select a type for department");
     }
