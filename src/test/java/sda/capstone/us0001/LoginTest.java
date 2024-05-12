@@ -13,8 +13,8 @@ import sda.capstone.listener.CustomListener;
 @Listeners(CustomListener.class)
 public class LoginTest extends TestBase {
 
-    public String username = "testevolve12@testevolve.com";
-    public String password = "DJK7wyf8_ZpG464";
+    public String username = "t4@testevolve.com";
+    public String password = "ByDckIStx4Yet14";
     public String accountManagementPageUrl = "https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20";
     public String invalidCredentialsMessageText = "Invalid Credentials";
     public String profileTxt = "My Profile";
