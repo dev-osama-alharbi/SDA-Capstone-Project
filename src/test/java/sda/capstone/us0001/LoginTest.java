@@ -34,7 +34,8 @@ public class LoginTest extends TestBase {
     @Test(testName = "Unsuccessful LogIn Test - Invalid password")
     public void unsuccessfulLoginTest_InvalidCredentialWithoutDot() {
         StartPage startPage = new StartPage(driver,bot,wait);
-        LoginPage loginPage = startPage.goTo().clickLoginButton().checkThedirectionToTheLoginPage().login(username,invalidPassword);
+        LoginPage loginPage = startPage.goTo().clickLoginButton().checkThedirectionToTheLoginPage();
+        loginPage.login(username,invalidPassword);
         Assert.assertNotEquals(driver.getCurrentUrl(), accountManagementPageUrl);
         Assert.assertEquals(loginPage.getInvalidCredentialsMessage(), invalidCredentialsMessageText);
     }
@@ -43,7 +44,8 @@ public class LoginTest extends TestBase {
     @Test(dataProvider = "invalidUsernames", testName = "Unsuccessful LogIn Test - Invalid usernames ")
     public void unsuccessfulLoginTest_InvalidCredentialWithoutAt(String username) {
         StartPage startPage = new StartPage(driver,bot,wait);
-        LoginPage loginPage = startPage.goTo().clickLoginButton().checkThedirectionToTheLoginPage().login(username,password);
+        LoginPage loginPage = startPage.goTo().clickLoginButton().checkThedirectionToTheLoginPage();
+        loginPage.login(username,password);
         Assert.assertNotEquals(driver.getCurrentUrl(), accountManagementPageUrl);
         Assert.assertEquals(loginPage.getInvalidCredentialsMessage(), invalidCredentialsMessageText);
     }

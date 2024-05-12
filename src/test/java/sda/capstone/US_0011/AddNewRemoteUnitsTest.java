@@ -20,7 +20,7 @@ public class AddNewRemoteUnitsTest extends TestBase {
     public void addNewRemoteUnitByTypingTheNameAndTypeTest() {
 
          startPage = new StartPage(driver,bot,wait);
-         loginPage = startPage.goTo().clickLoginButton().login(username,password);
+         startPage.goTo().clickLoginButton().login(username,password);
 
 
         remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
@@ -40,7 +40,7 @@ public class AddNewRemoteUnitsTest extends TestBase {
     public void addNewRemoteUnitWithoutAddNameTest() {
 
         startPage = new StartPage(driver,bot,wait);
-        loginPage = startPage.goTo().clickLoginButton().login(username,password);
+        startPage.goTo().clickLoginButton().login(username,password);
 
         remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
         //-------------------------------------------------------
@@ -57,7 +57,7 @@ public class AddNewRemoteUnitsTest extends TestBase {
     public void addNewRemoteUnitWithoutAddTypeTest() {
 
         startPage = new StartPage(driver,bot,wait);
-        loginPage = startPage.goTo().clickLoginButton().login(username,password);
+        startPage.goTo().clickLoginButton().login(username,password);
 
         remoteUnitPage = new RemoteUnitsPage(driver,bot,wait);
         //-------------------------------------------------------
