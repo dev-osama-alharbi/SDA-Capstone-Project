@@ -11,8 +11,8 @@ import sda.capstone.Pages.*;
 @Listeners(CustomListener.class)
 public class SideBarTest extends TestBase {
 
-    public String username = "testevolve12@testevolve.com";
-    public String password = "DJK7wyf8_ZpG464";
+    public String username = "t4@testevolve.com";
+    public String password = "ByDckIStx4Yet14";
 
     @Step("Verifies the visibility of the side bar on the home page")
     @Test(testName = "Verifies the visibility of the side bar on the home page.")
