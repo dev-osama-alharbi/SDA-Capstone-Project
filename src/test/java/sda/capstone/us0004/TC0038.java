@@ -2,6 +2,7 @@ package sda.capstone.us0004;
 
 import io.qameta.allure.Step;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import sda.capstone.Pages.HomePage;
 import sda.capstone.Pages.ProfilePage;
@@ -11,9 +12,10 @@ import sda.capstone.TestBase;
 
 //mvn clean test -Dtest=US04TC38EditProfileWithValidUsernameTest
 public class TC0038 extends TestBase {
-    private final String usernameMain = "t4@testiva.com";
-    private final String passwordMain = "Z6TkqEfKvDaUd-Y";
-    private final String usernameValid = "t4testivac.ome";
+
+//    private final String usernameMain = "t4@testiva.com";
+//    private final String passwordMain = "Z6TkqEfKvDaUd-Y";
+    private final String usernameValid = "t4testiva.com2";
 
     @Test(testName = "TC_0038: Edit profile with valid username")
     @Step("US_0004: Edit profile information in profile module.")
@@ -33,7 +35,7 @@ public class TC0038 extends TestBase {
         return new StartPage(driver,bot,wait)
                 .goTo()
                 .clickLoginButton()
-                .login(usernameMain, passwordMain);
+                .login(username, password);
     }
 
     @Step("Go To ProfilePage and edit my profile")

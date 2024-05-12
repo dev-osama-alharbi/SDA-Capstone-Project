@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
+import sda.capstone.impl.AssertStringTestImpl;
 
 public class HomePage extends PageBase {
 

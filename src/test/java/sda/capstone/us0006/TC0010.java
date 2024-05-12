@@ -3,6 +3,7 @@ package sda.capstone.us0006;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import sda.capstone.Pages.CompanyPage;
 import sda.capstone.Pages.HomePage;
@@ -16,7 +17,7 @@ public class TC0010 extends TestBase {
     private final String passwordMain = "Z6TkqEfKvDaUd-Y";
 
     @Test(testName = "TC_0010: Ensure required fields", dataProvider = "testTypes")
-    @Step("US_0005: Displays the memberships in the Memberships module.")
+    @Step("US_0006: Edit the registered company in the Company module.")
     public void TC0008(String testTypes){
         ensureRequiredFields(testTypes);
     }
@@ -36,7 +37,7 @@ public class TC0010 extends TestBase {
         return new StartPage(driver,bot,wait)
                 .goTo()
                 .clickLoginButton()
-                .login(mailMain, passwordMain);
+                .login(username, password);
     }
 
     @Step("Go To Company Page")

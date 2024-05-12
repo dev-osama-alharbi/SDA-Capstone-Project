@@ -3,6 +3,7 @@ package sda.capstone.us0004;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import sda.capstone.Pages.HomePage;
 import sda.capstone.Pages.ProfilePage;
@@ -12,27 +13,25 @@ import sda.capstone.TestBase;
 
 //mvn clean test -Dtest=US04TC39EditProfileWithInvalidUsernameTest
 public class TC0039 extends TestBase {
-    private final String usernameMain = "t4@testiva.com";
-    private final String passwordMain = "Z6TkqEfKvDaUd-Y";
     private final String usernameInvalidNotStartWithLetters = "5t4testivacome";
     private final String usernameInvalidEndWithSpecialCharacters = "t4testiva.com_";
     private final String usernameInvalidNotContainLettersNumbersSpecialCharacters = "t4@testevolve.com";
 
-    @Test(dataProvider = "orders",testName = "TC_0039: Edit profile with invalid username")
+    @Test(testName = "TC_0039: Edit profile with invalid username",dataProvider = "orders")
     @Step("US_0004: Edit profile information in profile module.")
-    public void TC0039(int orders){
+    public void TC0039(String orders){
         usernameNotStartWithLettersTest(orders);
     }
 
     @Step("TC_0039: Edit profile with invalid username")
-    private void usernameNotStartWithLettersTest(int orders){
+    private void usernameNotStartWithLettersTest(String orders){
         HomePage homePage = login();
         ProfilePage profilePage = clickEditMyProfile(homePage);
         switch (orders){
-            case 1 -> usernameMustStartWithLetters(profilePage);
-            case 2 -> usernameInvalidEndWithSpecialCharacters(profilePage);
-            case 3 -> usernameInvalidNotContainLettersNumbersSpecialCharacters(profilePage);
-            case 4 -> usernameInvalidEmpty(profilePage);
+            case "1" -> usernameMustStartWithLetters(profilePage);
+            case "2" -> usernameInvalidEndWithSpecialCharacters(profilePage);
+            case "3" -> usernameInvalidNotContainLettersNumbersSpecialCharacters(profilePage);
+            case "4" -> usernameInvalidEmpty(profilePage);
         }
     }
 
@@ -41,7 +40,7 @@ public class TC0039 extends TestBase {
         return new StartPage(driver,bot,wait)
                 .goTo()
                 .clickLoginButton()
-                .login(usernameMain, passwordMain);
+                .login(username, password);
     }
 
     @Step("Go To ProfilePage and edit my profile")
@@ -105,10 +104,10 @@ public class TC0039 extends TestBase {
     @DataProvider(name = "orders")
     public Object[][] orders() {
         return new Object[][] {
-                { 1 },
-                { 2 },
-                { 3 },
-                { 4 }
+                { "1" },
+                { "2" },
+                { "3" },
+                { "4" }
         };
     }
 }

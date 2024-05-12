@@ -22,6 +22,8 @@ public abstract class TestBase {
     protected Wait<WebDriver> wait;
     public static Logger logger;
     public ActionsBot bot;
+    public String username;
+    public String password;
 
 
 
@@ -36,7 +38,10 @@ public abstract class TestBase {
 
     @Step("Initializing target browser")
     @BeforeMethod
-    public void beforeMethod(){
+    @Parameters({"username","password"})
+    public void beforeMethod(String username,String password){
+        this.username = username;
+        this.password = password;
         String targetBrowser = "chrome";
 
         logger.info("Opening Chrome Browser");

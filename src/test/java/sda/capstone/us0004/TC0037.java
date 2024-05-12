@@ -2,6 +2,7 @@ package sda.capstone.us0004;
 
 import io.qameta.allure.Step;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import sda.capstone.Pages.HomePage;
 import sda.capstone.Pages.ProfilePage;
@@ -30,7 +31,7 @@ public class TC0037 extends TestBase {
         return new StartPage(driver,bot,wait)
                 .goTo()
                 .clickLoginButton()
-                .login(usernameMain, passwordMain);
+                .login(username, password);
     }
 
     @Step("Go To ProfilePage and edit my profile")

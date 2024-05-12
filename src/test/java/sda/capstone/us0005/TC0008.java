@@ -2,6 +2,7 @@ package sda.capstone.us0005;
 
 import io.qameta.allure.Step;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import sda.capstone.Pages.HomePage;
 import sda.capstone.Pages.StartPage;
@@ -10,8 +11,6 @@ import sda.capstone.TestBase;
 
 //mvn clean test -Dtest=TC0008
 public class TC0008 extends TestBase {
-    private final String mailMain = "t4@testiva.com";
-    private final String passwordMain = "Z6TkqEfKvDaUd-Y";
 
     @Test(testName = "TC_0008: Display memberships")
     @Step("US_0005: Displays the memberships in the Memberships module.")
@@ -30,11 +29,13 @@ public class TC0008 extends TestBase {
         return new StartPage(driver,bot,wait)
                 .goTo()
                 .clickLoginButton()
-                .login(mailMain, passwordMain);
+                .login(username, password);
     }
 
     @Step("Go To My Memberships and assert My Memberships")
     private void assertMyMemberships(HomePage homePage){
-        homePage.goToMyMembershipsPage().assertMyMembershipsIsDisplayed(Assert::assertTrue);
+        homePage
+                .goToMyMembershipsPage()
+                .assertMyMembershipsIsDisplayed(Assert::assertTrue);
     }
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
+import sda.capstone.impl.AssertBooleanTestImpl;
 import sda.capstone.impl.AssertStringTestImpl;
 
 public class ProfilePage extends PageBase {
@@ -25,6 +26,9 @@ public class ProfilePage extends PageBase {
     private final By changePasswordPopup = By.className("modal-content");
     private final By changePasswordInvalidAlert = By.className("alert");
     private final By changePasswordInvalidAlertCloseButton = By.cssSelector(".alert > button");
+    private final By userHeaderButton = By.xpath("(//div[@id='Header']//button)[2]");
+    private final By logoutButton = By.xpath("//a[text()='Logout']");
+    private final By passwordForm = By.className("modal-body");
     public ProfilePage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
         super(driver, bot, wait);
     }
@@ -137,6 +141,30 @@ public class ProfilePage extends PageBase {
     public ProfilePage assertUsernameInputIsDisplay(AssertStringTestImpl assertTest) {
         editUsernameInputIsDisplayCapturingScreenshot();
         assertTest.assertString(bot.getTagName(usernameInput));
+        return this;
+    }
+
+    public StartPage logout() {
+        bot.click(userHeaderButton);
+        bot.click(logoutButton);
+        return new StartPage(driver,bot,wait);
+    }
+
+
+    public ProfilePage assertLoggedIn(AssertBooleanTestImpl assertStringTest) {
+        emailInputIsDisplayCapturingScreenshot();
+        assertStringTest.assertBoolean(bot.isDisplayed(emailLabel));
+        return this;
+    }
+
+
+    public ProfilePage emailInputIsDisplayCapturingScreenshot(){
+        bot.capturingScreenshotEvidence(mainContentDiv,emailLabel);
+        return this;
+    }
+
+    public ProfilePage waitUntilPasswordFormIsClosed() {
+        bot.waitUntilIsNotDisplayed(passwordForm);
         return this;
     }
 }

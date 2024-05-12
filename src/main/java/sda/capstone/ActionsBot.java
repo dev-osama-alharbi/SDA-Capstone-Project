@@ -13,7 +13,6 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.concurrent.atomic.AtomicReference;
 
 
 public class ActionsBot {
@@ -79,6 +78,11 @@ public class ActionsBot {
         logger.info("Check the element is displayed from: " + by);
         wait.until(f -> driver.findElement(by).isDisplayed());
         return driver.findElement(by).isDisplayed();
+    }
+
+    public void waitUntilIsNotDisplayed(By by) {
+        logger.info("Check and wait the element is not displayed from: " + by);
+        wait.until(f -> driver.findElements(by).isEmpty());
     }
 
     @Step("Get tag name from element")

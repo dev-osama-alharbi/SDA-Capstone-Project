@@ -20,6 +20,7 @@ public class MyMembershipsPage extends PageBase {
 
     @Step("Assert My Memberships")
     public MyMembershipsPage assertMyMembershipsIsDisplayed(AssertBooleanTestImpl assertTest){
+        bot.isDisplayed(By.tagName("h5"));
         myMembershipsCapturingScreenshot();
         assertTest.assertBoolean(bot.isDisplayed(membershipsBoxA));
         return this;
