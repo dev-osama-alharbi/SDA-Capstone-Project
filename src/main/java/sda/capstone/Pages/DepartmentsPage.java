@@ -42,27 +42,27 @@ public class DepartmentsPage extends PageBase {
         } while(!displayed);
     }
 
-    @Step("Clicking on Department Link to navigate to Department Page")
+    @Step("Given I am on the Department Page")
     public DepartmentsPage goTo(){
         WaitFor(DepartmentLink);
         bot.click(DepartmentLink);
         return this;
     }
 
-    @Step("Clicking on Department name to navigate to edit department page")
+    @Step("When I click on the department name, I will be directed to the edit department page")
     public DepartmentsPage ClickOnDepartmentName(){
         bot.click(DepartmentName);
         return this;
     }
 
-    @Step("Clicking on 'Edit Department' Button")
+    @Step("And I click on 'Edit Department' button")
     public DepartmentsPage ClickOnEdit(){
         WaitFor(EditDepartmentButton);
         bot.click(EditDepartmentButton);
         return this;
     }
 
-    @Step("Editing the Department name to 'NameForTesting' ")
+    @Step("And I edit the department name to 'NameForTesting' ")
     public DepartmentsPage EditTheDepartmentName(){
         WaitFor(DepartmentNameField);
         bot.click(DepartmentNameField);
@@ -70,7 +70,7 @@ public class DepartmentsPage extends PageBase {
         return this;
     }
 
-    @Step("Leaving the Department name empty")
+    @Step("And I leave the department name empty")
     public DepartmentsPage LeaveTheDepartmentNameEmpty(){
         WaitFor(DepartmentNameField);
         driver.findElement(DepartmentNameField).sendKeys(Keys.CONTROL + "a");
@@ -78,14 +78,14 @@ public class DepartmentsPage extends PageBase {
         return this;
     }
 
-    @Step("Editing the Department type to 'Team' ")
+    @Step("And I edit the department type to 'Team' ")
     public DepartmentsPage EditTheDepartmentType(){
         WaitFor(DepartmentTypeDropDown);
         bot.type(DepartmentTypeDropDown , "Team"+Keys.ENTER);
         return this;
     }
 
-    @Step("Leaving the Department type empty")
+    @Step("And I leave the department type empty")
     public DepartmentsPage LeaveTheDepartmentTypeEmpty(){
         WaitFor(DepartmentTypeDropDown);
         bot.click(DepartmentTypeDropDown);
@@ -93,13 +93,13 @@ public class DepartmentsPage extends PageBase {
         return this;
     }
 
-    @Step("Clicking On Save Button")
+    @Step("And I click on 'Save' button")
     public DepartmentsPage ClickingOnSaveButton(){
         bot.click(SaveButton);
         return this;
     }
 
-    @Step("Getting the success message")
+    @Step("Then I will see the success message")
     public String GetTheSuccessMessage() {
         wait.until(d -> driver.findElement(SuccessMessage).isDisplayed());
         return bot.getText(SuccessMessage);
@@ -107,13 +107,13 @@ public class DepartmentsPage extends PageBase {
 
 
 
-    @Step("Getting the failure message")
+    @Step("Then I will see the failure message")
     public String GetTheFailureMessage() {
         wait.until(d -> driver.findElement(FailureMessage).isDisplayed());
         return bot.getText(FailureMessage);
     }
 
-    @Step("Deleting the department")
+    @Step("Then I delete the department")
     public String DeleteTheDepartment() {
         WaitFor(DeleteTheDepartmentButton);
         bot.click(DeleteTheDepartmentButton);
