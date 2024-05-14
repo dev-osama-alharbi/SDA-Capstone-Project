@@ -91,7 +91,6 @@ public class DepartmentsPage extends PageBase {
     @Step("And I leave the department type empty")
     public DepartmentsPage LeaveTheDepartmentTypeEmpty(){
         WaitFor(DepartmentTypeDropDown);
-        bot.click(DepartmentTypeDropDown);
         bot.type(DepartmentTypeDropDown , Keys.DELETE);
         return this;
     }
