@@ -2,6 +2,7 @@ package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
@@ -9,6 +10,10 @@ import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
 import sda.capstone.impl.AssertBooleanTestImpl;
 import sda.capstone.impl.AssertStringTestImpl;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class ProfilePage extends PageBase {
     private final By mainContentDiv = By.id("MainContent");

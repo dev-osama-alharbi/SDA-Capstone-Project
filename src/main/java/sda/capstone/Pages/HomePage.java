@@ -2,11 +2,16 @@ package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
 import sda.capstone.impl.AssertStringTestImpl;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class HomePage extends PageBase {
 
@@ -27,6 +32,7 @@ public class HomePage extends PageBase {
     private final By rolesPageBy = By.cssSelector("#link9 a");
     private final By permissionsPageBy = By.cssSelector("#link10 a");
     private final By accessTokensPageBy = By.cssSelector("#link11 a");
+    private final By dropDown = By.xpath("//ul[contains(@class, 'dropdown-menu')]");
 
     public By dropdownText = By.xpath("//td[contains(@class, 'text-start')]");
 
@@ -164,6 +170,15 @@ public class HomePage extends PageBase {
         bot.click(dropdownText);
     }
 
+    @Step("Is DropDown menu Displayed")
+    public boolean dropDownIsDisplayed() {
+        wait.until(f -> {
+            driver.findElement(dropDown).isDisplayed();
+            return true;
+        });
+        return bot.isDisplayed(dropDown);
+    }
+
     @Step("And I will see my username written beside my photo")
     public boolean getTheUsernameTextFromTheDropdown(){
         return bot.getText(dropdownText).contains(username);
@@ -174,4 +189,16 @@ public class HomePage extends PageBase {
         return bot.getText(dropdownText).contains(role);
     }
 
+    public String getGSEISSION() {
+        String GSEISSION = "NaN";
+        List<Cookie> cookies = bot.getCookies().stream().toList();
+        for (Cookie cookie: cookies){
+            Map<String, Object> map = cookie.toJson();
+            if(map.containsKey("name") && map.get("name").equals("GSESSIONID")){
+                GSEISSION = (String) map.get("value");
+                break;
+            }
+        }
+        return GSEISSION;
+    }
 }
