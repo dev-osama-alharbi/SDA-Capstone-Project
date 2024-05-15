@@ -10,7 +10,6 @@ import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
 
 public class AddTeamPage extends PageBase {
-    private final By addNewTeamElement = By.cssSelector("div>div>div>a>button");
     private final By departmentNameField = By.id("name");
     private final By shortDepartmentNameField = By.name("short_name");
     private final By departmentTypeField = By.id("react-select-2-input");
@@ -24,11 +23,6 @@ public class AddTeamPage extends PageBase {
         super(driver, bot, wait);
     }
 
-    @Step("When I add new team")
-    public AddTeamPage addNewTeam() {
-        bot.click(addNewTeamElement);
-        return this;
-    }
 
     @Step("And enter department name")
     public AddTeamPage enterDepartmentName() {

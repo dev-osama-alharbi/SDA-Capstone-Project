@@ -3,8 +3,10 @@ package sda.capstone.UI.us0014;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.Pages.EditTeamPage;
+import sda.capstone.Pages.StartPage;
+import sda.capstone.Pages.TeamsPage;
 import sda.capstone.TestBase;
-import sda.capstone.Pages.*;
 
 public class EditAndDeleteTeam extends TestBase {
     StartPage startPage;
@@ -12,7 +14,7 @@ public class EditAndDeleteTeam extends TestBase {
     EditTeamPage editTeam;
 
     @Step("Given I am on the on the Teams page")
-    @Test(testName = "Edit a team with filled required field", priority = 1, dependsOnMethods = "sda.capstone.us0013_us0014.DisplayAndAddTeamInTeamModule.addTeamWithFilledRequirementsTest")
+    @Test(testName = "Edit a team with filled required field", priority = 1)
     public void editTeamWithFilledRequiredField() {
         startPage = new StartPage(driver, bot, wait);
         startPage.goTo().clickLoginButton().login(username, password);
@@ -36,7 +38,7 @@ public class EditAndDeleteTeam extends TestBase {
 
 
     @Step("Given I am on the on the Teams page")
-    @Test(testName = "Edit a team with empty required field", priority = 2, dependsOnMethods = "sda.capstone.us0013_us0014.DisplayAndAddTeamInTeamModule.addTeamWithFilledRequirementsTest")
+    @Test(testName = "Edit a team with empty required field", priority = 2)
     public void editTeamWithEmptyRequiredField() {
         startPage = new StartPage(driver, bot, wait);
         startPage.goTo().clickLoginButton().login(username, password);
