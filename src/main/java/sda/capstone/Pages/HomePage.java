@@ -138,9 +138,9 @@ public class HomePage extends PageBase {
     }
 
     @Step ("go To Users Page")
-    public void goToUsersPage() {
+    public Users goToUsersPage() {
         bot.click(usersPageBy);
-        //TODO return page class
+        return new Users(driver,bot,wait);
     }
 
     @Step ("go To Roles Page")
