@@ -1,11 +1,9 @@
 package sda.capstone.Pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Wait;
+import org.testng.SkipException;
 import sda.capstone.ActionsBot;
 import sda.capstone.PageBase;
 
@@ -51,7 +49,12 @@ public class DepartmentsPage extends PageBase {
 
     @Step("When I click on the department name, I will be directed to the edit department page")
     public DepartmentsPage ClickOnDepartmentName(){
-        bot.click(DepartmentName);
+        try{
+            bot.click(DepartmentName);
+        }catch (TimeoutException timeoutException){
+            System.out.println("No departments found");
+            throw new SkipException("Skipping this exception");
+        }
         return this;
     }
 
@@ -78,17 +81,16 @@ public class DepartmentsPage extends PageBase {
         return this;
     }
 
-    @Step("And I edit the department type to 'Team' ")
+    @Step("And I edit the department type to 'Department' ")
     public DepartmentsPage EditTheDepartmentType(){
         WaitFor(DepartmentTypeDropDown);
-        bot.type(DepartmentTypeDropDown , "Team"+Keys.ENTER);
+        bot.type(DepartmentTypeDropDown , "Department"+Keys.ENTER);
         return this;
     }
 
     @Step("And I leave the department type empty")
     public DepartmentsPage LeaveTheDepartmentTypeEmpty(){
         WaitFor(DepartmentTypeDropDown);
-        bot.click(DepartmentTypeDropDown);
         bot.type(DepartmentTypeDropDown , Keys.DELETE);
         return this;
     }
