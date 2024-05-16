@@ -1,4 +1,4 @@
-package sda.capstone;
+package sda.capstone.UI;
 
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
@@ -13,11 +13,13 @@ import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import sda.capstone.ActionsBot;
+import sda.capstone.PropertiesReader;
 import sda.capstone.listener.CustomListener;
 
 import java.time.Duration;
 
-public abstract class TestBase {
+public abstract class UITestBase {
     protected WebDriver driver;
     protected Wait<WebDriver> wait;
     public static Logger logger;
@@ -31,7 +33,7 @@ public abstract class TestBase {
     @BeforeSuite
     public static void beforeClass() {
         Configurator.initialize(null, "src/main/resources/properties/log4j2.properties");
-        logger = LogManager.getLogger(TestBase.class.getName());
+        logger = LogManager.getLogger(UITestBase.class.getName());
 
         PropertiesReader.readPropertyFile("src/main/resources/properties/configuration.properties");
     }

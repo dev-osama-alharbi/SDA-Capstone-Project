@@ -4,13 +4,13 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.listener.CustomListener;
 import sda.capstone.Pages.*;
 
 
 @Listeners(CustomListener.class)
-public class LogoFunctionalityTest extends TestBase {
+public class LogoFunctionalityTest extends UITestBase {
 
     @Step("Verifies the visibility of the logo on the home page.")
     @Test(testName = "Verifies the visibility of the logo on the home page.")

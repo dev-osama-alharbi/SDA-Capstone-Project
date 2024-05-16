@@ -4,12 +4,12 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.listener.CustomListener;
 import sda.capstone.Pages.*;
 
 @Listeners(CustomListener.class)
-public class EditDepartmentNameAndTypeTest extends TestBase {
+public class EditDepartmentNameAndTypeTest extends UITestBase {
 
     @Step("Testing the functionality of editing Department name and type")
     @Test(priority = 1)

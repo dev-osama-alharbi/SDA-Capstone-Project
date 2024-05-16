@@ -6,10 +6,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class TestUserModule extends TestBase {
+public class TestUserModule extends UITestBase {
 
     @Step("Displays users in the Users module ")
     @Test

@@ -3,12 +3,12 @@ package sda.capstone.UI.us0005;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
 
 //mvn clean test -Dtest=TC0008
-public class TC0008 extends TestBase {
+public class TC0008 extends UITestBase {
 
     @Test(testName = "TC_0008: Display memberships")
     @Step("US_0005: Displays the memberships in the Memberships module.")

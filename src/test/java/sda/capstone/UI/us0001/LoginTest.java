@@ -5,13 +5,13 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.listener.CustomListener;
 import sda.capstone.Pages.*;
 
 
 @Listeners(CustomListener.class)
-public class LoginTest extends TestBase {
+public class LoginTest extends UITestBase {
 
     public String accountManagementPageUrl = "https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20";
     public String invalidCredentialsMessageText = "Invalid Credentials";

@@ -3,10 +3,10 @@ package sda.capstone.UI.us0014;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class EditAndDeleteTeam extends TestBase {
+public class EditAndDeleteTeam extends UITestBase {
     StartPage startPage;
     TeamsPage teams;
     EditTeamPage editTeam;

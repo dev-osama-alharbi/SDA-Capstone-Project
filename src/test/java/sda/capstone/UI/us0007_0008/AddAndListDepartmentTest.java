@@ -4,10 +4,10 @@ import Pages.AddAndListDepartment;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class AddAndListDepartmentTest extends TestBase {
+public class AddAndListDepartmentTest extends UITestBase {
     public String username = "t4@testevolve.com";
     public String password = "rXqRPwfDxyWRG4R";
     @Step("random test")

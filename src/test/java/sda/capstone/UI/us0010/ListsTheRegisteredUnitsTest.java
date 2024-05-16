@@ -5,14 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.listener.CustomListener;
 import sda.capstone.Pages.*;
 
 import java.util.List;
 
 @Listeners(CustomListener.class)
-public class ListsTheRegisteredUnitsTest extends TestBase {
+public class ListsTheRegisteredUnitsTest extends UITestBase {
 
         @Step("Testing the visibility of the registered remote units on 'Remote Unit' page")
         @Test

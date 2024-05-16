@@ -1,12 +1,11 @@
 package sda.capstone.UI.us0003;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class DropdownFunctionalityTest extends TestBase {
+public class DropdownFunctionalityTest extends UITestBase {
 
 
     @Test(testName = "Verify the functions of the drop-down menu")
