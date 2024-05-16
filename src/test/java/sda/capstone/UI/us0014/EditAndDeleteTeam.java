@@ -12,7 +12,7 @@ public class EditAndDeleteTeam extends UITestBase {
     EditTeamPage editTeam;
 
     @Step("Given I am on the on the Teams page")
-    @Test(testName = "Edit a team with filled required field", priority = 1, dependsOnMethods = "sda.capstone.us0013_us0014.DisplayAndAddTeamInTeamModule.addTeamWithFilledRequirementsTest")
+    @Test(testName = "Edit a team with filled required field", priority = 1)
     public void editTeamWithFilledRequiredField() {
         startPage = new StartPage(driver, bot, wait);
         startPage.goTo().clickLoginButton().login(username, password);
@@ -36,7 +36,7 @@ public class EditAndDeleteTeam extends UITestBase {
 
 
     @Step("Given I am on the on the Teams page")
-    @Test(testName = "Edit a team with empty required field", priority = 2, dependsOnMethods = "sda.capstone.us0013_us0014.DisplayAndAddTeamInTeamModule.addTeamWithFilledRequirementsTest")
+    @Test(testName = "Edit a team with empty required field", priority = 2)
     public void editTeamWithEmptyRequiredField() {
         startPage = new StartPage(driver, bot, wait);
         startPage.goTo().clickLoginButton().login(username, password);

@@ -17,6 +17,7 @@ public class TeamsPage extends PageBase {
     private final By teamElementLocator = By.xpath("//a[contains(@href,'#/department/1')]");
     private final String teamName = "SDA-Team4";
     private final By selectedTeamElement = By.linkText("SDA-Team4");
+    private final By addNewTeamElement = By.cssSelector("div>div>div>a>button");
 
 
     public TeamsPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) { //⬅️
@@ -31,6 +32,12 @@ public class TeamsPage extends PageBase {
             return true;
         });
         bot.click(teamsModuleSidebarLocator);
+        return this;
+    }
+
+    @Step("When I add new team")
+    public TeamsPage addNewTeam() {
+        bot.click(addNewTeamElement);
         return this;
     }
 

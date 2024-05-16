@@ -23,18 +23,17 @@ public class DisplayAndAddTeamInTeamModule extends UITestBase {
         teams = new TeamsPage(driver, bot, wait);
         teams.navigateToTeamModule();
 
+        Assert.assertFalse(teams.getTeamElements().isEmpty());
         System.out.println("teamSize = " + teams.getTeamElements().size());
-
-        boolean isTeamDisplayed = teams.isTeamDisplayed();
-        boolean isClickable = teams.isTeamClickable();
-
 
         for (WebElement team : teams.getTeamElements()) {
             String attributeValue = team.getAttribute("textContent");
             System.out.println(attributeValue);
         }
 
-        Assert.assertFalse(teams.getTeamElements().isEmpty());
+        boolean isTeamDisplayed = teams.isTeamDisplayed();
+        boolean isClickable = teams.isTeamClickable();
+
         Assert.assertTrue(isTeamDisplayed, "Teams are not displayed");
         Assert.assertTrue(isClickable, "Teams are not clickable");
 
@@ -47,11 +46,10 @@ public class DisplayAndAddTeamInTeamModule extends UITestBase {
         startPage = new StartPage(driver, bot, wait);
         startPage.goTo().clickLoginButton().login(username, password);
 
-        new TeamsPage(driver, bot, wait).navigateToTeamModule();
+        new TeamsPage(driver, bot, wait).navigateToTeamModule().addNewTeam();
 
         addTeam = new AddTeamPage(driver, bot, wait);
         String actualMsg = addTeam
-                .addNewTeam()
                 .enterDepartmentName()
                 .enterShortDepartmentName()
                 .enterDescription()
@@ -71,11 +69,10 @@ public class DisplayAndAddTeamInTeamModule extends UITestBase {
         startPage = new StartPage(driver, bot, wait);
         startPage.goTo().clickLoginButton().login(username, password);
 
-        new TeamsPage(driver, bot, wait).navigateToTeamModule();
+        new TeamsPage(driver, bot, wait).navigateToTeamModule().addNewTeam();
 
         addTeam = new AddTeamPage(driver, bot, wait);
         String actualRequiredNameErrMsg = addTeam
-                .addNewTeam()
                 .leaveDepartmentNameEmpty()
                 .enterShortDepartmentName()
                 .enterDescription()
