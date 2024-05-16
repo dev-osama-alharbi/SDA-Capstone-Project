@@ -4,10 +4,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class TestEditUsere extends TestBase {
+public class TestEditUsere extends UITestBase {
 
     @Step("TC_0031 Edit the users displayed in the Users module")
     @Test

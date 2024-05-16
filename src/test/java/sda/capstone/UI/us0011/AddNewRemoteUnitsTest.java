@@ -3,10 +3,10 @@ package sda.capstone.UI.us0011;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class AddNewRemoteUnitsTest extends TestBase {
+public class AddNewRemoteUnitsTest extends UITestBase {
     private RemoteUnitPage remoteUnitPage;
     private NewRemoteUnitPage newRemoteUnitPage;
     private StartPage startPage;

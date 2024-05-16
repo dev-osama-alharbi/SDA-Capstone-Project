@@ -3,12 +3,12 @@ package sda.capstone.UI.us0004;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
 
 //mvn clean test -Dtest=US04TC37EmailCannotBeChangedTest
-public class TC0037 extends TestBase {
+public class TC0037 extends UITestBase {
     private final String usernameMain = "t4@testiva.com";
     private final String passwordMain = "Z6TkqEfKvDaUd-Y";
     @Test(testName = "TC_0037: Email cannot be changed")

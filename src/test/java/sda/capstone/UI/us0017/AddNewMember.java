@@ -4,10 +4,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class AddNewMember extends TestBase {
+public class AddNewMember extends UITestBase {
 
     private final By login = By.xpath("//a[@class='login-button']");
     private final By name = By.id("username");

@@ -4,12 +4,12 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
 
 //mvn clean test -Dtest=TC0010
-public class TC0010 extends TestBase {
+public class TC0010 extends UITestBase {
     private final String mailMain = "t4@testiva.com";
     private final String passwordMain = "Z6TkqEfKvDaUd-Y";
 

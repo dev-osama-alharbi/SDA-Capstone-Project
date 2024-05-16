@@ -3,10 +3,10 @@ package sda.capstone.UI.us0020;
 import Pages.PermissionsListing;
 import io.qameta.allure.Step;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class PermissionsListingTest extends TestBase {
+public class PermissionsListingTest extends UITestBase {
     @Step("random test")
     @Test(testName = "Listing the Permissions")
     public void listThePermissions() {

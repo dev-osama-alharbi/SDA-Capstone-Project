@@ -3,12 +3,12 @@ package sda.capstone.UI.us0004;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
 
 //mvn clean test -Dtest=US04TC38EditProfileWithValidUsernameTest
-public class TC0038 extends TestBase {
+public class TC0038 extends UITestBase {
 
 //    private final String usernameMain = "t4@testiva.com";
 //    private final String passwordMain = "Z6TkqEfKvDaUd-Y";

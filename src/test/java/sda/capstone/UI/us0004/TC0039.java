@@ -4,12 +4,12 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
 
 //mvn clean test -Dtest=US04TC39EditProfileWithInvalidUsernameTest
-public class TC0039 extends TestBase {
+public class TC0039 extends UITestBase {
     private final String usernameInvalidNotStartWithLetters = "5t4testivacome";
     private final String usernameInvalidEndWithSpecialCharacters = "t4testiva.com_";
     private final String usernameInvalidNotContainLettersNumbersSpecialCharacters = "t4@testevolve.com";

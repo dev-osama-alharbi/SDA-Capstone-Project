@@ -2,8 +2,9 @@ package sda.capstone;
 
 import org.testng.annotations.Test;
 import sda.capstone.Pages.StartPage;
+import sda.capstone.UI.UITestBase;
 
-public class GetGSEISSIONTest extends TestBase{
+public class GetGSEISSIONTest extends UITestBase {
 
     @Test
     public void getGSEISSIONTest(){

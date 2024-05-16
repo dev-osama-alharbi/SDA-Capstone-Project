@@ -3,10 +3,10 @@ package sda.capstone.UI.us0019;
 import Pages.RolesPrivileges;
 import io.qameta.allure.Step;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
-public class RolesPrivilegesTest extends TestBase {
+public class RolesPrivilegesTest extends UITestBase {
     @Step("random test")
     @Test(testName = "Listing Privileges of Roles")
     public void listThePrivilegesOfroles() {

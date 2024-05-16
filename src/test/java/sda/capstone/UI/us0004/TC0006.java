@@ -4,10 +4,10 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.Pages.*;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 
 //US04TC06EditProfileWithValidPasswordTest
-public class TC0006 extends TestBase {
+public class TC0006 extends UITestBase {
     private String passwordChanged = "Z6TkqEfKvDaUd_Y2";
 
     @Test(testName = "TC_0006: Passwords: uppercase (A-Z), lowercase (a-z), numbers (0-9), and .@#$%_&.")

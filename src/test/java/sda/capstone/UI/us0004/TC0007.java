@@ -3,12 +3,12 @@ package sda.capstone.UI.us0004;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
 
 //mvn clean test -Dtest=US04TC07EditProfileWithInvalidPasswordTest
-public class TC0007 extends TestBase {
+public class TC0007 extends UITestBase {
     private final String passwordInvalidWithoutUppercase = "uppercase";
     private final String passwordInvalidWithoutLowercase = "LOWERCASE";
     private final String passwordInvalidWithoutNumbers = "NumbersOne";

@@ -4,11 +4,11 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
 
-public class DisplayAndAddTeamInTeamModule extends TestBase {
+public class DisplayAndAddTeamInTeamModule extends UITestBase {
     StartPage startPage;
     TeamsPage teams;
     AddTeamPage addTeam;

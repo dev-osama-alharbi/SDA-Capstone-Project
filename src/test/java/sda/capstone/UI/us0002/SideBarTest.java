@@ -4,12 +4,12 @@ import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import sda.capstone.TestBase;
+import sda.capstone.UI.UITestBase;
 import sda.capstone.listener.CustomListener;
 import sda.capstone.Pages.*;
 
 @Listeners(CustomListener.class)
-public class SideBarTest extends TestBase {
+public class SideBarTest extends UITestBase {
 
 
     @Step("Verifies the visibility of the side bar on the home page")
