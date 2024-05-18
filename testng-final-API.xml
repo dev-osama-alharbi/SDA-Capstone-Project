@@ -2,13 +2,36 @@
 <suite name="SDA suite" thread-count="1" parallel="classes" verbose="1">
     <parameter name="username" value="1715783108_PZxr8HXHcGOjFro"></parameter>
     <parameter name="password" value="IMjuv6ajlYBntToTuMdbZchY9sR3okuDkSjhXv0z7klVTF-jpbFSq7K0EfdmGY2A"></parameter>
-    <test name="US_0011 User Status Service Requests" >
+    <parameter name="username_ui" value="t4@testevolve.com"></parameter>
+    <parameter name="password_ui" value="zN8-9Yf-d8-qkH4"></parameter><!--    <parameter name="username_ui" value="t4@testevolve.com"></parameter>-->
+<!--    <parameter name="password_ui" value="pJW286o-TlK_IqS"></parameter>-->
+
+<!--    <test name="US_0011 User Status Service Requests" >-->
+<!--        <classes>-->
+<!--            <class name="sda.capstone.API.test.us0011.TC0008" />-->
+<!--            <class name="sda.capstone.API.test.us0011.TC0009" />-->
+<!--            <class name="sda.capstone.API.test.us0011.TC0010" />-->
+<!--            <class name="sda.capstone.API.test.us0011.TC0011" />-->
+<!--            <class name="sda.capstone.API.test.us0011.TC0048" />-->
+<!--        </classes>-->
+<!--    </test>-->
+        <test name="US_0003 All Memberships Requests" >
+           <classes>
+               <class name="sda.capstone.API.test.us0003.TC0025" />
+                <class name="sda.capstone.API.test.us0003.TC0026" />
+                <class name="sda.capstone.API.test.us0003.TC0027" />
+                <class name="sda.capstone.API.test.us0003.TC0028" />
+        </classes>
+    </test>
+    <test name="US_0004  Memberships Types Requests" >
         <classes>
-            <class name="sda.capstone.API.test.us0011.TC0008" />
-            <class name="sda.capstone.API.test.us0011.TC0009" />
-            <class name="sda.capstone.API.test.us0011.TC0010" />
-            <class name="sda.capstone.API.test.us0011.TC0011" />
-            <class name="sda.capstone.API.test.us0011.TC0048" />
+            <class name="sda.capstone.API.test.us0004.TC0029" />
+            <class name="sda.capstone.API.test.us0004.TC0030" />
+            <class name="sda.capstone.API.test.us0004.TC0038" />
+            <class name="sda.capstone.API.test.us0004.TC0039" />
+            <class name="sda.capstone.API.test.us0004.TC0040" />
+            <class name="sda.capstone.API.test.us0004.TC0041" />
+
         </classes>
     </test>
 </suite>
