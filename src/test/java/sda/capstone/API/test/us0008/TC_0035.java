@@ -3,6 +3,7 @@ package sda.capstone.API.test.us0008;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiBase;
 import sda.capstone.API.pojo.Organization;
 import sda.capstone.API.pojo.UserGroupService;
@@ -50,7 +51,7 @@ public class TC_0035 extends ApiBase {
 
         UserGroupService userGroupService1 = ObjectMapperUtils.convertJsonToJava(response.asString(),UserGroupService.class);
         int statusCode = response.statusCode();
-        DataSaver.a = userGroupService1.getId();
+        APIVars.UserGroupID = userGroupService1.getId();
 
         Assert.assertEquals(statusCode, 201);
     }

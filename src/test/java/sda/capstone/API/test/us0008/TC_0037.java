@@ -3,6 +3,7 @@ package sda.capstone.API.test.us0008;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiBase;
 
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import static io.restassured.RestAssured.given;
 public class TC_0037 extends ApiBase {
     @Test
     public void DeleteExistingUserGroupById() {
-        String id = String.valueOf(DataSaver.a);
+        String id = String.valueOf(APIVars.UserGroupID);
 
         HashMap<String, String> pathParams = new HashMap<>();
         pathParams.put("first", "user-group");
