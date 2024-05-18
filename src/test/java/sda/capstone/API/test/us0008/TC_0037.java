@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 
 public class TC_0037 extends ApiBase {
     @Test
-    public void DeleteExistingUserGroupbyId() {
+    public void DeleteExistingUserGroupById() {
         String id = String.valueOf(DataSaver.a);
 
         HashMap<String, String> pathParams = new HashMap<>();

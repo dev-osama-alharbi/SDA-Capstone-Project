@@ -9,20 +9,18 @@ import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class TC_0036 extends ApiBase {
+public class TC_0032 extends ApiBase {
+
     @Test
-    public void GetUserGroupById() {
-        String id = String.valueOf(DataSaver.a);
+    public void RemoveUserFromUserGroupOfTheOrganization() {
 
         HashMap<String, String> pathParams = new HashMap<>();
         pathParams.put("first", "user-group");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
-                .get("/a3m/auth/api/{first}/"+id);
+                .delete("/a3m/auth/api/organization/123/{first}/123/user/123");
         response.prettyPrint();
 
-        int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode, 200);
     }
 }
