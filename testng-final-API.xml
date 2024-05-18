@@ -13,7 +13,8 @@
 <!--    </test>-->
     <test name="US_009 User Group Type Service Requests" >
         <classes>
-            <class name="sda.capstone.API.test.us0009.TC_0019" />
+            <class name="sda.capstone.API.test.us0011.TC0010" />
+<!--            <class name="sda.capstone.API.test.us0009.TC_0020" />-->
 
         </classes>
     </test>
