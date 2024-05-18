@@ -13,49 +13,49 @@ import static io.restassured.RestAssured.given;
 
 public class TC0045 extends ApiWithCookieHeaderBase {
 
-    private OrganizationService organizationServiceBody = OrganizationService
-            .builder()
-            .id(1715947853784012L) //TODO: Edit later to make it dynamic
-            .name("Updated Team4Company")
-            .founder_id(1)
-            .short_name("Team4C")
-            .country_id("SA")
-            .phone("0591234567")
-            .email("team4@email.com")
-            .website("www.team4company.com")
-            .fax("966591234567")
-            .status_id(3)
-            .currency("SAR")
-            .address("4th Street")
-            .build();
-
     @Test
     public void updateExistingOrganizationTest() {
+        OrganizationService organizationUpdateBody = OrganizationService
+                .builder()
+//            .id(APIVars.read().getOrganizationId()) //uncomment
+                .name("Updated Team4Company")
+                .founder_id(1)
+                .short_name("Team4C")
+                .country_id("SA")
+                .phone("0591234567")
+                .email("team4@email.com")
+                .website("www.team4company.com")
+                .fax("966591234567")
+                .status_id(3)
+                .currency("SAR")
+                .address("4th Street")
+                .build();
+
         HashMap<String, String> pathParams = new HashMap<>();
         pathParams.put("first", "organization");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
-                .body(organizationServiceBody)
+                .body(organizationUpdateBody)
                 .put("/a3m/auth/api/{first}");
         response.prettyPrint();
 
-        OrganizationService addOrganizationResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), OrganizationService.class);
+        OrganizationService updateOrganizationResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), OrganizationService.class);
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200, "Status code should be 200");
-        Assert.assertEquals(addOrganizationResponse.getId(), organizationServiceBody.getId(), "ID assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getName(), organizationServiceBody.getName(), "Name assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getFounder_id(), organizationServiceBody.getFounder_id(), "Founder ID assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getShort_name(), organizationServiceBody.getShort_name(), "Short name assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getCountry_id(), organizationServiceBody.getCountry_id(), "Country ID assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getPhone(), organizationServiceBody.getPhone(), "Phone assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getEmail(), organizationServiceBody.getEmail(), "Email assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getWebsite(), organizationServiceBody.getWebsite(), "Website assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getStatus_id(), organizationServiceBody.getStatus_id(), "Status ID assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getFax(), organizationServiceBody.getFax(), "Fax assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getCurrency(), organizationServiceBody.getCurrency(), "Currency assertion failed");
-        Assert.assertEquals(addOrganizationResponse.getAddress(), organizationServiceBody.getAddress(), "Address assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getId(), organizationUpdateBody.getId(), "ID assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getName(), organizationUpdateBody.getName(), "Name assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getFounder_id(), organizationUpdateBody.getFounder_id(), "Founder ID assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getShort_name(), organizationUpdateBody.getShort_name(), "Short name assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getCountry_id(), organizationUpdateBody.getCountry_id(), "Country ID assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getPhone(), organizationUpdateBody.getPhone(), "Phone assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getEmail(), organizationUpdateBody.getEmail(), "Email assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getWebsite(), organizationUpdateBody.getWebsite(), "Website assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getStatus_id(), organizationUpdateBody.getStatus_id(), "Status ID assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getFax(), organizationUpdateBody.getFax(), "Fax assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getCurrency(), organizationUpdateBody.getCurrency(), "Currency assertion failed");
+        Assert.assertEquals(updateOrganizationResponse.getAddress(), organizationUpdateBody.getAddress(), "Address assertion failed");
     }
 
 }

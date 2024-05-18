@@ -31,12 +31,12 @@ public class TC0042 extends ApiWithCookieHeaderBase {
         Response response = given(spec).get("/a3m/auth/api/{first}");
         response.prettyPrint();
 
-        OrganizationService[] organizationArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationService[].class);
-        List<OrganizationService> organizationListResponse = new ArrayList<>(Arrays.asList(organizationArraysResponse));
+        OrganizationService[] allOrganizationArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationService[].class);
+        List<OrganizationService> allOrganizationListResponse = new ArrayList<>(Arrays.asList(allOrganizationArraysResponse));
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200, "Status code should be 200");
-        Assert.assertTrue(!organizationListResponse.isEmpty(), "Response body should not be empty");
+        Assert.assertTrue(!allOrganizationListResponse.isEmpty(), "Response body should not be empty");
     }
 
 }

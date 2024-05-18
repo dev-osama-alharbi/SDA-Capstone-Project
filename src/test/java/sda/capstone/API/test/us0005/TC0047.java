@@ -3,6 +3,7 @@ package sda.capstone.API.test.us0005;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
 
 import java.util.HashMap;
@@ -13,12 +14,13 @@ public class TC0047 extends ApiWithCookieHeaderBase {
 
     @Test
     public void deleteOrganizationByIdTest(){
-        String id = String.valueOf(1715947853784012L);  //TODO: Edit (dynamic)
+        String strOrgId = null; //String.valueOf(APIVars.read().getOrganizationId());   //uncomment
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","organization");
+        pathParams.put("org_id",strOrgId);
 
         spec.pathParams(pathParams);
-        Response response = given(spec).delete("/a3m/auth/api/{first}/"+id);
+        Response response = given(spec).delete("/a3m/auth/api/{first}/{org_id}");
 
 
         int statusCode = response.statusCode();
@@ -28,16 +30,17 @@ public class TC0047 extends ApiWithCookieHeaderBase {
 
     @Test(dependsOnMethods = "deleteOrganizationByIdTest")
     public void getOrganizationByIdAndVerifyIsDeletedTest(){
-        String id = String.valueOf(1715947853784012L); //TODO: Edit (dynamic)
+        String strOrgId = null; //String.valueOf(APIVars.read().getOrganizationId()); //uncomment
         HashMap<String, String> pathParams = new HashMap<>();
         pathParams.put("first", "v1");
         pathParams.put("second", "organization");
         pathParams.put("third", "summary");
+        pathParams.put("org_id",strOrgId);
 
 
         spec.pathParams(pathParams);
         Response response = given(spec)
-                .get("/a3m/auth/api/{first}/{second}/"+id+"/{third}");
+                .get("/a3m/auth/api/{first}/{second}/{org_id}/{third}");
         response.prettyPrint();
 
 
@@ -47,3 +50,16 @@ public class TC0047 extends ApiWithCookieHeaderBase {
     }
 
 }
+
+/**
+ * TODO: add the following in 'APIVarsModel'
+ * public Long organizationId= null;
+ * TODO: add the following in 'APIVars'
+ * public static boolean writeOrganizationId(Long organizationId){
+ *         return write(APIVarsModel.builder().organizationId(organizationId).build());
+ *     }
+ * TODO: Uncomment commented lines
+ * in 44,45,46,47
+ */
+
+

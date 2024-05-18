@@ -3,6 +3,7 @@ package sda.capstone.API.test.us0005;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.OrganizationService;
 import sda.capstone.API.utilities.ObjectMapperUtils;
@@ -45,7 +46,7 @@ public class TC0044 extends ApiWithCookieHeaderBase {
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 201, "Status code should be 201");
-        Assert.assertTrue((addOrganizationResponse.getId()) != 0, "organization id must not 0");
+        Assert.assertTrue((addOrganizationResponse.getId()) != 0, "organization id must not be 0");
         Assert.assertEquals(addOrganizationResponse.getName(), organizationServiceBody.getName(), "Name assertion failed");
         Assert.assertEquals(addOrganizationResponse.getFounder_id(), organizationServiceBody.getFounder_id(), "Founder ID assertion failed");
         Assert.assertEquals(addOrganizationResponse.getShort_name(), organizationServiceBody.getShort_name(), "Short name assertion failed");
@@ -58,6 +59,27 @@ public class TC0044 extends ApiWithCookieHeaderBase {
         Assert.assertEquals(addOrganizationResponse.getCurrency(), organizationServiceBody.getCurrency(), "Currency assertion failed");
         Assert.assertEquals(addOrganizationResponse.getAddress(), organizationServiceBody.getAddress(), "Address assertion failed");
 
-        System.out.println("ApiData.org_id = " + addOrganizationResponse.getId()); //TODO: remove this later (make it dynamic)
+//        APIVars.writeOrganizationId(addOrganizationResponse.getId()); //uncomment
+    }
+
+    @Test
+    public void verifyOrganizationAddedExist(){
+        String strOrgId = null; //String.valueOf(APIVars.read().getOrganizationId()); //uncomment
+        HashMap<String, String> pathParams = new HashMap<>();
+        pathParams.put("first", "v1");
+        pathParams.put("second", "organization");
+        pathParams.put("third", "summary");
+        pathParams.put("org_id", strOrgId);
+
+        spec.pathParams(pathParams);
+        Response response = given(spec)
+                .get("/a3m/auth/api/{first}/{second}/{org_id}/{third}");
+        response.prettyPrint();
+
+        OrganizationService organizationByIdResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), OrganizationService.class);
+
+        int statusCode = response.statusCode();
+        Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
+//        Assert.assertEquals(organizationByIdResponse.getId(), APIVars.read().getOrganizationId() ,"Organization id must equal "+ APIVars.read().getOrganizationId());
     }
 }
