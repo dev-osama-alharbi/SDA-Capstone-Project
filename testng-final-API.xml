@@ -3,6 +3,7 @@
     <parameter name="username" value="1715783108_PZxr8HXHcGOjFro"></parameter>
     <parameter name="password" value="IMjuv6ajlYBntToTuMdbZchY9sR3okuDkSjhXv0z7klVTF-jpbFSq7K0EfdmGY2A"></parameter>
     <parameter name="username_ui" value="t4@testevolve.com"></parameter>
+
     <parameter name="password_ui" value="zN8-9Yf-d8-qkH4"></parameter><!--    <parameter name="username_ui" value="t4@testevolve.com"></parameter>-->
 <!--    <parameter name="password_ui" value="pJW286o-TlK_IqS"></parameter>-->
 
@@ -24,6 +25,7 @@
         </classes>
     </test>
     <test name="US_0004  Memberships Types Requests" >
+
         <classes>
             <class name="sda.capstone.API.test.us0004.TC0029" />
             <class name="sda.capstone.API.test.us0004.TC0030" />
@@ -34,4 +36,19 @@
 
         </classes>
     </test>
+
+<!--    <test name="US_0005 Organization Service Requests" >-->
+<!--        <classes>-->
+<!--            <class name="sda.capstone.API.test.us0005.TC0042" />-->
+<!--            <class name="sda.capstone.API.test.us0005.TC0043" />-->
+<!--            <class name="sda.capstone.API.test.us0005.TC0044" />-->
+<!--            <class name="sda.capstone.API.test.us0005.TC0045" />-->
+<!--            <class name="sda.capstone.API.test.us0005.TC0046" />-->
+<!--            <class name="sda.capstone.API.test.us0005.TC0047" />-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
+
+
+
+

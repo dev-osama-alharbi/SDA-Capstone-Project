@@ -37,6 +37,4 @@ public class Authentication {
 
         return cookie;
     }
-
-
 }
