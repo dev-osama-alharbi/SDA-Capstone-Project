@@ -15,7 +15,8 @@ public class APIVars {
 
     public static Integer organizationId = null;
     public static int userStatusId = 0;
-    public static int UserGroupID = 0;
+    public  static  int UserGroupID = 0;
+
 
     private static ObjectMapper objectMapper = new ObjectMapper();
     public static APIVarsModel read(){
