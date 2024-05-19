@@ -29,12 +29,14 @@
     <test name="US_0004  Memberships Types Requests" >
 
         <classes>
+
             <class name="sda.capstone.API.test.us0004.TC0029" />
             <class name="sda.capstone.API.test.us0004.TC0030" />
             <class name="sda.capstone.API.test.us0004.TC0038" />
             <class name="sda.capstone.API.test.us0004.TC0039" />
             <class name="sda.capstone.API.test.us0004.TC0040" />
             <class name="sda.capstone.API.test.us0004.TC0041" />
+
 
         </classes>
     </test>

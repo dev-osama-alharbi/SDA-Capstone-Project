@@ -12,6 +12,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class APIVars {
+
+    public static Integer organizationId = null;
+
     private static ObjectMapper objectMapper = new ObjectMapper();
     public static APIVarsModel read(){
         try {
@@ -34,4 +37,5 @@ public class APIVars {
     public static boolean writeUserStatusId(Integer userStatusId){
         return write(APIVarsModel.builder().userStatusId(userStatusId).build());
     }
+
 }
