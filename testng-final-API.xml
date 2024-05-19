@@ -8,6 +8,13 @@
             <class name="sda.capstone.API.test.us0011.TC0009" />
             <class name="sda.capstone.API.test.us0011.TC0010" />
             <class name="sda.capstone.API.test.us0011.TC0011" />
+            <class name="sda.capstone.API.test.us0002.TC0012" />
+            <class name="sda.capstone.API.test.us0002.TC0013" />
+            <class name="sda.capstone.API.test.us0006.TC0014" />
+            <class name="sda.capstone.API.test.us0006.TC0015" />
+            <class name="sda.capstone.API.test.us0006.TC0016" />
+            <class name="sda.capstone.API.test.us0006.TC0017" />
+            <class name="sda.capstone.API.test.us0006.TC0018" />
             <class name="sda.capstone.API.test.us0011.TC0048" />
         </classes>
     </test>

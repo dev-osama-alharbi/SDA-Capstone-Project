@@ -34,13 +34,13 @@
 <!--    TODO Rewrite code US_0015 >> error << -->
 <!--    <test name="US_0015: ??????????????????????????????" >-->
 <!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0015.TestUserModule" />-->
+<!--            <class name="sda.capstone.UI.us0015.TC0029" />-->
 <!--        </classes>-->
 <!--    </test>-->
 <!--    TODO Rewrite code US_0016 >> error << -->
 <!--    <test name="US_0016: ??????????????????????????????" >-->
 <!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0016.TestEditUsere" />-->
+<!--            <class name="sda.capstone.UI.us0016.TC0031" />-->
 <!--        </classes>-->
 <!--    </test>-->
 <!--    TODO Rewrite code US_0017 >> error << -->
