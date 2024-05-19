@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class AllRoles {
 	private int id;
 	private String name;
-	private int app_Id;
+	private int app_id;
 }
 
 

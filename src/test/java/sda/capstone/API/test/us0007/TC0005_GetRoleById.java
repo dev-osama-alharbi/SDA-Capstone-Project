@@ -23,6 +23,6 @@ public class TC0005_GetRoleById extends ApiBase {
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
         Assert.assertEquals(roleByIdArrayResponse.getId(),2);
         Assert.assertEquals(roleByIdArrayResponse.getName(),"A3M_APP_MANAGER");
-        Assert.assertEquals(roleByIdArrayResponse.getApp_Id(),1);
+        Assert.assertEquals(roleByIdArrayResponse.getApp_id(),1);
     }
 }
