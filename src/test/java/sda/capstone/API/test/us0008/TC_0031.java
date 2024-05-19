@@ -9,6 +9,7 @@ import sda.capstone.API.pojo.Users;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class TC_0031 extends ApiBase {
 
@@ -56,5 +57,9 @@ public class TC_0031 extends ApiBase {
                 .post("/a3m/auth/api/organization/123/{first}/123/user/123?isHead=true");
         response.prettyPrint();
 
+        response.
+                then().
+                statusCode(403).
+                body("message", equalTo("Principal not authorized"));
     }
 }

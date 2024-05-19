@@ -9,6 +9,7 @@ import sda.capstone.API.ApiBase;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class TC_0036 extends ApiBase {
     @Test
@@ -23,7 +24,9 @@ public class TC_0036 extends ApiBase {
                 .get("/a3m/auth/api/{first}/"+id);
         response.prettyPrint();
 
-        int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode, 200);
+        response
+                .then()
+                .statusCode(200)
+                .body("name", equalTo("Quality assurance Quality assurance"));
     }
 }

@@ -2,12 +2,15 @@ package sda.capstone.API.test.us0008;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import sda.capstone.API.ApiBase;
 import sda.capstone.API.pojo.*;
+import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class TC_0034 extends ApiBase {
     private Permissions[] permissions = {Permissions
@@ -82,5 +85,10 @@ public class TC_0034 extends ApiBase {
                 .body(userGroupService)
                 .put("/a3m/auth/api/{first}");
         response.prettyPrint();
+
+        response.
+                then().
+                statusCode(403).
+                body("message", equalTo("Principal not authorized"));
     }
 }

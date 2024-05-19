@@ -3,6 +3,7 @@ package sda.capstone.API.test.us0008;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiBase;
 import sda.capstone.API.pojo.Organization;
@@ -12,6 +13,7 @@ import sda.capstone.API.utilities.ObjectMapperUtils;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 
 public class TC_0035 extends ApiBase {
@@ -53,6 +55,9 @@ public class TC_0035 extends ApiBase {
         int statusCode = response.statusCode();
         APIVars.UserGroupID = userGroupService1.getId();
 
-        Assert.assertEquals(statusCode, 201);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(statusCode, 201);
+        softAssert.assertEquals(userGroupService1.getName(),"Quality assurance Quality assurance");
+        softAssert.assertAll();
     }
 }

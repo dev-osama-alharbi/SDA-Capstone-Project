@@ -8,6 +8,7 @@ import sda.capstone.API.ApiBase;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class TC_0032 extends ApiBase {
 
@@ -22,5 +23,9 @@ public class TC_0032 extends ApiBase {
                 .delete("/a3m/auth/api/organization/123/{first}/123/user/123");
         response.prettyPrint();
 
+        response.
+                then().
+                statusCode(403).
+                body("message", equalTo("Principal not authorized"));
     }
 }
