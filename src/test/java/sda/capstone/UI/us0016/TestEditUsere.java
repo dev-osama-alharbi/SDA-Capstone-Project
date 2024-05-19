@@ -9,7 +9,7 @@ import sda.capstone.Pages.*;
 
 public class TestEditUsere extends UITestBase {
 
-    @Step("TC_0033 Edit the users displayed in the Users module")
+    @Step("TC_0031 Edit the users displayed in the Users module")
     @Test
     public void EditDisplayedUsers () {
 
