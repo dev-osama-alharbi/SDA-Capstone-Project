@@ -13,4 +13,6 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class APIVarsModel {
     public Integer userStatusId = null;
+    public Long organizationId = null;
+    public Integer applicationId = null;
 }
