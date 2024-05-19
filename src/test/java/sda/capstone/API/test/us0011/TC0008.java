@@ -1,6 +1,5 @@
 package sda.capstone.API.test.us0011;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,7 +14,7 @@ import static io.restassured.RestAssured.given;
 public class TC0008 extends ApiBase {
 
     @Test
-    public void getAllUserStatusAndVerifyTest() throws JsonProcessingException {
+    public void getAllUserStatusAndVerifyTest() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
 

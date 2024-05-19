@@ -1,6 +1,5 @@
 package sda.capstone.API.test.us0011;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,7 +13,7 @@ import static io.restassured.RestAssured.given;
 public class TC0048 extends ApiBase {
 
     @Test
-    public void deleteUserStatusTest() throws JsonProcessingException {
+    public void deleteUserStatusTest() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
         pathParams.put("id",APIVars.read().getUserStatusId()+"");
@@ -29,7 +28,7 @@ public class TC0048 extends ApiBase {
     }
 
     @Test(dependsOnMethods = "deleteUserStatusTest")
-    public void getUserStatusByIdAndVerifyIsDeletedTest() throws JsonProcessingException {
+    public void getUserStatusByIdAndVerifyIsDeletedTest() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
         pathParams.put("id", APIVars.read().getUserStatusId()+"");
