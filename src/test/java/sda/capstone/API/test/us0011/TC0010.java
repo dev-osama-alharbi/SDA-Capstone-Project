@@ -1,12 +1,10 @@
 package sda.capstone.API.test.us0011;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
 import sda.capstone.API.APIVars;
-import sda.capstone.API.pojo.APIVarsModel;
 import sda.capstone.API.pojo.UserStatus;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
@@ -23,7 +21,7 @@ public class TC0010 extends ApiBase {
             .description("Test User Status")
             .build();
     @Test
-    public void addUserStatusTest() throws JsonProcessingException {
+    public void addUserStatusTest() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
 
@@ -44,7 +42,7 @@ public class TC0010 extends ApiBase {
     }
 
     @Test(dependsOnMethods = "addUserStatusTest")
-    public void getUserStatusByIdAndVerifyAddedTest() throws JsonProcessingException {
+    public void getUserStatusByIdAndVerifyAddedTest() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
         pathParams.put("id", APIVars.read().getUserStatusId()+"");
