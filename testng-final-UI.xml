@@ -40,6 +40,18 @@
             <class name="sda.capstone.UI.us0006.TC0010"/>
         </classes>
     </test>
+    <test name="US_0015: Displays users in the Users module." >
+        <classes>
+            <class name="sda.capstone.UI.us0015.TC0029"/>
+            <class name="sda.capstone.UI.us0015.TC0030"/>
+        </classes>
+    </test>
+    <test name="US_0016: Edit the users displayed in the Users module." >
+        <classes>
+            <class name="sda.capstone.UI.us0016.TC0031"/>
+            <class name="sda.capstone.UI.us0016.TC0032"/>
+        </classes>
+    </test>
     <test name="US_0011: ??????????????????????????????" >
         <classes>
             <class name="sda.capstone.UI.us0011.AddNewRemoteUnitsTest" />
