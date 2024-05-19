@@ -17,11 +17,12 @@ public class TC0048 extends ApiBase {
     public void deleteUserStatusTest() throws JsonProcessingException {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
+        pathParams.put("id",APIVars.read().getUserStatusId()+"");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
                 .delete("/a3m/auth/api/{first}/{id}");
-
+        response.prettyPrint();
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
@@ -31,7 +32,7 @@ public class TC0048 extends ApiBase {
     public void getUserStatusByIdAndVerifyIsDeletedTest() throws JsonProcessingException {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
-        pathParams.put("id", APIVars.userStatusId+"");
+        pathParams.put("id", APIVars.read().getUserStatusId()+"");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
