@@ -1,6 +1,5 @@
 package sda.capstone.API.test.us0011;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -22,7 +21,7 @@ public class TC0010 extends ApiBase {
             .description("Test User Status")
             .build();
     @Test
-    public void addUserStatusTest() throws JsonProcessingException {
+    public void addUserStatusTest() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
 
@@ -39,14 +38,14 @@ public class TC0010 extends ApiBase {
         Assert.assertTrue(userStatusResponse.getName().equals(userStatusMain.getName()),"Check the Name = 'Active'");
         Assert.assertTrue(userStatusResponse.getDescription().equals(userStatusMain.getDescription()),"Check the description = 'Test User Status");
 
-        APIVars.userStatusId = userStatusResponse.getId();
+        APIVars.writeUserStatusId(userStatusResponse.getId());
     }
 
     @Test(dependsOnMethods = "addUserStatusTest")
-    public void getUserStatusByIdAndVerifyAddedTest() throws JsonProcessingException {
+    public void getUserStatusByIdAndVerifyAddedTest() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
-        pathParams.put("id", APIVars.userStatusId+"");
+        pathParams.put("id", APIVars.read().getUserStatusId()+"");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
@@ -54,9 +53,9 @@ public class TC0010 extends ApiBase {
 
         UserStatus userStatusResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),UserStatus.class);
         int statusCode = response.statusCode();
-
+        System.out.println("userStatusResponse.getId() = "+userStatusResponse.getId() +" && APIVars.userStatusId = "+APIVars.read().getUserStatusId());
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertTrue(userStatusResponse.getId() == APIVars.userStatusId,"User Status id must equal "+ APIVars.userStatusId);
+        Assert.assertTrue(userStatusResponse.getId().equals(APIVars.read().getUserStatusId()) ,"User Status id must equal "+ APIVars.read().getUserStatusId());
         Assert.assertTrue(userStatusResponse.getName().equals(userStatusMain.getName()),"Check the Name = 'Active'");
         Assert.assertTrue(userStatusResponse.getDescription().equals(userStatusMain.getDescription()),"Check it have description");
     }

@@ -1,37 +1,37 @@
-package sda.capstone.API.test.us0011;
+package sda.capstone.API.test.us0006;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sda.capstone.API.ApiBase;
 import sda.capstone.API.APIVars;
+import sda.capstone.API.ApiBase;
 
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0048 extends ApiBase {
+public class TC0018 extends ApiBase {
 
     @Test
-    public void deleteUserStatusTest() {
+    public void deleteOrganizationStatusById(){
         HashMap<String,String> pathParams = new HashMap<>();
-        pathParams.put("first","user-status");
-        pathParams.put("id",APIVars.read().getUserStatusId()+"");
+        pathParams.put("first","organization-status");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
                 .delete("/a3m/auth/api/{first}/{id}");
-        response.prettyPrint();
+
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
     }
 
-    @Test(dependsOnMethods = "deleteUserStatusTest")
-    public void getUserStatusByIdAndVerifyIsDeletedTest() {
+    @Test(dependsOnMethods = "deleteOrganizationStatusById")
+    public void getOrganizationStatusById(){
         HashMap<String,String> pathParams = new HashMap<>();
-        pathParams.put("first","user-status");
-        pathParams.put("id", APIVars.read().getUserStatusId()+"");
+        pathParams.put("first","organization-status");
+        pathParams.put("id", APIVars.organizationId+"");
 
         spec.pathParams(pathParams);
         Response response = given(spec)

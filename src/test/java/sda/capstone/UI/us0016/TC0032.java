@@ -4,14 +4,14 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
+import sda.capstone.Pages.StartPage;
 import sda.capstone.UI.UITestBase;
-import sda.capstone.Pages.*;
 
-public class TestEditUsere extends UITestBase {
+public class TC0032 extends UITestBase {
 
-    @Step("TC_0031 Edit the users displayed in the Users module")
-    @Test
-    public void EditDisplayedUsers () {
+    @Test(testName = "TC_0032: Reset Password")
+    @Step("US_0016: Edit the users displayed in the Users module")
+    public void TC0032 () {
 
         StartPage startPage = new StartPage(driver,bot,wait);
         startPage.goTo().clickLoginButton().login(username,password);
@@ -48,7 +48,7 @@ public class TestEditUsere extends UITestBase {
 
     }
 
-    @Step("TC_0032 Reset Password")
+    @Step("Reset Password")
     public void resetPassword() {
 
         wait.until(webDriver -> driver.findElement(By.xpath("//a[@href='#/user/1722' and contains(text(),'Azduan-16@msn.com')]")).isDisplayed());
@@ -58,5 +58,4 @@ public class TestEditUsere extends UITestBase {
         bot.click(By.xpath("//div[@class='modal-content']//button[@class='btn btn-dark text-white me-2'][text()='Confirm']"));
 
     }
-
 }
