@@ -6,15 +6,10 @@ import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-
 public class APIVars {
-
     public static Integer organizationId = null;
-
     private static ObjectMapper objectMapper = new ObjectMapper();
     public static APIVarsModel read(){
         try {
