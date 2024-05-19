@@ -4,18 +4,25 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.AllRoles;
 import sda.capstone.API.utilities.ObjectMapperUtils;
+
+import java.util.HashMap;
+
 import static io.restassured.RestAssured.given;
 
-public class TC0005_GetRoleById extends ApiBase {
+public class TC0005_GetRoleById extends ApiWithCookieHeaderBase {
 
     @Test()
-    public void GetRoleById(){
+    public void GetRoleByIdTest(){
 
-        spec.pathParams("1", "a3m","2", "auth","3","api","4","role","5","2");
+        HashMap<String,String> pathParams = new HashMap<>();
+        pathParams.put("p1","role");
+        pathParams.put("p2","2");
+        spec.pathParams(pathParams);
 
-        Response response =given(spec).get("{1}/{2}/{3}/{4}/{5}");
+        Response response =given(spec).get("/a3m/auth/api/{p1}/{p2}");
         response.prettyPrint();
 
         AllRoles roleByIdArrayResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), AllRoles.class);

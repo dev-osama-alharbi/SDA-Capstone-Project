@@ -4,25 +4,29 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.AllRoles;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0003_GetRolesBySubscription extends ApiBase {
+public class TC0003_GetRolesBySubscription extends ApiWithCookieHeaderBase {
     @Test
-    public void GetAllRolesByOrganization() {
+    public void GetAllRolesByOrganizationTest() {
 
-        spec.pathParams("1", "a3m","2", "auth","3","api","4","role");
+        HashMap<String,String> pathParams = new HashMap<>();
+        pathParams.put("p1","role");
+        spec.pathParams(pathParams);
 
-        Response response =given(spec).get("{1}/{2}/{3}/{4}");
+        Response response =given(spec).get("/a3m/auth/api/{p1}");
         response.prettyPrint();
 
-        AllRoles rolesBySubscriptionArrayResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), AllRoles.class);
+        AllRoles[] rolesBySubscriptionArrayResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), AllRoles[].class);
         List<AllRoles> rolesBySubscriptionListResponse = new ArrayList<>(Arrays.asList(rolesBySubscriptionArrayResponse));
         int statusCode = response.statusCode();
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");

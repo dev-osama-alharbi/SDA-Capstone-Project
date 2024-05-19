@@ -21,19 +21,14 @@ public class TC0001_GetRolesByOrganization extends ApiWithCookieHeaderBase {
 API_GET✅ , UI_GET❌
  */
     @Test
-    public void GetAllRolesByOrganization() {
+    public void GetAllRolesByOrganizationTest() {
+
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("p1","application");
         pathParams.put("p2","2");
         pathParams.put("p3","organization");
         pathParams.put("p4","1715253779444611");
         pathParams.put("p5","role");
-
-//        spec.pathParams("1", "application",
-//                "2", "2",
-//                "3","organization",
-//                "4","1715253779444611",
-//                "5","role");
         spec.pathParams(pathParams);
 
         Response response =given(spec).get("/a3m/auth/api/{p1}/{p2}/{p3}/{p4}/{p5}");
