@@ -7,6 +7,7 @@
     <parameter name="password_ui" value="zN8-9Yf-d8-qkH4"></parameter><!--    <parameter name="username_ui" value="t4@testevolve.com"></parameter>-->
 <!--    <parameter name="password_ui" value="pJW286o-TlK_IqS"></parameter>-->
 
+
 <!--    <test name="US_0011 User Status Service Requests" >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.API.test.us0011.TC0008" />-->
@@ -16,6 +17,7 @@
 <!--            <class name="sda.capstone.API.test.us0011.TC0048" />-->
 <!--        </classes>-->
 <!--    </test>-->
+
         <test name="US_0003 All Memberships Requests" >
            <classes>
                <class name="sda.capstone.API.test.us0003.TC0025" />
