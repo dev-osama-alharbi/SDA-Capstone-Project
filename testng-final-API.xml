@@ -18,7 +18,7 @@
 <!--            <class name="sda.capstone.API.test.us0011.TC0011" />-->
 <!--            <class name="sda.capstone.API.test.us0011.TC0048" />-->
 <!--        </classes>-->
-<!--    </test>-->
+<!--    </test>
 
 <!--    <test name="US_0007 Role Service" >-->
 <!--            <classes>-->
@@ -48,6 +48,7 @@
 <!--    <test name="US_0005 Organization Service Requests" >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.API.test.us0005.TC0042" />-->
+<!--            <class name="sda.capstone.API.test.us0001.TC_0024" />-->
 <!--            <class name="sda.capstone.API.test.us0005.TC0043" />-->
 <!--            <class name="sda.capstone.API.test.us0005.TC0044" />-->
 <!--            <class name="sda.capstone.API.test.us0005.TC0045" />-->

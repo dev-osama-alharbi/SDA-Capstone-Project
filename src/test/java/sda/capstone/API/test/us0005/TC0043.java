@@ -3,8 +3,9 @@ package sda.capstone.API.test.us0005;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
-import sda.capstone.API.pojo.OrganizationService;
+import sda.capstone.API.pojo.Organization;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.ArrayList;
@@ -18,8 +19,9 @@ public class TC0043 extends ApiWithCookieHeaderBase {
     @Test
     public void getOrganizationByApplicationIdTest(){
         HashMap<String,String> pathParams = new HashMap<>();
+        String strApplicationId= String.valueOf(APIVars.read().getApplicationId()); //TODO: Add in US0001 -> APIVars.writeApplicationId(userStatusArraysResponse.getSub_app());
         pathParams.put("first","application");
-        pathParams.put("sub_app","2");
+        pathParams.put("sub_app",strApplicationId);
         pathParams.put("second","organization");
 
         spec.pathParams(pathParams);
@@ -27,8 +29,8 @@ public class TC0043 extends ApiWithCookieHeaderBase {
         Response response = given(spec).get("/a3m/auth/api/{first}/{sub_app}/{second}");
         response.prettyPrint();
 
-        OrganizationService[] organizationByAppArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationService[].class);
-        List<OrganizationService> organizationByAppListResponse = new ArrayList<>(Arrays.asList(organizationByAppArraysResponse));
+        Organization[] organizationByAppArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),Organization[].class);
+        List<Organization> organizationByAppListResponse = new ArrayList<>(Arrays.asList(organizationByAppArraysResponse));
 
 
         int statusCode = response.statusCode();

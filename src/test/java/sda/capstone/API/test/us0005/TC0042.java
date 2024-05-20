@@ -4,9 +4,9 @@ package sda.capstone.API.test.us0005;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
-import sda.capstone.API.pojo.OrganizationService;
-import sda.capstone.API.pojo.UserStatus;
+import sda.capstone.API.pojo.Organization;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.ArrayList;
@@ -31,8 +31,8 @@ public class TC0042 extends ApiWithCookieHeaderBase {
         Response response = given(spec).get("/a3m/auth/api/{first}");
         response.prettyPrint();
 
-        OrganizationService[] allOrganizationArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationService[].class);
-        List<OrganizationService> allOrganizationListResponse = new ArrayList<>(Arrays.asList(allOrganizationArraysResponse));
+        Organization[] allOrganizationArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), Organization[].class);
+        List<Organization> allOrganizationListResponse = new ArrayList<>(Arrays.asList(allOrganizationArraysResponse));
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200, "Status code should be 200");
