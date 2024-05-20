@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.AllAuth;
 import sda.capstone.API.pojo.UserStatus;
@@ -36,6 +37,8 @@ public class TC_0024 extends ApiWithCookieHeaderBase {
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
 //        Assert.assertTrue(!userStatusListResponse.isEmpty(),"User Status List must not empty");
+
+        APIVars.writeApplicationId(userStatusArraysResponse.getSub_app());
     }
 }
 

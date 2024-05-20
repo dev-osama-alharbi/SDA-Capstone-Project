@@ -30,12 +30,8 @@ public class TC0046 extends ApiWithCookieHeaderBase {
                 .get("/a3m/auth/api/{first}/{second}/{org_id}/{third}");
         response.prettyPrint();
 
-        Organization organizationByIdResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), Organization.class);
-        List<Organization> organizationByIdListResponse = new ArrayList<>(Arrays.asList(organizationByIdResponse));
-
-
         int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertTrue(!organizationByIdListResponse.isEmpty());
+        Assert.assertEquals(statusCode, 403 ,"Status code must be 403 Forbidden");
+        Assert.assertTrue(response.body().asString().contains("Forbidden"));
     }
 }
