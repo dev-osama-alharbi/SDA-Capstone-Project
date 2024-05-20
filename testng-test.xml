@@ -2,6 +2,7 @@
 <suite name="SDA suite" thread-count="1" parallel="classes" verbose="1">
     <parameter name="username" value="t4@testevolve.com"></parameter>
 
+
     <!-- <parameter name="password" value="fHShrbMwVpva9Xx"></parameter> -->
 <!--    TODO Rewrite code US_0007 and US_0008 -->
 <!--    <test name="US_0007 and US_0008: ??????????????????????????????" >-->
@@ -57,5 +58,4 @@
             <class name="sda.capstone.UI.us0001.LoginTest" />
         </classes>
     </test>
-
 </suite>

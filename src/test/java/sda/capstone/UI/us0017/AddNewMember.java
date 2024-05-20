@@ -17,14 +17,21 @@ public class AddNewMember extends UITestBase {
     @Step("test vaild email")
     @Test
     public void UsersTestVaildEmail() {
-        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
+//        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
 
-        bot.type(name, username);
-        bot.type(pass, password);
-        bot.click(sign);
-        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
+//        bot.type(name, username);
+//        bot.type(pass, password);
+//        bot.click(sign);
+//        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
 
-        Users users = new Users(driver, bot,wait);
+//        Users users = new Users(driver, bot,wait);
+
+        Users users = new StartPage(driver,bot,wait)
+                .goTo()
+                .clickLoginButton()
+                .login(username,password)
+                .goToUsersPage();
+
         String text = users.ClickOnAddNewMember()
                 .selectDepartment("") // Assuming department selection method exists in Users class
                 .enterEmail( "email_"+ System.currentTimeMillis() + "@gmail.com")
@@ -37,13 +44,19 @@ public class AddNewMember extends UITestBase {
     @Step("Testing the invaild email ")
     @Test
     public void UsersTestInvaildEmail() {
-        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
-        bot.type(name, username);
-        bot.type(pass, password);
-        bot.click(sign);
-        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
+//        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
+//        bot.type(name, username);
+//        bot.type(pass, password);
+//        bot.click(sign);
+//        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
 
-        Users users = new Users(driver, bot,wait);
+        Users users = new StartPage(driver,bot,wait)
+                .goTo()
+                .clickLoginButton()
+                .login(username,password)
+                .goToUsersPage();
+
+//        Users users = new Users(driver, bot,wait);
 
         String text = users.ClickOnAddNewMember()
                 .selectDepartment("sda") // Assuming department selection method exists in Users class
