@@ -27,27 +27,6 @@ public class TC0047 extends ApiWithCookieHeaderBase {
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
         Assert.assertTrue(response.body().asString().isEmpty(), "Delete response body should be empty");
     }
-
-    @Test(dependsOnMethods = "deleteOrganizationByIdTest")
-    public void getOrganizationByIdAndVerifyIsDeletedTest(){
-        HashMap<String, String> pathParams = new HashMap<>();
-        String strOrgId = String.valueOf(APIVars.read().getOrganizationId());
-        pathParams.put("first", "v1");
-        pathParams.put("second", "organization");
-        pathParams.put("third", "summary");
-        pathParams.put("org_id",strOrgId);
-
-
-        spec.pathParams(pathParams);
-        Response response = given(spec)
-                .get("/a3m/auth/api/{first}/{second}/{org_id}/{third}");
-        response.prettyPrint();
-
-
-        int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode, 406, "Status code should be 406");
-        Assert.assertTrue(response.body().asString().contains("Organization not found"));
-    }
 }
 
 

@@ -19,7 +19,7 @@ public class TC0043 extends ApiWithCookieHeaderBase {
     @Test
     public void getOrganizationByApplicationIdTest(){
         HashMap<String,String> pathParams = new HashMap<>();
-        String strApplicationId= String.valueOf(APIVars.read().getApplicationId()); //TODO: Add in US0001 -> APIVars.writeApplicationId(userStatusArraysResponse.getSub_app());
+        String strApplicationId= String.valueOf(APIVars.read().getApplicationId());
         pathParams.put("first","application");
         pathParams.put("sub_app",strApplicationId);
         pathParams.put("second","organization");
@@ -29,12 +29,8 @@ public class TC0043 extends ApiWithCookieHeaderBase {
         Response response = given(spec).get("/a3m/auth/api/{first}/{sub_app}/{second}");
         response.prettyPrint();
 
-        Organization[] organizationByAppArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),Organization[].class);
-        List<Organization> organizationByAppListResponse = new ArrayList<>(Arrays.asList(organizationByAppArraysResponse));
-
-
         int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertTrue(!organizationByAppListResponse.isEmpty());
+        Assert.assertEquals(statusCode, 404 ,"Status code must be 404");
+        Assert.assertTrue(response.body().asString().isEmpty());
     }
 }

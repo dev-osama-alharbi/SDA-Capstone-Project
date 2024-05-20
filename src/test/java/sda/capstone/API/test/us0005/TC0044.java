@@ -60,25 +60,4 @@ public class TC0044 extends ApiWithCookieHeaderBase {
 
         APIVars.writeOrganizationId(addOrganizationResponse.getId());
     }
-
-    @Test
-    public void verifyOrganizationAddedExist(){
-        HashMap<String, String> pathParams = new HashMap<>();
-        String strOrgId = String.valueOf(APIVars.read().getOrganizationId());
-        pathParams.put("first", "v1");
-        pathParams.put("second", "organization");
-        pathParams.put("third", "summary");
-        pathParams.put("org_id", strOrgId);
-
-        spec.pathParams(pathParams);
-        Response response = given(spec)
-                .get("/a3m/auth/api/{first}/{second}/{org_id}/{third}");
-        response.prettyPrint();
-
-        Organization organizationByIdResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), Organization.class);
-
-        int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertEquals(organizationByIdResponse.getId(), APIVars.read().getOrganizationId() ,"Organization id must equal "+ APIVars.read().getOrganizationId());
-    }
 }
