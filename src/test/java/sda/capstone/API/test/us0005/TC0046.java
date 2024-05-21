@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
-import sda.capstone.API.pojo.OrganizationService;
+import sda.capstone.API.pojo.Organization;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import static io.restassured.RestAssured.given;
 public class TC0046 extends ApiWithCookieHeaderBase {
     @Test
     public void getOrganizationByIdTest(){
-        String strOrgId = null; //String.valueOf(APIVars.read().getOrganizationId());  //uncomment
+        String strOrgId = String.valueOf(APIVars.read().getOrganizationId());
         HashMap<String, String> pathParams = new HashMap<>();
         pathParams.put("first", "v1");
         pathParams.put("second", "organization");
@@ -30,12 +30,8 @@ public class TC0046 extends ApiWithCookieHeaderBase {
                 .get("/a3m/auth/api/{first}/{second}/{org_id}/{third}");
         response.prettyPrint();
 
-        OrganizationService organizationByIdResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), OrganizationService.class);
-        List<OrganizationService> organizationByIdListResponse = new ArrayList<>(Arrays.asList(organizationByIdResponse));
-
-
         int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertTrue(!organizationByIdListResponse.isEmpty());
+        Assert.assertEquals(statusCode, 403 ,"Status code must be 403 Forbidden");
+        Assert.assertTrue(response.body().asString().contains("Forbidden"));
     }
 }

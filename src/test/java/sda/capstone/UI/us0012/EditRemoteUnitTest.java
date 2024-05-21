@@ -16,6 +16,7 @@ public class EditRemoteUnitTest extends UITestBase {
 
 
 
+
     @Step("When edit a remote unit by typing the name and type, it is edited successful")
     @Test(testName = "Successful edit remote unit test")
     public void editRemoteUnitByTypingTheNameAndTypeTest() {
@@ -64,25 +65,24 @@ public class EditRemoteUnitTest extends UITestBase {
         remoteUnitPage.goTo().selectARemoteUnitToEdit().clickEditRemoteUnitButton();
 
         EditRemoteUnitPage = new EditRemoteUnitPage(driver,bot,wait);
-        EditRemoteUnitPage.editRemoteName("Testdep").editRemoteType(null).clickingOnSaveButton();
+        EditRemoteUnitPage.editRemoteName("Edit Name 4").editRemoteType(null).clickingOnSaveButton();
 
         Assert.assertEquals( EditRemoteUnitPage.errorMSG(),"Please select a type for department");
 
     }
 
-    @Step(" ")
-    @Test
+    @Step("When delete a remote unit , it is deleted successful")
+    @Test(testName = "Successful delete remote unit test")
     public void deleteRemoteUnitTest() {
-
         startPage = new StartPage(driver, bot, wait);
         homePage = startPage.goTo().clickLoginButton().login(username, password);
-
 
         //-------------------------------------------------------
         remoteUnitPage = new RemoteUnitPage(driver, bot, wait);
         remoteUnitPage.goTo().selectARemoteUnitToEdit().clickEditRemoteUnitButton();
-        EditRemoteUnitPage = new EditRemoteUnitPage(driver,bot,wait);
-
+        EditRemoteUnitPage = new EditRemoteUnitPage(driver, bot, wait);
     }
+
+
 
 }

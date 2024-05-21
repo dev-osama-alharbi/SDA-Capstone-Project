@@ -23,18 +23,15 @@ public class NewRemoteUnitPage extends PageBase {
 
     @Step("Add a name to the remote unit")
     public NewRemoteUnitPage addRemoteName(String name){
-        if (name != null) {
-            bot.type(remoteUnitNameInput, name);
-        }
+        bot.type(remoteUnitNameInput, name);
         return this;
     }
 
     @Step("Select department type as remote unit")
     public NewRemoteUnitPage selectDepartmentType (String type){
-        if (type != null) {
-            bot.click(departmentTypeDropDown);
-            bot.type(departmentTypeDropDown,type+Keys.ENTER);
-        }
+        bot.click(departmentTypeDropDown);
+        bot.type(departmentTypeDropDown,type+Keys.ENTER);
+
         return this;
     }
 
