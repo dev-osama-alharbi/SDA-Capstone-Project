@@ -1,17 +1,16 @@
 package sda.capstone.API.test.us0008;
 
 import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
-import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class TC_0037 extends ApiBase {
+public class TC_0037 extends ApiWithCookieHeaderBase {
     @Test
     public void DeleteExistingUserGroupById() {
         String id = String.valueOf(APIVars.UserGroupID);

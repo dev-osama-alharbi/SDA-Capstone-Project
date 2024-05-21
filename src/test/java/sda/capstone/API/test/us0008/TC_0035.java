@@ -1,11 +1,10 @@
 package sda.capstone.API.test.us0008;
 
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import sda.capstone.API.APIVars;
-import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.Organization;
 import sda.capstone.API.pojo.UserGroupService;
 import sda.capstone.API.utilities.ObjectMapperUtils;
@@ -13,10 +12,9 @@ import sda.capstone.API.utilities.ObjectMapperUtils;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
 
-public class TC_0035 extends ApiBase {
+public class TC_0035 extends ApiWithCookieHeaderBase {
    private Organization organization = Organization
             .builder().
             id(1715291982442328L).

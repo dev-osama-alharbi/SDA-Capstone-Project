@@ -2,7 +2,7 @@ package sda.capstone.API.test.us0008;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.*;
 
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class TC_0034 extends ApiBase {
+public class TC_0034 extends ApiWithCookieHeaderBase {
     private Permissions[] permissions = {Permissions
             .builder().
             id(0).
