@@ -27,13 +27,13 @@ public class TC0031 extends UITestBase {
     @Step("Navigate to Users")
     public void navigateToUsers() {
 
-        wait.until(webDriver -> driver.findElement(By.xpath("//a[@href='#/user/1722' and contains(text(),'New UserName for Team4')]")).isDisplayed());
-        bot.click(By.xpath("//a[@href='#/user/1722' and contains(text(),'New UserName for Team4')]"));
+        wait.until(webDriver -> driver.findElement(By.xpath("//a[@href='#/user/66' and contains(text(),'New UserNameNew Team4')]")).isDisplayed());
+        bot.click(By.xpath("//a[@href='#/user/66' and contains(text(),'New UserNameNew Team4')]"));
 
         wait.until(webDriver -> driver.findElement(By.xpath("//button[@class='btn btn-ghost-dark rounded-circle']")).isDisplayed());
         bot.click(By.xpath("//button[@class='btn btn-ghost-dark rounded-circle']"));
 
-        bot.type(By.id("username"),"New UserName for Team4 and 4"+ Keys.ENTER);
+        bot.type(By.id("username"),"Team4"+ Keys.ENTER);
 
         wait.until(webDriver -> driver.findElement(By.cssSelector("button.btn.btn-ghost-primary.rounded-circle")).isDisplayed());
         bot.click(By.cssSelector("button.btn.btn-ghost-primary.rounded-circle"));
