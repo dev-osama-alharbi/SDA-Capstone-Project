@@ -52,9 +52,9 @@ public class TC0032 extends UITestBase {
     @Step("Reset Password")
     public void resetPassword() {
 
-        wait.until(webDriver -> driver.findElement(By.xpath("//a[@href='#/user/66' and contains(text(),'Team4')]")).isDisplayed());
+        wait.until(webDriver -> driver.findElement(By.xpath("//tr[@role='row']/td[@class='cell' and @role='cell'][2]/a[@href='#/user/83']")).isDisplayed());
 
-        bot.click(By.xpath("//a[@href='#/user/66' and contains(text(),'Team4')]"));
+        bot.click(By.xpath("//tr[@role='row']/td[@class='cell' and @role='cell'][2]/a[@href='#/user/83']"));
         bot.click(By.id("changePasswordButton"));
         bot.click(By.xpath("//div[@class='modal-content']//button[@class='btn btn-dark text-white me-2'][text()='Confirm']"));
 
