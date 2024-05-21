@@ -12,28 +12,36 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserData{
-	private String address;
-	private boolean isActive;
-	private boolean isEmailVerified;
-	private List<RolesItem> roles;
-	private String createdAt;
-	private String membershipCreatedAt;
-	private int createdBy;
-	private String lastname;
-	private String subscriptionId;
-	private int statusId;
-	private String updatedAt;
-	private String phone;
-	private long organizationId;
-	private String name;
-	private List<OrganizationsItem> organizations;
-	private int updatedBy;
-	private String membershipUpdatedAt;
-	private int id;
-	private String email;
-	private String username;
-	private UserStatus status;
-	private List<Object> userGroups;
-	private List<ApplicationsItem> applications;
+public class UserData {
+    private Integer id;
+    private String name;
+    private String lastname;
+    private String username;
+    private String email;
+    private Boolean is_email_verified;
+    private String phone;
+    private String address;
+    private String country_id;
+    private Integer pic_id;
+    private Preferences preferences;
+    private Integer status_id;
+    private String created_at;
+    private Integer created_by;
+    private String updated_at;
+    private Integer updated_by;
+
+
+    private String subscriptionId;
+    private String membershipCreatedAt;
+    private String membershipUpdatedAt;
+    private Integer organizationId;
+    private Integer defaultRoleId;
+    private Integer appId;
+    private Boolean isActive;
+
+    private List<User_groups> userGroups;
+    private List<Organization> Organization;
+    private List<Roles> Roles;
+    private List<UserStatus> UserStatus;
+    private List<Applications> Applications;
 }

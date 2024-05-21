@@ -8,15 +8,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 public class ObjectMapperUtils {
-    public static <T> T convertJsonToJava(String strJson, Class<T> valueType) {//Generic method
 
-        try {
-            return new ObjectMapper().readValue(strJson, valueType);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+        public static <T> T convertJsonToJava(String strJson, Class<T> valueType) {//Generic method
+
+            try {
+                return new ObjectMapper().readValue(strJson, valueType);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
         }
-
-    }
 //    private static final ObjectMapper objectMapper = new ObjectMapper()
 //            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 //
@@ -51,4 +52,7 @@ public class ObjectMapperUtils {
     //         throw new RuntimeException("Error converting JSON to Java object", e);
     //     }
     // }
+
+
+
 }

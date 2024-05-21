@@ -12,13 +12,18 @@ import lombok.NoArgsConstructor;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Organization {
-    private Long id;
+
+    private long id ;
+    private Integer status_id ;
+    private Integer organization_group_id ;
     private String name;
     private Integer founder_id;
     private String short_name;
+    private String currency;
     private String address;
-    private String country_id;
     private String phone;
+    private String website;
+    private String fax;
     private String email;
     private String website;
     private String fax;

@@ -15,7 +15,10 @@ public class APIVars {
     public static Integer organizationId = null;
     public static int userStatusId = 0;
     public  static  int UserGroupID = 0;
-  
+
+
+    public static Integer newUserId = null;
+
     private static ObjectMapper objectMapper = new ObjectMapper();
     public static APIVarsModel read(){
         try {
@@ -43,6 +46,10 @@ public class APIVars {
     }
     public static boolean writeApplicationId(Integer applicationId){
           return write(APIVarsModel.builder().applicationId(applicationId).build());
+    }
+
+    public static boolean writeNewUserId(Integer newUserId){
+        return write(APIVarsModel.builder().newUserId(newUserId).build());
     }
 
 }

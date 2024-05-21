@@ -1,14 +1,18 @@
 package sda.capstone.API.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Users {
     private Integer id;
     private String name;
@@ -22,9 +26,23 @@ public class Users {
     private Integer pic_id;
     private Preferences preferences;
     private Integer status_id;
-    private User_groups[] user_groups;
     private String created_at;
     private Integer created_by;
     private String updated_at;
     private Integer updated_by;
+    private User_groups[] user_groups;
+
+    private String subscriptionId;
+    private String membershipCreatedAt;
+    private String membershipUpdatedAt;
+    private Long organizationId;
+    private Integer defaultRoleId;
+    private Integer appId;
+    private Boolean isActive;
+
+    private List<User_groups> userGroups;
+    private List<Organization> Organization;
+    private List<Roles> Roles;
+    private List<UserStatus> UserStatus;
+    private List<Applications> Applications;
 }
