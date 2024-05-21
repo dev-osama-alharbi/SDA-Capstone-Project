@@ -5,7 +5,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class GetAllCountries {
+public class Countries {
     private Integer id;
     private String name;
     private String description;

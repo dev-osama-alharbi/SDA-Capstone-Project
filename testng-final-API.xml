@@ -5,6 +5,12 @@
     <parameter name="username_ui" value="t4@testevolve.com"></parameter>
     <parameter name="password_ui" value="zN8-9Yf-d8-qkH4"></parameter>
 
+    <test name="US_0002 Country Service" >
+        <classes>
+            <class name="sda.capstone.API.test.us0002.TC0012" />
+            <class name="sda.capstone.API.test.us0002.TC0013" />
+        </classes>
+    </test>
 <!--    <test name="US_0011 User Status Service Requests" >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.API.test.us0011.TC0008" />-->
@@ -14,21 +20,20 @@
 <!--            <class name="sda.capstone.API.test.us0011.TC0048" />-->
 <!--        </classes>-->
 <!--    </test>-->
+<!--      <test name="US_0007 Role Service" >-->
+<!--               <classes>-->
+<!--                   <class name="sda.capstone.API.test.us0007.TC0001_GetRolesByOrganization" />-->
+<!--                   <class name="sda.capstone.API.test.us0007.TC0002_GetRolesByApplication" />-->
+<!--                   <class name="sda.capstone.API.test.us0007.TC0003_GetRolesBySubscription" />-->
+<!--                   <class name="sda.capstone.API.test.us0007.TC0004_AddNewRole" />-->
+<!--                   <class name="sda.capstone.API.test.us0007.TC0005_GetRoleById" />-->
+<!--                   <class name="sda.capstone.API.test.us0007.TC0006_UpdateExistingRole" />-->
+<!--                   <class name="sda.capstone.API.test.us0007.TC0007_DeleteExistingRoleById" />-->
+<!--               </classes>-->
+<!--       </test>-->
 
-    <test name="US_0007 Role Service" >
-            <classes>
-                <class name="sda.capstone.API.test.us0007.TC0001_GetRolesByOrganization" />
-                <class name="sda.capstone.API.test.us0007.TC0002_GetRolesByApplication" />
-                <class name="sda.capstone.API.test.us0007.TC0003_GetRolesBySubscription" />
-                <class name="sda.capstone.API.test.us0007.TC0004_AddNewRole" />
-                <class name="sda.capstone.API.test.us0007.TC0005_GetRoleById" />
-                <class name="sda.capstone.API.test.us0007.TC0006_UpdateExistingRole" />
-                <class name="sda.capstone.API.test.us0007.TC0007_DeleteExistingRoleById" />
-            </classes>
-    </test>
 
-
-<!--    <test name="US_0008 User Group Service" >-->
+   <!--    <test name="US_0008 User Group Service" >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.API.test.us0008.TC_0031" />-->
 <!--            <class name="sda.capstone.API.test.us0008.TC_0032" />-->
@@ -48,6 +53,15 @@
 <!--            <class name="sda.capstone.API.test.us0005.TC0045" />-->
 <!--            <class name="sda.capstone.API.test.us0005.TC0046" />-->
 <!--            <class name="sda.capstone.API.test.us0005.TC0047" />-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="US_0006 Organization Status Service" >-->
+<!--        <classes>-->
+<!--            <class name="sda.capstone.API.test.us0006.TC0014" />-->
+<!--            <class name="sda.capstone.API.test.us0006.TC0015" />-->
+<!--            <class name="sda.capstone.API.test.us0006.TC0016" />-->
+<!--            <class name="sda.capstone.API.test.us0006.TC0017" />-->
+<!--            <class name="sda.capstone.API.test.us0006.TC0018" />-->
 <!--        </classes>-->
 <!--    </test>-->
 </suite>

@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 
 public class APIVars {
 
-    public static Integer organizationId = null;
+    public static int organizationStatusId = 0;
     public static int userStatusId = 0;
     public  static  int UserGroupID = 0;
 
@@ -39,6 +39,9 @@ public class APIVars {
     }
     public static boolean writeUserStatusId(Integer userStatusId){
         return write(APIVarsModel.builder().userStatusId(userStatusId).build());
+    }
+    public static boolean writeOrgStatusId(Integer organizationStatusId){
+        return write(APIVarsModel.builder().OrgStatusId(organizationStatusId).build());
     }
 
 }
