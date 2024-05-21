@@ -18,8 +18,10 @@ public class Users extends PageBase {
 
     private final By addNewMemberButton = By.xpath("//button[text()='+ Add New Member']");
     //private final By DepartmentName = By.cssSelector(".card-test > div > div > a > b");
-    private final By departmentDropdownLocator = By.cssSelector("#react-select-2-input");  //
-    private final By roleDropdownLocator = By.cssSelector("#react-select-3-input");  //
+    private final By departmentDropdownLocator = By.cssSelector("#react-select-2-input");
+
+    private final By roleDropdownLocator = By.cssSelector("#react-select-3-input");
+
     private final By emailInputFieldLocator = By.name("email");
     private final By registerButtonLocator = By.xpath("//button[text()='Register']");  //
     //private final By successMessage = By.cssSelector("#div.toast-body");
@@ -38,9 +40,10 @@ public class Users extends PageBase {
         return this;
     }
 
-    @Step("Clicking on Department name and selecting 'sda'")
+    @Step("Clicking on Department name and selecting 'SDA-Team4'")
     public Users selectDepartment(String departmentName) {
         bot.click(departmentDropdownLocator);
+        bot.type(departmentDropdownLocator, "SDA-Team4" + Keys.ENTER);
 
         return this;
     }
@@ -49,7 +52,7 @@ public class Users extends PageBase {
     public Users ClickOnDepartmentName () {
         // This method can be removed
         bot.click(departmentDropdownLocator);
-        bot.type(departmentDropdownLocator,"TeamSDA4"+ Keys.ENTER);
+        bot.type(By.cssSelector(".css-9jq23d"), "SDA-Team4" + Keys.ENTER);
         return this;
     }
 

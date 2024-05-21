@@ -26,15 +26,15 @@ public class AddNewMember extends UITestBase {
 
 //        Users users = new Users(driver, bot,wait);
 
-        Users users = new StartPage(driver,bot,wait)
+        Users users = new StartPage(driver, bot, wait)
                 .goTo()
                 .clickLoginButton()
-                .login(username,password)
+                .login(username, password)
                 .goToUsersPage();
 
         String text = users.ClickOnAddNewMember()
-                .selectDepartment("") // Assuming department selection method exists in Users class
-                .enterEmail( "email_"+ System.currentTimeMillis() + "@gmail.com")
+                .selectDepartment("SDA-Team4") // Assuming department selection method exists in Users class
+                .enterEmail("email_" + System.currentTimeMillis() + "@gmail.com")
                 .ClickOnRole()
                 .ClickOnRegister()
                 .GetTheSucess();
@@ -50,32 +50,32 @@ public class AddNewMember extends UITestBase {
 //        bot.click(sign);
 //        bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/users");
 
-        Users users = new StartPage(driver,bot,wait)
+        Users users = new StartPage(driver, bot, wait)
                 .goTo()
                 .clickLoginButton()
-                .login(username,password)
+                .login(username, password)
                 .goToUsersPage();
 
 //        Users users = new Users(driver, bot,wait);
 
         String text = users.ClickOnAddNewMember()
-                .selectDepartment("sda") // Assuming department selection method exists in Users class
-                .enterEmail("email_"+ System.currentTimeMillis() + "gmail.com")
+                .selectDepartment("SDA-Team4") // Assuming department selection method exists in Users class
+                .enterEmail("email_" + System.currentTimeMillis() + "gmail.com")
                 .ClickOnRole() // Click role selection if applicable
                 .ClickOnRegister()
                 .GetTheError();
         Assert.assertEquals(text, "Please enter a valid email");
     }
 
-
-
-    public AddNewMember selectDepartment(String departmentName) {
-        bot.type(By.id("react-select-4-input"), departmentName);
-        return this;
-    }
-
-    public AddNewMember enterEmail(String email) {
-        bot.type(By.id("email"), email);
-        return this;
-    }
 }
+
+//    public AddNewMember selectDepartment(String departmentName) {
+//        bot.type(By.id("react-select-4-input"), departmentName);
+//        return this;
+//    }
+//
+//    public AddNewMember enterEmail(String email) {
+//        bot.type(By.id("email"), email);
+//        return this;
+//    }
+//}
