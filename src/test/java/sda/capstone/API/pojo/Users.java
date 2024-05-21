@@ -30,7 +30,7 @@ public class Users {
     private Integer created_by;
     private String updated_at;
     private Integer updated_by;
-    private User_groups[] user_groups;
+    private UserGroups[] user_groups;
 
     private String subscriptionId;
     private String membershipCreatedAt;
@@ -40,7 +40,7 @@ public class Users {
     private Integer appId;
     private Boolean isActive;
 
-    private List<User_groups> userGroups;
+    private List<UserGroups> userGroups;
     private List<Organization> Organization;
     private List<Roles> Roles;
     private List<UserStatus> UserStatus;

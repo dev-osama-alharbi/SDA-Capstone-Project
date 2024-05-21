@@ -8,8 +8,6 @@ import sda.capstone.UI.UITestBase;
 import sda.capstone.Pages.*;
 
 public class AddAndListDepartmentTest extends UITestBase {
-    public String username = "t4@testevolve.com";
-    public String password = "rXqRPwfDxyWRG4R";
     @Step("random test")
     @Test(priority = 1 ,testName = "Adding new department with empty department name")
     public void addNewDepartmentNegativeScenarioForDepartmentNameEmpty() {

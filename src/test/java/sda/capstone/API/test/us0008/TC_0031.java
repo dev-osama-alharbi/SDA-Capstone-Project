@@ -3,7 +3,7 @@ package sda.capstone.API.test.us0008;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
-import sda.capstone.API.pojo.User_groups;
+import sda.capstone.API.pojo.UserGroups;
 import sda.capstone.API.pojo.Users;
 
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class TC_0031 extends ApiBase {
 
-    private User_groups[] user_groups = {User_groups
+    private UserGroups[] user_groups = {UserGroups
             .builder().
             id(0).
             name("Sales Department").

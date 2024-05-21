@@ -2,10 +2,8 @@ package sda.capstone.API.test.us0008;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import sda.capstone.API.ApiBase;
 import sda.capstone.API.pojo.*;
-import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.HashMap;
 
@@ -21,7 +19,7 @@ public class TC_0034 extends ApiBase {
             app_id(123).
             build()};
 
-    private User_groups[] user_groups = {User_groups
+    private UserGroups[] user_groups = {UserGroups
             .builder().
             id(0).
             name("Sales Department").
