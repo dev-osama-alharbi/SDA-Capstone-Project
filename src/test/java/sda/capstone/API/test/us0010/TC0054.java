@@ -32,7 +32,7 @@ public class TC0054 extends ApiWithCookieHeaderBase {
                         .build()))
                 .Organization(Collections.singletonList(
                         Organization.builder()
-                                .id(1)
+                                .id(1L)
                                 .name("Acme LLC")
                                 .founder_id(2)
                                 .short_name("Acme")
@@ -49,7 +49,7 @@ public class TC0054 extends ApiWithCookieHeaderBase {
                                 .build()
                 ))
                 .userGroups(Collections.singletonList(
-                        User_groups.builder()
+                        UserGroups.builder()
                                 .id(1)
                                 .name("Marketing and Sales Department")
                                 .short_name("M&A Dept.")

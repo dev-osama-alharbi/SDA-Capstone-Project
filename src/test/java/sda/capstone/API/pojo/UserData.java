@@ -39,7 +39,7 @@ public class UserData {
     private Integer appId;
     private Boolean isActive;
 
-    private List<User_groups> userGroups;
+    private List<UserGroups> userGroups;
     private List<Organization> Organization;
     private List<Roles> Roles;
     private List<UserStatus> UserStatus;

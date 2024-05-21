@@ -34,7 +34,7 @@ public class TC0029 extends UITestBase {
 
 
         bot.click(By.xpath("//button[contains(text(),'+ Add New Member')]"));
-        bot.type(By.id("react-select-2-input"),"Team4"+Keys.ENTER);
+        bot.type(By.id("react-select-2-input"),"Test4"+Keys.ENTER);
         bot.type(By.id("react-select-3-input"),"Business"+Keys.ENTER);
         bot.type(By.id("email"),"xyz@gmail.com");
 

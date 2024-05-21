@@ -21,11 +21,11 @@ public class Users extends PageBase {
     private final By departmentDropdownLocator = By.cssSelector("#react-select-2-input");  //
     private final By roleDropdownLocator = By.cssSelector("#react-select-3-input");  //
     private final By emailInputFieldLocator = By.name("email");
-    private final By registerButtonLocator = By.cssSelector("button[text()='Register']");  //
+    private final By registerButtonLocator = By.xpath("//button[text()='Register']");  //
     //private final By successMessage = By.cssSelector("#div.toast-body");
     private final By successMessage =  By.cssSelector(".me-auto");
     private final By errorMessage = By.xpath("//span[text()='Please enter a valid email']");
-    protected Wait<WebDriver> wait;
+//    protected Wait<WebDriver> wait;
 
 
     public Users(WebDriver driver, ActionsBot bot,Wait<WebDriver> wait) {
