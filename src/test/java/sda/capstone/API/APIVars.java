@@ -17,6 +17,11 @@ public class APIVars {
     public static int userStatusId = 0;
     public  static  int UserGroupID = 0;
 
+    public static Integer newUserId = null;
+
+
+
+
 
     private static ObjectMapper objectMapper = new ObjectMapper();
     public static APIVarsModel read(){
@@ -39,6 +44,10 @@ public class APIVars {
     }
     public static boolean writeUserStatusId(Integer userStatusId){
         return write(APIVarsModel.builder().userStatusId(userStatusId).build());
+    }
+
+    public static boolean writeNewUserId(Integer newUserId){
+        return write(APIVarsModel.builder().newUserId(newUserId).build());
     }
 
 }

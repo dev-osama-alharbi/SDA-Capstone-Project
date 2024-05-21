@@ -3,13 +3,13 @@
     <parameter name="username" value="1715783108_PZxr8HXHcGOjFro"></parameter>
     <parameter name="password" value="IMjuv6ajlYBntToTuMdbZchY9sR3okuDkSjhXv0z7klVTF-jpbFSq7K0EfdmGY2A"></parameter>
     <parameter name="username_ui" value="t4@testevolve.com"></parameter>
-    <parameter name="password_ui" value="zN8-9Yf-d8-qkH4"></parameter>
+    <parameter name="password_ui" value="ktPXtzvYRpGGRPh"></parameter>
 
-    <test name="US0001 AND US0009">
-        <classes>
-            <class name="sda.capstone.API.test.us0001.TC_0024"></class>
-        </classes>
-    </test>
+<!--    <test name="US0001 AND US0009">-->
+<!--        <classes>-->
+<!--            <class name="sda.capstone.API.test.us0001.TC_0024"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
 <!--    <test name="US_0011 User Status Service Requests" >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.API.test.us0011.TC0008" />-->
@@ -55,6 +55,25 @@
 <!--            <class name="sda.capstone.API.test.us0005.TC0047" />-->
 <!--        </classes>-->
 <!--    </test>-->
+
+
+
+    <test name="US_0010 User Service Requests" >
+        <classes>
+            <class name="sda.capstone.API.test.us0010.TC0049" />
+
+            <class name="sda.capstone.API.test.us0010.TC0052" />
+            <class name="sda.capstone.API.test.us0010.TC0054" />
+            <class name="sda.capstone.API.test.us0010.TC0050" />
+            <class name="sda.capstone.API.test.us0010.TC0051" />
+            
+            <class name="sda.capstone.API.test.us0010.TC0053" />
+            <class name="sda.capstone.API.test.us0010.TC0055" />
+            <class name="sda.capstone.API.test.us0010.TC0056" />
+            <class name="sda.capstone.API.test.us0010.TC0057" />
+
+        </classes>
+    </test>
 </suite>
 
 

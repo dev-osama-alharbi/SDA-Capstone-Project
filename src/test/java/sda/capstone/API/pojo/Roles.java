@@ -13,6 +13,8 @@ public class Roles {
     private Integer id;
     private String name;
     private Integer app_id;
+    private String  subscriptionId;
     private String description;
+    private Boolean isDefault;
     private Permissions[] permissions;
 }

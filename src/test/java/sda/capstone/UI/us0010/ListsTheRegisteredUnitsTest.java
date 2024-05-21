@@ -24,7 +24,7 @@ public class ListsTheRegisteredUnitsTest extends UITestBase {
                     clickLoginButton().
                     login(username, password);
 
-            RemoteUnitsPage remoteUnitsPage = new RemoteUnitsPage(driver, bot, wait);
+            RemoteUnitPage remoteUnitsPage = new RemoteUnitPage(driver, bot, wait);
 
             List<WebElement> remoteUnits =
                     remoteUnitsPage.

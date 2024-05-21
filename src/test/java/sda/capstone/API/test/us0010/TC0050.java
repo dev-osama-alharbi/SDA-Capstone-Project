@@ -13,19 +13,19 @@ import static org.hamcrest.Matchers.hasSize;
 
 public class TC0050 extends ApiWithCookieHeaderBase {
 
-    @Test
+    @Test()
     public void getUsersOfOrganizationByOrganizationIDTest()throws JsonProcessingException {
+
 
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","organization");
-        pathParams.put("sub_default_org_id","1715253779444611");
+        pathParams.put("sub_default_org_id","1");
         pathParams.put("second","user");
 
         spec.pathParams(pathParams);
 
         Response response = given(spec).get("/a3m/auth/api/v1/{first}/{sub_default_org_id}/{second}");
         response.prettyPrint();
-
 
         response
                 .then()
