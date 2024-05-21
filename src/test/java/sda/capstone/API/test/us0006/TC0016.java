@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiBase;
 import sda.capstone.API.pojo.OrganizationStatuses;
+import sda.capstone.API.pojo.UserStatus;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.HashMap;
@@ -14,14 +15,14 @@ import static io.restassured.RestAssured.given;
 
 public class TC0016 extends ApiBase {
 
-    private OrganizationStatuses orgStatusMain = OrganizationStatuses
+    private UserStatus orgStatusMain = UserStatus
             .builder()
             .id(null)
             .name("active")
             .description("Organization/Company account is active")
             .build();
     @Test
-    public void AddNewOrganizationStatus(){
+    public void addOrgStatus() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","organization-status");
 
@@ -30,33 +31,33 @@ public class TC0016 extends ApiBase {
                 .body(orgStatusMain)
                 .post("/a3m/auth/api/{first}");
         response.prettyPrint();
-        OrganizationStatuses organizationStatusesResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationStatuses.class);
+        OrganizationStatuses orgStatusResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationStatuses.class);
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 201 ,"Status code must be 201");
-        Assert.assertTrue(organizationStatusesResponse.getId() != 0,"User Status id must not 0");
-        Assert.assertEquals(orgStatusMain.getName(), organizationStatusesResponse.getName(), "active");
-        Assert.assertEquals(orgStatusMain.getDescription(), organizationStatusesResponse.getDescription(), "Organization/Company account is active");
+        Assert.assertTrue(orgStatusResponse.getId() != 0,"Organization Status id must not 0");
+        Assert.assertEquals(orgStatusMain.getName(), orgStatusResponse.getName(), "Name = 'active'");
+        Assert.assertEquals(orgStatusMain.getDescription(), orgStatusResponse.getDescription(), "description = Organization/Company account is active");
 
-        APIVars.organizationId = organizationStatusesResponse.getId();
+        APIVars.writeOrgStatusId(orgStatusResponse.getId());
     }
 
-    @Test(dependsOnMethods = "AddNewOrganizationStatus")
-    public void getOrganizationStatusById() {
+    @Test(dependsOnMethods = "addOrgStatus")
+    public void getOrgStatusById() {
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","organization-status");
-        pathParams.put("id", APIVars.organizationId+"");
+        pathParams.put("id", APIVars.read().getOrgStatusId()+"");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
                 .get("/a3m/auth/api/{first}/{id}");
 
-        OrganizationStatuses organizationStatusesResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationStatuses.class);
+        OrganizationStatuses orgStatusResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationStatuses.class);
         int statusCode = response.statusCode();
-
+        System.out.println("orgStatusResponse.getId() = "+orgStatusResponse.getId() +" && APIVars.orgStatusId = "+APIVars.read().getOrgStatusId());
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertEquals(APIVars.userStatusId, organizationStatusesResponse.getId(), "User Status id must equal " + APIVars.userStatusId);
-        Assert.assertEquals(orgStatusMain.getName(), organizationStatusesResponse.getName(), "Name = active");
-        Assert.assertEquals(orgStatusMain.getDescription(), organizationStatusesResponse.getDescription(), "Description = Organization/Company account is active");
+        Assert.assertEquals(APIVars.read().getUserStatusId(), orgStatusResponse.getId(), "Organization Status id must equal " + APIVars.read().getOrgStatusId());
+        Assert.assertEquals(orgStatusMain.getName(), orgStatusResponse.getName(), "Name = 'active'");
+        Assert.assertEquals(orgStatusMain.getDescription(), orgStatusResponse.getDescription(), "Check it have description");
     }
 }

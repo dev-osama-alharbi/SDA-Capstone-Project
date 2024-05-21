@@ -4,7 +4,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
-import sda.capstone.API.pojo.GetAllCountries;
+import sda.capstone.API.pojo.Countries;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.*;
@@ -22,11 +22,11 @@ public class TC0012 extends ApiBase {
         Response response = given(spec).get("/a3m/auth/api/{first}");
         response.prettyPrint();
         System.out.println("response.statusCode() => "+response.statusCode());
-        GetAllCountries[] CountriesArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),GetAllCountries[].class);
-        List<GetAllCountries> CountriesListResponse = new ArrayList<>(Arrays.asList(CountriesArraysResponse));
+        Countries[] CountriesArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), Countries[].class);
+        List<Countries> CountriesListResponse = new ArrayList<>(Arrays.asList(CountriesArraysResponse));
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertTrue(!CountriesListResponse.isEmpty(),"Countries List must not empty");
+        Assert.assertFalse(CountriesListResponse.isEmpty(), "Countries List must not empty");
     }
 }

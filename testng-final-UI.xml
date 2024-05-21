@@ -1,24 +1,41 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="SDA suite" thread-count="1" parallel="classes" verbose="1">
     <parameter name="username" value="t4@testevolve.com"></parameter>
+
     <parameter name="password" value="ktPXtzvYRpGGRPh"></parameter>
+
 <!--    <test name="US_0001: ??????????????????????????????" >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.UI.us0001.LoginTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
+
+    <test name="US_0002: ??????????????????????????????" >
+        <classes>
+            <class name="sda.capstone.UI.us0002.LogoFunctionalityTest" />
+            <class name="sda.capstone.UI.us0002.SideBarTest" />
+        </classes>
+    </test>
+
 <!--    <test name="US_0002: ??????????????????????????????" >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.UI.us0002.LogoFunctionalityTest" />-->
 <!--            <class name="sda.capstone.UI.us0002.SideBarTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
+
 <!--    <test name="US_0003: ??????????????????????????????" >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.UI.us0003.DropdownFunctionalityTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
+
+<!--    <test name="US_0004: Edit profile information in profile module." >-->
+<!--        <parameter name="username" value="t4@testiva.com"></parameter>-->
+<!--        <parameter name="password" value="9wo2HxqAiNsgr@Ai"></parameter>-->
+
 <!--    <test name="US_0004: Edit profile information in profile module." />-->
+
 
 <!--        <classes>-->
 <!--            <class name="sda.capstone.UI.us0004.TC0006" />-->
@@ -51,6 +68,7 @@
 <!--            <class name="sda.capstone.UI.us0016.TC0032"/>-->
 <!--        </classes>-->
 <!--    </test>-->
+
 
     <test name="US_0011: Adds a new unit in the Remote units module" >
         <classes>

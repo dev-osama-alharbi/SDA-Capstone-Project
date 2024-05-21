@@ -17,11 +17,12 @@ public class TC0018 extends ApiBase {
     public void deleteOrganizationStatusById(){
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","organization-status");
+        pathParams.put("id",APIVars.read().getOrgStatusId()+"");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
                 .delete("/a3m/auth/api/{first}/{id}");
-
+        response.prettyPrint();
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
@@ -31,7 +32,7 @@ public class TC0018 extends ApiBase {
     public void getOrganizationStatusById(){
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","organization-status");
-        pathParams.put("id", APIVars.organizationId+"");
+        pathParams.put("id", APIVars.read().getOrgStatusId()+"");
 
         spec.pathParams(pathParams);
         Response response = given(spec)

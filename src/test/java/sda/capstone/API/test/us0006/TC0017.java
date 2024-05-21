@@ -14,15 +14,15 @@ import java.util.HashMap;
 import static io.restassured.RestAssured.given;
 
 public class TC0017 extends ApiBase {
-
-    private UserStatus orgStatusUpdatedMain = UserStatus
+    @Test
+    public void editOrgStatus() {
+     OrganizationStatuses orgStatusUpdatedMain = OrganizationStatuses
             .builder()
-            .id(APIVars.organizationId)
+            .id(APIVars.read().getOrgStatusId())
             .name("active")
             .description("Organization/Company account is active")
             .build();
-    @Test
-    public void editOrgStatus() {
+
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","organization-status");
 
@@ -30,23 +30,28 @@ public class TC0017 extends ApiBase {
         Response response = given(spec)
                 .body(orgStatusUpdatedMain)
                 .put("/a3m/auth/api/{first}");
-
+        response.prettyPrint();
         OrganizationStatuses orgStatusResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationStatuses.class);
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertSame(orgStatusResponse.getId(), orgStatusUpdatedMain.getId(), "User Status id must equal " + orgStatusUpdatedMain.getId());
+        Assert.assertSame(orgStatusResponse.getId(), orgStatusUpdatedMain.getId(), "Organization Status id must equal " + orgStatusUpdatedMain.getId());
         Assert.assertEquals(orgStatusUpdatedMain.getName(), orgStatusResponse.getName(), "Name = active");
         Assert.assertEquals(orgStatusUpdatedMain.getDescription(), orgStatusResponse.getDescription(), "Description = Organization/Company account is active");
-
-        APIVars.organizationId = orgStatusResponse.getId();
     }
 
     @Test(dependsOnMethods = "editOrgStatus")
     public void getOrgStatusById() {
+        OrganizationStatuses orgStatusUpdatedMain = OrganizationStatuses
+                .builder()
+                .id(APIVars.read().getOrgStatusId())
+                .name("active")
+                .description("Organization/Company account is active")
+                .build();
+
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user-status");
-        pathParams.put("id", APIVars.userStatusId+"");
+        pathParams.put("id", APIVars.read().getOrgStatusId()+"");
 
         spec.pathParams(pathParams);
         Response response = given(spec)
@@ -56,7 +61,7 @@ public class TC0017 extends ApiBase {
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertSame(orgStatusResponse.getId(), APIVars.userStatusId, "User Status id must equal " + APIVars.userStatusId);
+        Assert.assertSame(orgStatusResponse.getId(), APIVars.userStatusId, "Organization Status id must equal " + APIVars.userStatusId);
         Assert.assertEquals(orgStatusUpdatedMain.getName(), orgStatusResponse.getName(), "Name = active");
         Assert.assertEquals(orgStatusUpdatedMain.getDescription(), orgStatusResponse.getDescription(), "Description = Organization/Company account is active");
     }
