@@ -17,7 +17,7 @@ public class TC0056 extends ApiWithCookieHeaderBase {
 
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user");
-        pathParams.put("user_id","1787");
+        pathParams.put("user_id","37");
 
 
         spec.pathParams(pathParams);
@@ -29,9 +29,9 @@ public class TC0056 extends ApiWithCookieHeaderBase {
         response
                 .then()
                 .statusCode(200)
-                .body(  "id", equalTo(1787),
-                        "name",equalTo("SDA"),
-                        "lastname",equalTo("API"));
+                .body(  "id", equalTo(37),
+                        "email",equalTo("t4@testevolve.com"),
+                        "username",equalTo("t4@testevolve.com"));
 
 
 

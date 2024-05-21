@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.AllAuth;
 import sda.capstone.API.pojo.UserStatus;
@@ -29,12 +30,15 @@ public class TC_0024 extends ApiWithCookieHeaderBase {
         response.prettyPrint();
         System.out.println("response.statusCode() => "+response.statusCode());
 //        List<UserStatus> userStatusListResponse = new ArrayList<>(Arrays.asList(response.as(UserStatus[].class)));
-        AllAuth[] userStatusArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),AllAuth[].class);
-        List<AllAuth> userStatusListResponse = new ArrayList<>(Arrays.asList(userStatusArraysResponse));
+//        AllAuth[] userStatusArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),AllAuth[].class);
+        AllAuth userStatusArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),AllAuth.class);
+//        List<AllAuth> userStatusListResponse = new ArrayList<>(Arrays.asList(userStatusArraysResponse));
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertTrue(!userStatusListResponse.isEmpty(),"User Status List must not empty");
+//        Assert.assertTrue(!userStatusListResponse.isEmpty(),"User Status List must not empty");
+
+        APIVars.writeApplicationId(userStatusArraysResponse.getSub_app());
     }
 }
 

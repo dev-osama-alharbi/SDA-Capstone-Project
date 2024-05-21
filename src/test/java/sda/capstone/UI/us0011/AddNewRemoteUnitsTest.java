@@ -44,7 +44,7 @@ public class AddNewRemoteUnitsTest extends UITestBase {
         remoteUnitPage = new RemoteUnitPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
-        newRemoteUnitPage.addRemoteName(null).selectDepartmentType("Remote Unit").clickingOnSaveButton();
+        newRemoteUnitPage.selectDepartmentType("Remote Unit").clickingOnSaveButton();
         String actualText = newRemoteUnitPage.errorMSG();
         Assert.assertEquals(actualText, "Please enter a name for department");
     }
@@ -61,7 +61,7 @@ public class AddNewRemoteUnitsTest extends UITestBase {
         remoteUnitPage = new RemoteUnitPage(driver,bot,wait);
         remoteUnitPage.goTo().goToAddNewRemoteUnit();
         newRemoteUnitPage = new NewRemoteUnitPage(driver,bot,wait);
-        newRemoteUnitPage.addRemoteName("Team4").selectDepartmentType(null).clickingOnSaveButton();
+        newRemoteUnitPage.addRemoteName("Team4").clickingOnSaveButton();
         String actualText = newRemoteUnitPage.errorMSG();
         Assert.assertEquals(actualText, "Please select a type for department");
     }

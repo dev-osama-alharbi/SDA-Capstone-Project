@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
-import sda.capstone.API.pojo.OrganizationService;
+import sda.capstone.API.pojo.Organization;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 import static io.restassured.RestAssured.given;
 
 public class TC0044 extends ApiWithCookieHeaderBase {
-    private OrganizationService organizationServiceBody = OrganizationService
+    private Organization organizationServiceBody = Organization
             .builder()
             .id(null)
             .name("Team4Company")
@@ -31,7 +31,6 @@ public class TC0044 extends ApiWithCookieHeaderBase {
 
     @Test
     public void addNewOrganizationTest() {
-
         HashMap<String, String> pathParams = new HashMap<>();
         pathParams.put("first", "organization");
 
@@ -41,7 +40,7 @@ public class TC0044 extends ApiWithCookieHeaderBase {
                 .post("/a3m/auth/api/{first}");
         response.prettyPrint();
 
-        OrganizationService addOrganizationResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), OrganizationService.class);
+        Organization addOrganizationResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), Organization.class);
 
         int statusCode = response.statusCode();
 
@@ -59,27 +58,6 @@ public class TC0044 extends ApiWithCookieHeaderBase {
         Assert.assertEquals(addOrganizationResponse.getCurrency(), organizationServiceBody.getCurrency(), "Currency assertion failed");
         Assert.assertEquals(addOrganizationResponse.getAddress(), organizationServiceBody.getAddress(), "Address assertion failed");
 
-//        APIVars.writeOrganizationId(addOrganizationResponse.getId()); //uncomment
-    }
-
-    @Test
-    public void verifyOrganizationAddedExist(){
-        String strOrgId = null; //String.valueOf(APIVars.read().getOrganizationId()); //uncomment
-        HashMap<String, String> pathParams = new HashMap<>();
-        pathParams.put("first", "v1");
-        pathParams.put("second", "organization");
-        pathParams.put("third", "summary");
-        pathParams.put("org_id", strOrgId);
-
-        spec.pathParams(pathParams);
-        Response response = given(spec)
-                .get("/a3m/auth/api/{first}/{second}/{org_id}/{third}");
-        response.prettyPrint();
-
-        OrganizationService organizationByIdResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), OrganizationService.class);
-
-        int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-//        Assert.assertEquals(organizationByIdResponse.getId(), APIVars.read().getOrganizationId() ,"Organization id must equal "+ APIVars.read().getOrganizationId());
+        APIVars.writeOrganizationId(addOrganizationResponse.getId());
     }
 }

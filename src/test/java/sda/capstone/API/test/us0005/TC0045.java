@@ -3,8 +3,9 @@ package sda.capstone.API.test.us0005;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
-import sda.capstone.API.pojo.OrganizationService;
+import sda.capstone.API.pojo.Organization;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.HashMap;
@@ -15,9 +16,9 @@ public class TC0045 extends ApiWithCookieHeaderBase {
 
     @Test
     public void updateExistingOrganizationTest() {
-        OrganizationService organizationUpdateBody = OrganizationService
+        Organization organizationUpdateBody = Organization
                 .builder()
-//            .id(APIVars.read().getOrganizationId()) //uncomment
+                .id(APIVars.read().getOrganizationId())
                 .name("Updated Team4Company")
                 .founder_id(1)
                 .short_name("Team4C")
@@ -40,7 +41,7 @@ public class TC0045 extends ApiWithCookieHeaderBase {
                 .put("/a3m/auth/api/{first}");
         response.prettyPrint();
 
-        OrganizationService updateOrganizationResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), OrganizationService.class);
+        Organization updateOrganizationResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), Organization.class);
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200, "Status code should be 200");

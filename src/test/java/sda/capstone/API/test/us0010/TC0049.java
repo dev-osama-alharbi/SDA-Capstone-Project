@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.*;
 public class TC0049 extends ApiWithCookieHeaderBase {
 
     @Test
-    public void getUsersOfApplicationByApplicationIDTest()throws JsonProcessingException {
+    public void getUsersOfApplicationByApplicationIDTest() throws JsonProcessingException {
 
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","application");
