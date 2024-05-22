@@ -18,25 +18,21 @@ import java.util.List;
 
 public class TC_0024 extends ApiWithCookieHeaderBase {
     @Test
-    public void GetAll0Auth() throws JsonProcessingException {
+    public void GetAll0Auth(){
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","userinfo");
-
-
-
         spec.pathParams(pathParams);
 
         Response response = RestAssured.given(spec).get("/a3m/auth/{first}");
         response.prettyPrint();
-        System.out.println("response.statusCode() => "+response.statusCode());
-//        List<UserStatus> userStatusListResponse = new ArrayList<>(Arrays.asList(response.as(UserStatus[].class)));
-//        AllAuth[] userStatusArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),AllAuth[].class);
+
+
         AllAuth userStatusArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),AllAuth.class);
-//        List<AllAuth> userStatusListResponse = new ArrayList<>(Arrays.asList(userStatusArraysResponse));
         int statusCode = response.statusCode();
+        System.out.println("response.statusCode() => "+statusCode);
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-//        Assert.assertTrue(!userStatusListResponse.isEmpty(),"User Status List must not empty");
+        Assert.assertTrue(!response.body().asString().isEmpty(), "Response body of user info is empty");
 
         APIVars.writeApplicationId(userStatusArraysResponse.getSub_app());
     }
