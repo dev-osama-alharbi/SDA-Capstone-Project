@@ -30,7 +30,7 @@ public class TC0015 extends ApiWithCookieHeaderBase {
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
         Assert.assertEquals((int) OrgStatusResponse.getId(), 1, "User Status List must not empty");
-        Assert.assertEquals(OrgStatusResponse.getName(), "active", "Name = active");
+        Assert.assertEquals(OrgStatusResponse.getName(), "Active", "Name = active");
         Assert.assertTrue(OrgStatusResponse.getDescription().contains("Organization"),"Check it have description");
     }
 }

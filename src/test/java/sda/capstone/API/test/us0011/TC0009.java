@@ -23,14 +23,15 @@ public class TC0009 extends ApiWithCookieHeaderBase {
         spec.pathParams(pathParams);
         Response response = given(spec)
                 .get("/a3m/auth/api/{first}/{id}");
-
+        response.prettyPrint();
+        System.out.println("@@@@@@@@@@@@@@@@@");
         UserStatus userStatusResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),UserStatus.class);
 
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
         Assert.assertTrue(userStatusResponse.getId() == 1,"User Status List must not empty");
-        Assert.assertTrue(userStatusResponse.getName().equals("active"),"Check the Name = 'active'");
+        Assert.assertTrue(userStatusResponse.getName().equals("Active"),"Check the Name = 'Active'");
         Assert.assertTrue(userStatusResponse.getDescription().contains("User account"),"Check it have description");
     }
 }

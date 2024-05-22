@@ -15,7 +15,8 @@ import static org.hamcrest.Matchers.equalTo;
 public class TC_0036 extends ApiWithCookieHeaderBase {
     @Test
     public void GetUserGroupById() {
-        String id = String.valueOf(APIVars.UserGroupID);
+//        String id = String.valueOf(APIVars.read().getUserGroupID());
+        Integer id = APIVars.read().getUserGroupID();
 
         HashMap<String, String> pathParams = new HashMap<>();
         pathParams.put("first", "user-group");

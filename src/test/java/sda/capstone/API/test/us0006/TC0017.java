@@ -62,7 +62,7 @@ public class TC0017 extends ApiWithCookieHeaderBase {
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertSame(orgStatusResponse.getId(), APIVars.userStatusId, "Organization Status id must equal " + APIVars.userStatusId);
+        Assert.assertSame(orgStatusResponse.getId(), APIVars.read().getOrgStatusId(), "Organization Status id must equal " + APIVars.read().getOrgStatusId());
         Assert.assertEquals(orgStatusUpdatedMain.getName(), orgStatusResponse.getName(), "Name = active");
         Assert.assertEquals(orgStatusUpdatedMain.getDescription(), orgStatusResponse.getDescription(), "Description = Organization/Company account is active");
     }

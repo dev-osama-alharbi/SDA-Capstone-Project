@@ -94,14 +94,12 @@
     <test name="US_0010 User Service Requests" >
         <classes>
             <class name="sda.capstone.API.test.us0010.TC0049" />
+            <class name="sda.capstone.API.test.us0010.TC0052" />
+            <class name="sda.capstone.API.test.us0010.TC0054" />
             <class name="sda.capstone.API.test.us0010.TC0050" />
             <class name="sda.capstone.API.test.us0010.TC0056" />
             <class name="sda.capstone.API.test.us0010.TC0051" />
-
-            <class name="sda.capstone.API.test.us0010.TC0052" />
-
             <class name="sda.capstone.API.test.us0010.TC0053" />
-            <class name="sda.capstone.API.test.us0010.TC0054" />
             <class name="sda.capstone.API.test.us0010.TC0055" />
             <class name="sda.capstone.API.test.us0010.TC0057" />
         </classes>

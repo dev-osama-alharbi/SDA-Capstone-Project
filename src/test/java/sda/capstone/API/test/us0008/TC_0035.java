@@ -54,7 +54,7 @@ public class TC_0035 extends ApiWithCookieHeaderBase {
 
         UserGroupService userGroupService1 = ObjectMapperUtils.convertJsonToJava(response.asString(),UserGroupService.class);
         int statusCode = response.statusCode();
-        APIVars.UserGroupID = userGroupService1.getId();
+        APIVars.read().setUserGroupID(userGroupService1.getId());
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(statusCode, 201);
