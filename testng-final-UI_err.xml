@@ -31,16 +31,20 @@
 <!--            <class name="sda.capstone.UI.us0016.TC0032"/>-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name="US_0017  Users can add a new user in the module." >
+<!--    <test name="US_0017  Users can add a new user in the module." >-->
+<!--        <classes>-->
+<!--            <class name="sda.capstone.UI.us0017.AddNewMember"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="US_0019  Displays the privileges of the roles registered in the Roles module." >
         <classes>
-            <class name="sda.capstone.UI.us0017.AddNewMember"/>
+            <class name="sda.capstone.UI.us0019.RolesPrivilegesTest" />
         </classes>
     </test>
-
-
-<!--    <test name="US_0019  Displays the privileges of the roles registered in the Roles module." >-->
+<!--    <test name="US_0020 Displays all permissions in the Permissions module." >-->
 <!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0019.RolesPrivilegesTest" />-->
+<!--            <class name="sda.capstone.UI.us0020.PermissionsListingTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
 
