@@ -2,7 +2,6 @@ package sda.capstone.API.test.us0008;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import sda.capstone.API.ApiBase;
 import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.UserGroups;
 import sda.capstone.API.pojo.Users;
