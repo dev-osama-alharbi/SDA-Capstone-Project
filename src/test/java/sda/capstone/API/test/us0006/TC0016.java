@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.OrganizationStatuses;
 import sda.capstone.API.pojo.UserStatus;
 import sda.capstone.API.utilities.ObjectMapperUtils;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0016 extends ApiBase {
+public class TC0016 extends ApiWithCookieHeaderBase {
 
     private UserStatus orgStatusMain = UserStatus
             .builder()

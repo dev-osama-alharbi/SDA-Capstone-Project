@@ -15,8 +15,10 @@ import java.time.Duration;
 //Displays the departments registered in the Departments module and lists their authorized roles
 public class RolesPrivileges extends PageBase {
 
-    private final By BusinessOwnerSelector = By.xpath("(//button[contains(.,'Business Owner')])[2]");
-    private final By ListRoles = By.xpath("(//div[@class='row'])[6]");
+//    private final By BusinessOwnerSelector = By.xpath("(//button[contains(.,'Business Owner')])[2]");
+//    private final By ListRoles = By.xpath("(//div[@class='row'])[6]");
+    private final By BusinessOwnerSelector = By.xpath("//a[@href='#/role/5']");
+    private final By ListPrivileges = By.xpath("//label[@for='permissions']");
 
     Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     public RolesPrivileges(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
@@ -42,9 +44,13 @@ public class RolesPrivileges extends PageBase {
         bot.click(BusinessOwnerSelector);
         return this;
     }
-    @Step("List Roles")
-    public String ListRoles() {
-        return bot.getText(ListRoles);
+    @Step("List Privileges")
+    public String ListPrivileges() {
+        wait.until(f -> {
+            driver.findElement(ListPrivileges).isDisplayed();
+            return true;
+        });
+        return bot.getText(ListPrivileges);
 
     }
 }

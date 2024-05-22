@@ -16,8 +16,8 @@ public class RolesPrivilegesTest extends UITestBase {
 
         bot.navigate("https://qa-gm3.quaspareparts.com/a3m/?errorMessage=%5Bauthorization_request_not_found%5D%20#/roles");
         RolesPrivileges privileges = new RolesPrivileges(driver,bot,wait);
-        privileges.ClickOnBusinessOwner().ListRoles();
-        System.out.println("Privileges:   " + privileges.ListRoles());
+        privileges.ClickOnBusinessOwner().ListPrivileges();
+        System.out.println("Privileges:   " + privileges.ListPrivileges());
 
     }
 }

@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.Countries;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
@@ -11,7 +12,7 @@ import java.util.*;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0012 extends ApiBase {
+public class TC0012 extends ApiWithCookieHeaderBase {
     @Test
     public void getAllCountries(){
         HashMap<String,String> pathParams = new HashMap<>();
