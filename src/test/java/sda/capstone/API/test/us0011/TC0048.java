@@ -5,12 +5,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
 import sda.capstone.API.APIVars;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0048 extends ApiBase {
+public class TC0048 extends ApiWithCookieHeaderBase {
 
     @Test
     public void deleteUserStatusTest() {

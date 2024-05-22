@@ -17,9 +17,7 @@ import static io.restassured.RestAssured.given;
 
 public class TC0001_GetRolesByOrganization extends ApiWithCookieHeaderBase {
 
-/*
-API_GET✅ , UI_GET❌
- */
+
     @Test
     public void GetAllRolesByOrganizationTest() {
 

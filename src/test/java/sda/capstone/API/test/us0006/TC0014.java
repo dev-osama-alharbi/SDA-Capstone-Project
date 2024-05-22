@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.OrganizationStatuses;
 import sda.capstone.API.pojo.UserStatus;
 import sda.capstone.API.utilities.ObjectMapperUtils;
@@ -16,7 +17,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0014 extends ApiBase {
+public class TC0014 extends ApiWithCookieHeaderBase {
 
     @Test
     public void getAllOrganizationStatuses() {

@@ -5,13 +5,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class TC_0036 extends ApiBase {
+public class TC_0036 extends ApiWithCookieHeaderBase {
     @Test
     public void GetUserGroupById() {
         String id = String.valueOf(APIVars.UserGroupID);
