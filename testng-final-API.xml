@@ -3,7 +3,7 @@
     <parameter name="username_ui" value="t4@testevolve.com"></parameter>
     <parameter name="password_ui" value="HYAlDJHI06_eS-m"></parameter>
 
-    <test name="US_0001 ????????" >
+    <test name="US_0001 OAuth Service" >
         <classes>
             <class name="sda.capstone.API.test.us0001.TC_0024" />
         </classes>
