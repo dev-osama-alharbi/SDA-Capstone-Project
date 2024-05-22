@@ -13,6 +13,14 @@ import java.util.List;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserData {
+    String strJson = """
+                {
+                    "app_id": 2,
+                    "organization_id": 1716287440101561,
+                    "email": "",
+                    "subscription_id": "12e01972-a928-43f9-a20c-d8df7ff926e7",
+                    "default_role_id": 5
+                }""";
     private Integer id;
     private String name;
     private String lastname;
@@ -34,7 +42,7 @@ public class UserData {
     private String subscriptionId;
     private String membershipCreatedAt;
     private String membershipUpdatedAt;
-    private Integer organizationId;
+    private Long organizationId;
     private Integer defaultRoleId;
     private Integer appId;
     private Boolean isActive;

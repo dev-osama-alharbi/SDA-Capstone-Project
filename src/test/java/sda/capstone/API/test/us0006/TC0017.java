@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.OrganizationStatuses;
 import sda.capstone.API.pojo.UserStatus;
 import sda.capstone.API.utilities.ObjectMapperUtils;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0017 extends ApiBase {
+public class TC0017 extends ApiWithCookieHeaderBase {
     @Test
     public void editOrgStatus() {
      OrganizationStatuses orgStatusUpdatedMain = OrganizationStatuses
@@ -61,7 +62,7 @@ public class TC0017 extends ApiBase {
         int statusCode = response.statusCode();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertSame(orgStatusResponse.getId(), APIVars.userStatusId, "Organization Status id must equal " + APIVars.userStatusId);
+        Assert.assertSame(orgStatusResponse.getId(), APIVars.read().getOrgStatusId(), "Organization Status id must equal " + APIVars.read().getOrgStatusId());
         Assert.assertEquals(orgStatusUpdatedMain.getName(), orgStatusResponse.getName(), "Name = active");
         Assert.assertEquals(orgStatusUpdatedMain.getDescription(), orgStatusResponse.getDescription(), "Description = Organization/Company account is active");
     }

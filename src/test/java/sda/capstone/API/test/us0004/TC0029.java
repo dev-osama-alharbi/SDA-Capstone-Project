@@ -5,12 +5,13 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 
 import java.util.*;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0029 extends ApiBase {
+public class TC0029 extends ApiWithCookieHeaderBase {
 
     @Test
     public void GetAllApplicationMembership() throws JsonProcessingException {

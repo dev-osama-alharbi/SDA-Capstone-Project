@@ -65,7 +65,7 @@
             <class name="sda.capstone.UI.us0011.AddNewRemoteUnitsTest" />
         </classes>
     </test>
-    <test name="US_0012: AEdit the units displayed in the Remote Unit module." >
+    <test name="US_0012: Edit the units displayed in the Remote Unit module." >
         <classes>
             <class name="sda.capstone.UI.us0012.EditRemoteUnitTest" />
         </classes>

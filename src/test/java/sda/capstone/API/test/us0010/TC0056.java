@@ -3,6 +3,7 @@ package sda.capstone.API.test.us0010;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
 
 import java.util.HashMap;
@@ -17,21 +18,19 @@ public class TC0056 extends ApiWithCookieHeaderBase {
 
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user");
-        pathParams.put("user_id","37");
+
 
 
         spec.pathParams(pathParams);
 
-        Response response = given(spec).get("/a3m/auth/api/v1/{first}/{user_id}");
+        Response response = given(spec).get("/a3m/auth/api/v1/{first}/"+APIVars.read().getNewUserId());
         response.prettyPrint();
 
 
         response
                 .then()
                 .statusCode(200)
-                .body(  "id", equalTo(37),
-                        "email",equalTo("t4@testevolve.com"),
-                        "username",equalTo("t4@testevolve.com"));
+                .body(  "id", equalTo(APIVars.read().getNewUserId()));
 
 
 

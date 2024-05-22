@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
+
 import sda.capstone.API.ApiWithCookieHeaderBase;
 
 import java.util.HashMap;
@@ -13,7 +14,7 @@ import static io.restassured.RestAssured.given;
 public class TC_0037 extends ApiWithCookieHeaderBase {
     @Test
     public void DeleteExistingUserGroupById() {
-        String id = String.valueOf(APIVars.UserGroupID);
+        String id = String.valueOf(APIVars.read().getUserGroupID());
 
         HashMap<String, String> pathParams = new HashMap<>();
         pathParams.put("first", "user-group");

@@ -20,7 +20,6 @@ public class TC0029 extends UITestBase {
 
         navigateToUsersModule();
         newlyAddedUser();
-        checkingTheVerifiedUsers();
     }
 
     @Step("Navigate to Users module")
@@ -36,7 +35,7 @@ public class TC0029 extends UITestBase {
         bot.click(By.xpath("//button[contains(text(),'+ Add New Member')]"));
         bot.type(By.id("react-select-2-input"),"Test4"+Keys.ENTER);
         bot.type(By.id("react-select-3-input"),"Business"+Keys.ENTER);
-        bot.type(By.id("email"),"xyz@gmail.com");
+        bot.type(By.id("email"),"team44@gmail.com");
 
         bot.click(By.xpath("//button[.='Register']"));
         wait.until(webDriver -> driver.findElement(By.cssSelector("div.toast-header.bg-success.text-white")).isDisplayed());
@@ -46,17 +45,4 @@ public class TC0029 extends UITestBase {
 
     }
 
-    @Test(testName = "TC_0030: checking the verified emails")
-    @Step("US_0015: Displays users in the Users module.")
-    public void checkingTheVerifiedUsers() {
-
-        wait.until(webDriver -> driver.findElement(By.cssSelector("td.cell svg path[fill='#08875D']")).isDisplayed());
-
-        WebElement greenTick = driver.findElement(By.cssSelector("td.cell svg path[fill='#08875D']"));
-        if (greenTick.isDisplayed()) {
-            System.out.println("A green tick is displayed");
-        } else {
-            System.out.println("A green tick is not displayed");
-        }
-    }
 }

@@ -5,12 +5,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0041 extends ApiBase {
+public class TC0041 extends ApiWithCookieHeaderBase {
     @Test
     public void DeleteExistingMembershipTypeById() {
 

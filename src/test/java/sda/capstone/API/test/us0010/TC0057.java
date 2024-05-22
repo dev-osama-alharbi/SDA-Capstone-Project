@@ -20,7 +20,7 @@ public class TC0057 extends ApiWithCookieHeaderBase {
 
         HashMap<String,String> pathParams = new HashMap<>();
         pathParams.put("first","user");
-        pathParams.put("user_id","1817");
+        pathParams.put("user_id","90");
 
         spec.pathParams(pathParams);
 

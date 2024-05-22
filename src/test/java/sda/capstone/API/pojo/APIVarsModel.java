@@ -18,5 +18,8 @@ public class APIVarsModel {
     private Integer newUserId  = null ;
     public Long organizationId = null;
     public Integer applicationId = null;
+    public Integer userGroupID = null;
+    public String GSessionId = null;
+    public String Email = null;
 
 }

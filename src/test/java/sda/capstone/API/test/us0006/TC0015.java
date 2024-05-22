@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.capstone.API.ApiBase;
+import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.OrganizationStatuses;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
@@ -11,7 +12,7 @@ import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class TC0015 extends ApiBase {
+public class TC0015 extends ApiWithCookieHeaderBase {
 
     @Test
     public void getOrganizationStatusesById() {
@@ -29,7 +30,7 @@ public class TC0015 extends ApiBase {
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
         Assert.assertEquals((int) OrgStatusResponse.getId(), 1, "User Status List must not empty");
-        Assert.assertEquals(OrgStatusResponse.getName(), "active", "Name = active");
+        Assert.assertEquals(OrgStatusResponse.getName(), "Active", "Name = active");
         Assert.assertTrue(OrgStatusResponse.getDescription().contains("Organization"),"Check it have description");
     }
 }

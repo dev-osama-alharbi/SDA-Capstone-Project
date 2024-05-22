@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import sda.capstone.API.APIVars;
 import sda.capstone.API.ApiWithCookieHeaderBase;
 import sda.capstone.API.pojo.UserData;
+import sda.capstone.API.pojo.UserDataV2;
 import sda.capstone.API.utilities.ObjectMapperUtils;
 
 import java.util.HashMap;
@@ -21,23 +22,19 @@ public class TC0052 extends ApiWithCookieHeaderBase {
         pathParams.put("third", "register-manual");
 
         spec.pathParams(pathParams);
-
-        String strJson = """
-                {
-                    "app_id": 2,
-                    "organization_id": 1,
-                    "email": "AddNewUserTeam4@gmail.com",
-                    "subscription_id": "ba361a19-5fbb-4366-b425-50230f1d7918",
-                    "default_role_id": 5,
-                    "user_groups": [
-                        {
-                            "id": 1
-                        }
-                    ]
-                }""";
+        String email = "Team4Email"+System.currentTimeMillis()+"@gmail.com";
+        APIVars.writeEmail(email);
+        UserDataV2 userData = UserDataV2
+                .builder()
+                .app_id(2)
+                .organization_id(1716287440101561L)
+                .email(email)
+                .subscription_id("12e01972-a928-43f9-a20c-d8df7ff926e7")
+                .default_role_id(5)
+                .build();
 
         Response response = given(spec)
-                .body(strJson)
+                .body(userData)
                 .post("/a3m/auth/api/v1/{first}/{second}/{third}");
         response.prettyPrint();
 
