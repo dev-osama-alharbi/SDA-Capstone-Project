@@ -21,6 +21,8 @@ public class TC0013 extends ApiWithCookieHeaderBase {
         spec.pathParams(pathParams);
 
         Response response = given(spec).get("/a3m/auth/api/{first}/{id}");
+        response.prettyPrint();
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@ -> statusCode = "+response.statusCode());
         Countries GetAllCountriesResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),Countries.class);
 
         int statusCode = response.statusCode();

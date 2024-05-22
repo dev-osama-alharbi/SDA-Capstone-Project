@@ -52,12 +52,14 @@ public class TC0016 extends ApiWithCookieHeaderBase {
         spec.pathParams(pathParams);
         Response response = given(spec)
                 .get("/a3m/auth/api/{first}/{id}");
+        response.prettyPrint();
+        System.out.println("@@@@@@@@@@@@@@@@@");
 
         OrganizationStatuses orgStatusResponse = ObjectMapperUtils.convertJsonToJava(response.asString(),OrganizationStatuses.class);
         int statusCode = response.statusCode();
         System.out.println("orgStatusResponse.getId() = "+orgStatusResponse.getId() +" && APIVars.orgStatusId = "+APIVars.read().getOrgStatusId());
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
-        Assert.assertEquals(APIVars.read().getUserStatusId(), orgStatusResponse.getId(), "Organization Status id must equal " + APIVars.read().getOrgStatusId());
+        Assert.assertEquals(APIVars.read().getOrgStatusId(), orgStatusResponse.getId(), "Organization Status id must equal " + APIVars.read().getOrgStatusId());
         Assert.assertEquals(orgStatusMain.getName(), orgStatusResponse.getName(), "Name = 'active'");
         Assert.assertEquals(orgStatusMain.getDescription(), orgStatusResponse.getDescription(), "Check it have description");
     }
