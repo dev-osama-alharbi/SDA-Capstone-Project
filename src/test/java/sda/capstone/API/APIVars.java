@@ -85,4 +85,10 @@ public class APIVars {
         apiVarsModel.setEmail(email);
         return write(apiVarsModel);
     }
+
+    public static boolean writeUserGroupID(int userGroupID) {
+        APIVarsModel apiVarsModel = read();
+        apiVarsModel.setUserGroupID(userGroupID);
+        return write(apiVarsModel);
+    }
 }
