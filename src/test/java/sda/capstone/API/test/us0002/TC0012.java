@@ -29,6 +29,7 @@ public class TC0012 extends ApiWithCookieHeaderBase {
         CountriesV2[] CountriesArraysResponse = ObjectMapperUtils.convertJsonToJava(response.asString(), CountriesV2[].class);
         List<CountriesV2> CountriesListResponse = new ArrayList<>(Arrays.asList(CountriesArraysResponse));
         int statusCode = response.statusCode();
+        response.prettyPrint();
 
         Assert.assertEquals(statusCode, 200 ,"Status code must be 200");
         Assert.assertFalse(CountriesListResponse.isEmpty(), "Countries List must not empty");
