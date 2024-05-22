@@ -34,7 +34,7 @@ public class UserData {
     private String subscriptionId;
     private String membershipCreatedAt;
     private String membershipUpdatedAt;
-    private Integer organizationId;
+    private Long organizationId;
     private Integer defaultRoleId;
     private Integer appId;
     private Boolean isActive;
