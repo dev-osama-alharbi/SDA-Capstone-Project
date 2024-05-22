@@ -25,15 +25,10 @@ public class TC0052 extends ApiWithCookieHeaderBase {
         String strJson = """
                 {
                     "app_id": 2,
-                    "organization_id": 1,
-                    "email": "AddNewUserTeam4@gmail.com",
-                    "subscription_id": "ba361a19-5fbb-4366-b425-50230f1d7918",
-                    "default_role_id": 5,
-                    "user_groups": [
-                        {
-                            "id": 1
-                        }
-                    ]
+                    "organization_id": 1716287440101561,
+                    "email": "Team4Email@gmail.com",
+                    "subscription_id": "12e01972-a928-43f9-a20c-d8df7ff926e7",
+                    "default_role_id": 5
                 }""";
 
         Response response = given(spec)

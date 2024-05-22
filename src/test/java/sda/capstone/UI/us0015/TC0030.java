@@ -18,7 +18,6 @@ public class TC0030 extends UITestBase {
         startPage.goTo().clickLoginButton().login(username,password);
 
         navigateToUsersModule();
-//        newlyAddedUser();
         checkingTheVerifiedUsers();
     }
 
@@ -26,23 +25,6 @@ public class TC0030 extends UITestBase {
     public void navigateToUsersModule() {
 
         bot.click(By.xpath("//a[@href='#/users']"));
-    }
-
-    @Step("Can see the newly added user")
-    public void newlyAddedUser() {
-
-
-        bot.click(By.xpath("//button[contains(text(),'+ Add New Member')]"));
-        bot.type(By.id("react-select-2-input"),"Test4"+ Keys.ENTER);
-        bot.type(By.id("react-select-3-input"),"Business"+Keys.ENTER);
-        bot.type(By.id("email"),"xyz@gmail.com");
-
-        bot.click(By.xpath("//button[.='Register']"));
-        wait.until(webDriver -> driver.findElement(By.cssSelector("div.toast-header.bg-success.text-white")).isDisplayed());
-
-        String confirmationMessage = bot.getText(By.cssSelector("div.toast-header.bg-success.text-white"));
-        Assert.assertTrue(confirmationMessage.contains("Successful"));
-
     }
 
     @Step("Displays users in the Users module.")
