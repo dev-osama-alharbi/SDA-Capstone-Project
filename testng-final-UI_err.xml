@@ -15,8 +15,6 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-
-
 <!--    <test name="US_0015: Displays users in the Users module." >-->
 <!--        <classes>-->
 <!--            <class name="sda.capstone.UI.us0015.TC0029"/>-->
@@ -24,18 +22,17 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-
-<!--    <test name="US_0016: Edit the users displayed in the Users module." >-->
-<!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0016.TC0031"/>-->
-<!--            <class name="sda.capstone.UI.us0016.TC0032"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-    <test name="US_0017  Users can add a new user in the module." >
+    <test name="US_0016: Edit the users displayed in the Users module." >
         <classes>
-            <class name="sda.capstone.UI.us0017.AddNewMember"/>
+<!--            <class name="sda.capstone.UI.us0016.TC0031"/>-->
+            <class name="sda.capstone.UI.us0016.TC0032"/>
         </classes>
     </test>
+<!--    <test name="US_0017  Users can add a new user in the module." >-->
+<!--        <classes>-->
+<!--            <class name="sda.capstone.UI.us0017.AddNewMember"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
 <!--    <test name="US_0019  Displays the privileges of the roles registered in the Roles module." >-->
