@@ -3,42 +3,42 @@
     <parameter name="username" value="t4@testevolve.com"></parameter>
     <parameter name="password" value="HYAlDJHI06_eS-m"></parameter>
 
-<!--    <test name="US_0013 Displays teams in the Teams module." >-->
-<!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0013.DisplayAndAddTeamInTeamModule" />-->
-<!--        </classes>-->
-<!--    </test>-->
+  <test name="US_0013 Displays teams in the Teams module." >
+    <classes>
+  <class name="sda.capstone.UI.us0013.DisplayAndAddTeamInTeamModule"></class>
+        </classes>
+  </test>
 
-<!--    <test name="US_0014 Edit the teams displayed in the Teams module." >-->
-<!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0014.EditAndDeleteTeam" />-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="US_0014 Edit the teams displayed in the Teams module." >
+        <classes>
+            <class name="sda.capstone.UI.us0014.EditAndDeleteTeam" />
+        </classes>
+    </test>
 
-<!--    <test name="US_0015: Displays users in the Users module." >-->
-<!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0015.TC0029"/>-->
-<!--            <class name="sda.capstone.UI.us0015.TC0030"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="US_0015: Displays users in the Users module." >
+        <classes>
+            <class name="sda.capstone.UI.us0015.TC0029"/>
+            <class name="sda.capstone.UI.us0015.TC0030"/>
+        </classes>
+    </test>
 
     <test name="US_0016: Edit the users displayed in the Users module." >
         <classes>
-<!--            <class name="sda.capstone.UI.us0016.TC0031"/>-->
+            <class name="sda.capstone.UI.us0016.TC0031"/>
             <class name="sda.capstone.UI.us0016.TC0032"/>
         </classes>
     </test>
-<!--    <test name="US_0017  Users can add a new user in the module." >-->
-<!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0017.AddNewMember"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="US_0017  Users can add a new user in the module." >
+        <classes>
+            <class name="sda.capstone.UI.us0017.AddNewMember"/>
+        </classes>
+    </test>
 
 
-<!--    <test name="US_0019  Displays the privileges of the roles registered in the Roles module." >-->
-<!--        <classes>-->
-<!--            <class name="sda.capstone.UI.us0019.RolesPrivilegesTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="US_0019  Displays the privileges of the roles registered in the Roles module." >
+        <classes>
+            <class name="sda.capstone.UI.us0019.RolesPrivilegesTest" />
+        </classes>
+    </test>
 
 </suite>
