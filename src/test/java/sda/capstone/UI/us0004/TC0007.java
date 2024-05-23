@@ -17,11 +17,11 @@ public class TC0007 extends UITestBase {
     private final String passwordInvalidBiggerThan_20 = "passwordInvalidBiggerThan_20";
     @Test(testName = "TC_0007: Passwords: uppercase (A-Z), lowercase (a-z), numbers (0-9), and .@#$%_&.")
     @Step("US_0004: Edit profile information in profile module.")
-    public void TC0007(){
-        passwordNotConstraintsTest();
+    public void passwordNotConstraintsTest(){
+        passwordNotConstraints();
     }
     @Step("TC_0007: Passwords: uppercase (A-Z), lowercase (a-z), numbers (0-9), and .@#$%_&.")
-    private void passwordNotConstraintsTest(){
+    private void passwordNotConstraints(){
         HomePage homePage = login();
         ProfilePage profilePage = changePasswordPopup(homePage);
         startTestInvalidPassword(profilePage);

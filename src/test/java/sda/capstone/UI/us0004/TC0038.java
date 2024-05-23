@@ -16,12 +16,12 @@ public class TC0038 extends UITestBase {
 
     @Test(testName = "TC_0038: Edit profile with valid username")
     @Step("US_0004: Edit profile information in profile module.")
-    public void TC0038(){
-        validUsernameTest();
+    public void validUsernameTest(){
+        validUsername();
     }
 
     @Step("TC_0039: Edit profile with valid username")
-    private void validUsernameTest(){
+    private void validUsername(){
         HomePage homePage = login();
         ProfilePage profilePage = clickEditMyProfile(homePage);
         usernameValid(profilePage);

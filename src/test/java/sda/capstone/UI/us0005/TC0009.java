@@ -14,12 +14,12 @@ public class TC0009 extends UITestBase {
 
     @Test(testName = "TC_0009: Access membership information")
     @Step("US_0005: Displays the memberships in the Memberships module.")
-    public void TC0009(){
-        validMyMembershipsTest();
+    public void validMyMembershipsTest(){
+        validMyMemberships();
     }
 
     @Step("TC_0009: Access membership information")
-    private void validMyMembershipsTest(){
+    private void validMyMemberships(){
         HomePage homePage = login();
         assertMyMembershipsInformation(homePage);
     }

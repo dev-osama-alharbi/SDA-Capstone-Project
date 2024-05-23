@@ -13,11 +13,11 @@ public class TC0037 extends UITestBase {
     private final String passwordMain = "Z6TkqEfKvDaUd-Y";
     @Test(testName = "TC_0037: Email cannot be changed")
     @Step("US_0004: Edit profile information in profile module.")
-    public void TC0037(){
-        emailCannotBeChangedTest();
+    public void emailCannotBeChangedTest(){
+        emailCannotBeChanged();
     }
     @Step("TC_0037: Email cannot be changed")
-    private void emailCannotBeChangedTest(){
+    private void emailCannotBeChanged(){
         HomePage homePage = login();
         ProfilePage profilePage = changeMyProfile(homePage);
         startTestEmailCannotBeChanged(profilePage);
