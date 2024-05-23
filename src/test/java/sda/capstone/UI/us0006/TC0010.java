@@ -15,7 +15,7 @@ public class TC0010 extends UITestBase {
 
     @Test(testName = "TC_0010: Ensure required fields", dataProvider = "testTypes")
     @Step("US_0006: Edit the registered company in the Company module.")
-    public void TC0008(String testTypes){
+    public void ensureRequiredFieldsTest(String testTypes){
         ensureRequiredFields(testTypes);
     }
 

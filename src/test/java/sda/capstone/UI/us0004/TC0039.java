@@ -16,12 +16,12 @@ public class TC0039 extends UITestBase {
 
     @Test(testName = "TC_0039: Edit profile with invalid username",dataProvider = "orders")
     @Step("US_0004: Edit profile information in profile module.")
-    public void TC0039(String orders){
-        usernameNotStartWithLettersTest(orders);
+    public void usernameNotStartWithLettersTest(String orders){
+        usernameNotStartWithLetters(orders);
     }
 
     @Step("TC_0039: Edit profile with invalid username")
-    private void usernameNotStartWithLettersTest(String orders){
+    private void usernameNotStartWithLetters(String orders){
         HomePage homePage = login();
         ProfilePage profilePage = clickEditMyProfile(homePage);
         switch (orders){
